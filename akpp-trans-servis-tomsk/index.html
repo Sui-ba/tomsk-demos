@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="no-js">
 <!-- suiweb-coder-batch2 -->
 <head>
 <meta charset="UTF-8">
@@ -129,6 +129,137 @@ body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
 .form-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(1.2rem,3.5vw,2rem)}
 .badge-n{display:inline-flex;gap:.5rem;align-items:center;border:1px solid var(--line);border-radius:999px;padding:.45rem .9rem;font-size:.85rem;font-weight:600}
 
+/* ===== live: motion & interaction layer (по образцу alfa-dent-tomsk) ===== */
+[hidden]{display:none!important}
+:root{--ease:cubic-bezier(.22,.8,.24,1);--shadow-1:0 1px 2px rgba(0,0,0,.08),0 8px 24px -12px rgba(0,0,0,.28);--shadow-2:0 2px 4px rgba(0,0,0,.08),0 22px 40px -18px rgba(0,0,0,.38)}
+.nav{transition:box-shadow .3s var(--ease),background .3s}
+.nav.scrolled{box-shadow:0 8px 24px -16px rgba(0,0,0,.45)}
+.btn{transition:transform .18s var(--ease),box-shadow .25s var(--ease),background .2s,border-color .2s,filter .2s,color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{box-shadow:0 6px 18px -8px var(--accent-glow,rgba(0,0,0,.4))}
+.btn-primary:hover{box-shadow:0 10px 24px -10px var(--accent-glow,rgba(0,0,0,.5))}
+.btn:active{transform:translateY(0) scale(.97);transition-duration:.06s}
+.btn:focus-visible,.opt:focus-visible,.day:focus-visible,.slot:focus-visible,.qchip:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+.btn-sm{min-height:42px;padding:.5rem 1rem;font-size:.9rem}
+.card{transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .2s}
+.lift:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.lift:active{transform:translateY(-1px) scale(.99)}
+/* hero photo */
+.hero-visual{position:relative;max-width:520px;margin-inline:auto;width:100%}
+.photo{border-radius:calc(var(--r,18px) + 10px);overflow:hidden;aspect-ratio:5/5.4;box-shadow:var(--shadow-2);will-change:transform;background:var(--card)}
+.photo img{width:100%;height:115%;object-fit:cover;animation:kb 1.6s var(--ease) both;will-change:transform}
+@keyframes kb{from{transform:scale(1.08);opacity:.001}to{transform:scale(1);opacity:1}}
+.float-card{position:absolute;background:var(--glass,rgba(255,255,255,.9));color:var(--glass-ink,#1F2A37);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid var(--glass-line,rgba(255,255,255,.7));border-radius:calc(var(--r,18px) + 2px);box-shadow:var(--shadow-2);will-change:transform}
+.fc-price{left:-2.2rem;bottom:1.6rem;width:min(300px,80%);padding:1rem 1.1rem .4rem}
+.fc-row{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.6rem 0;border-top:1px dashed var(--glass-line2,rgba(0,0,0,.14));font-size:.92rem}
+.fc-row:first-of-type{border-top:0}
+.fc-row b{font-family:var(--fh);color:var(--glass-accent,var(--accent-ink));white-space:nowrap}
+.fc-h{margin-bottom:.3rem;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.fc-rate{right:-1rem;top:1.4rem;display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem}
+.fc-rate b{font-family:var(--fh);font-weight:800;font-size:1.7rem;color:var(--glass-accent,var(--accent-ink));line-height:1}
+.fc-rate span{font-size:.78rem;opacity:.75;line-height:1.25}
+@media(max-width:919px){.fc-price{left:.8rem}.fc-rate{right:.8rem}.photo{aspect-ratio:4/3.2}}
+@media(max-width:600px){.photo{aspect-ratio:16/11}.fc-price{display:none}.fc-rate{top:.8rem;right:.8rem}}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+/* booking widget */
+.book{position:relative;overflow:hidden;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:calc(var(--r,18px) + 8px);padding:clamp(1.2rem,3.5vw,2.1rem);box-shadow:var(--shadow-1)}
+.bk-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.6rem}
+.bk-title{font-family:var(--fh);font-weight:800;font-size:1.15rem}
+.bk-count{font-size:.82rem;color:var(--muted);font-weight:700}
+.bk-bar{height:4px;border-radius:9px;background:var(--line);overflow:hidden;margin-bottom:1.2rem}
+.bk-bar i{display:block;height:100%;width:25%;background:var(--accent);border-radius:inherit;transition:width .5s var(--ease)}
+.bk-pane{animation:paneIn .45s var(--ease) both}
+.bk-pane.back{animation-name:paneBack}
+@keyframes paneIn{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+@keyframes paneBack{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+.bk-q{font-weight:700;font-size:.95rem;margin:0 0 .6rem;color:var(--text)}
+.bk-q+.bk-q,.bk-gap{margin-top:1.1rem}
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+@media(max-width:380px){.opt-grid{grid-template-columns:1fr}}
+.opt{position:relative;text-align:left;font:inherit;color:var(--text);background:var(--field);border:1.5px solid var(--line);border-radius:calc(var(--r,18px) - 2px);padding:.8rem .9rem;cursor:pointer;display:flex;flex-direction:column;gap:.1rem;transition:border-color .2s,transform .2s var(--ease),box-shadow .25s var(--ease),background .2s;min-width:0}
+.opt b{font-size:.95rem;overflow-wrap:anywhere}.opt small{color:var(--muted);font-size:.8rem}
+.opt em{font-style:normal;font-family:var(--fh);font-weight:800;color:var(--accent-ink);margin-top:.25rem}
+.opt em.q{font-family:inherit;font-weight:600;color:var(--muted);font-size:.85rem}
+.opt:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-1)}
+.opt:active{transform:scale(.98)}
+.opt.sel{border-color:var(--accent);background:var(--chip-bg)}
+.opt-wide{grid-column:1/-1}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.qchip,.day{font:inherit;font-weight:600;font-size:.9rem;border:1.5px solid var(--line);background:var(--field);color:var(--text);border-radius:999px;padding:.5rem .9rem;cursor:pointer;transition:all .2s var(--ease)}
+.qchip:hover,.day:hover{border-color:var(--accent)}
+.qchip.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.calc-res{margin-top:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--chip-bg);border-radius:14px;padding:.85rem 1rem;animation:paneIn .35s var(--ease) both}
+.calc-res .v{font-family:var(--fh);font-weight:800;font-size:1.5rem;color:var(--accent-ink);line-height:1.1}
+.calc-res .v.q{font-family:inherit;font-size:1.05rem;color:var(--muted)}
+.calc-res small{display:block;color:var(--muted);font-size:.8rem}
+.days{display:flex;gap:.45rem;overflow-x:auto;padding:.2rem .25rem .5rem;margin-inline:-.25rem;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.day{flex:none;border-radius:14px;padding:.5rem .7rem;min-width:64px;text-align:center;scroll-snap-align:start;display:flex;flex-direction:column;line-height:1.2}
+.day small{font-size:.72rem;color:var(--muted);font-weight:600;text-transform:uppercase}
+.day b{font-family:var(--fh);font-size:1.15rem}
+.day.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}.day.on small{color:inherit;opacity:.85}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem}
+.slots.parts{grid-template-columns:repeat(3,1fr)}
+@media(max-width:420px){.slots{grid-template-columns:repeat(3,1fr)}}
+.slot{font:inherit;font-weight:700;font-size:.92rem;border:1.5px solid var(--line);background:var(--field);color:var(--text);border-radius:12px;padding:.65rem .2rem;cursor:pointer;transition:all .18s var(--ease);animation:pop .35s var(--ease) both;animation-delay:calc(var(--i,0)*18ms);line-height:1.2}
+.slot small{display:block;font-weight:500;font-size:.72rem;color:var(--muted)}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.slot:hover{border-color:var(--accent);background:var(--chip-bg);transform:translateY(-1px)}
+.slot:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed;transform:none;background:transparent}
+.slot.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}.slot.on small{color:inherit}
+.bk-note{font-size:.78rem;color:var(--muted);margin-top:.7rem}
+.bk-nav{margin-top:.8rem;min-height:1.2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.link{background:none;border:0;font:inherit;font-size:.88rem;font-weight:600;color:var(--muted);cursor:pointer;padding:.2rem 0;transition:color .2s}
+.link:hover{color:var(--accent-ink)}
+.bk-err{font-size:.82rem;color:#E0795F;font-weight:600;margin-top:.6rem}
+.book input.bad,.book .bad{border-color:#E0795F!important;box-shadow:0 0 0 3px rgba(224,121,95,.15);animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.btn.loading{pointer-events:none;filter:saturate(.7)}
+.btn.loading span{opacity:.7}
+.btn.loading svg{animation:fly .7s var(--ease) infinite alternate}
+@keyframes fly{to{transform:translate(3px,-3px)}}
+.summary{margin-top:1.4rem;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:calc(var(--r,18px));padding:1rem 1.2rem;animation:paneIn .4s var(--ease) both}
+.summary>b{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.sum-r{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-top:1px dashed var(--line);font-size:.94rem}
+.sum-r:first-child{border-top:0}.sum-r span{color:var(--muted);flex:none}.sum-r strong{text-align:right;overflow-wrap:anywhere}
+.done{text-align:center}
+.check{width:64px;height:64px;margin:.2rem auto .8rem}
+.check circle{stroke:var(--accent);stroke-width:3;stroke-dasharray:151;stroke-dashoffset:151;animation:draw .6s var(--ease) forwards}
+.check path{stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:36;stroke-dashoffset:36;animation:draw .35s .45s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.done h3{font-family:var(--fh);font-size:1.35rem}
+.done-when{color:var(--muted);margin-top:.3rem}
+.ticket{margin:1rem 0;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:.4rem 1rem}
+.done-acts{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.tg-sent{display:flex;align-items:center;justify-content:center;gap:.55rem;margin-top:1rem;font-weight:700;font-size:.95rem;color:var(--text)}
+.tg-dot{width:9px;height:9px;border-radius:50%;background:#2AABEE;box-shadow:0 0 0 0 rgba(42,171,238,.5);animation:pulse 2s infinite;flex:none}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(42,171,238,0)}100%{box-shadow:0 0 0 0 rgba(42,171,238,0)}}
+.tg-note{margin-top:.5rem;text-align:left;font-size:.86rem;color:var(--muted)}
+.tg-note summary{cursor:pointer;list-style:none;text-align:center;text-decoration:underline;text-underline-offset:3px}
+.tg-note summary::-webkit-details-marker{display:none}
+.tg-msg{margin-top:.7rem;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:.7rem .85rem;color:var(--text);line-height:1.5;animation:paneIn .35s var(--ease) both}
+.tg-h{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}.tg-h small{margin-left:auto;color:var(--muted);font-size:.74rem}
+.tg-av{width:26px;height:26px;border-radius:50%;background:#2AABEE;color:#fff;display:grid;place-items:center;font-weight:800;font-size:.68rem;flex:none}
+.sticky{transition:transform .35s var(--ease)}
+.sticky.hide{transform:translateY(110%)}
+[data-count]{font-variant-numeric:tabular-nums}
+.concept{margin-top:.9rem;text-align:center;font-size:.86rem;color:var(--muted)}
+.credit{margin-top:.6rem;text-align:center;font-size:.76rem;color:var(--muted);opacity:.85}
+.credit a{text-decoration:underline;text-underline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+ .rv{opacity:1;transform:none}
+ [data-parallax],[data-float],.photo img{transform:none!important}
+}
+
+:root{--glass:rgba(13,27,42,.84);--glass-ink:#EEF2F6;--glass-line:rgba(255,255,255,.12);--glass-line2:rgba(255,255,255,.14);--glass-accent:#FF9A2E;--accent-glow:rgba(247,127,0,.5)}
+.photo{border-radius:16px;border:1px solid var(--line)}
+.sym .card.lift{cursor:pointer}.sym .card.lift:hover{border-color:var(--accent)}
+.sym .card.lift:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+.unit.lift{transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .2s}.unit.lift:hover{border-color:var(--accent)}
+.opt{border-radius:10px}
 </style>
 </head>
 <body>
@@ -140,20 +271,27 @@ body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
 <a class="btn btn-primary" href="#zayavka">Диагностика</a>
 </div></header>
 <main id="top">
-<section class="hero"><div class="wrap hero-grid">
-<div>
-<span class="badge-n"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg> 5.0 в 2ГИС · 239 оценок · Номинант 2ГИС 2026</span>
-<h1 style="margin-top:1.1rem">Ремонт <span>АКПП и вариаторов</span> в Томске</h1>
-<p class="lead" style="margin-top:1rem">Диагностика и ремонт автоматических коробок, восстановленные АКПП и вариаторы с обменом. Гарантия — до 1 года при установке у нас.</p>
-<div class="cta"><a class="btn btn-primary" href="#zayavka"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Записаться на диагностику</a><a class="btn btn-ghost" href="tel:+79234092952"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+7 (923) 409-29-52</a></div>
-<div class="facts"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>ул. Смирнова, 7/8 ст1 (АРЗ)</span></div>
+<section class="hero" id="hero"><div class="wrap hero-grid">
+<div class="hero-copy">
+<span class="badge-n rv"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg> 5.0 в 2ГИС · 239 оценок · Номинант 2ГИС 2026</span>
+<h1 class="rv" style="margin-top:1.1rem">Ремонт <span>АКПП и вариаторов</span> в Томске</h1>
+<p class="lead rv" style="margin-top:1rem">Диагностика и ремонт автоматических коробок, восстановленные АКПП и вариаторы с обменом. Гарантия — до 1 года при установке у нас. Оставьте заявку за минуту: что нужно, авто и симптом — мастер перезвонит.</p>
+<div class="cta rv"><a class="btn btn-primary" href="#zayavka"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Записаться на диагностику</a><a class="btn btn-ghost" href="tel:+79234092952"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+7 (923) 409-29-52</a></div>
+<div class="facts rv"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>ул. Смирнова, 7/8 ст1 (АРЗ)</span></div>
 </div>
-<div><svg class="gearbox" viewBox="0 0 300 240" aria-hidden="true"><g class="gear"><path fill="#415A77" d="M110 40l10 0 3 16a58 58 0 0 1 14 6l13-10 7 7-10 13a58 58 0 0 1 6 14l16 3v10l-16 3a58 58 0 0 1-6 14l10 13-7 7-13-10a58 58 0 0 1-14 6l-3 16h-10l-3-16a58 58 0 0 1-14-6l-13 10-7-7 10-13a58 58 0 0 1-6-14l-16-3v-10l16-3a58 58 0 0 1 6-14l-10-13 7-7 13 10a58 58 0 0 1 14-6z"/><circle cx="115" cy="111" r="22" fill="#0D1B2A"/></g><g class="gear r"><path fill="#F77F00" d="M205 120l8 0 2 12a42 42 0 0 1 10 4l10-7 6 6-7 10a42 42 0 0 1 4 10l12 2v8l-12 2a42 42 0 0 1-4 10l7 10-6 6-10-7a42 42 0 0 1-10 4l-2 12h-8l-2-12a42 42 0 0 1-10-4l-10 7-6-6 7-10a42 42 0 0 1-4-10l-12-2v-8l12-2a42 42 0 0 1 4-10l-7-10 6-6 10 7a42 42 0 0 1 10-4z"/><circle cx="209" cy="174" r="14" fill="#0D1B2A"/></g></svg></div>
+<div class="hero-visual rv">
+<div class="photo" data-parallax><img src="assets/hero.jpg" width="1800" height="1200" alt="Автомобиль на подъёмнике в автосервисе, вид снизу (иллюстрация)" fetchpriority="high"></div>
+<div class="float-card fc-price" data-float><div class="fc-h">Восстановленные агрегаты</div>
+<div class="fc-row"><span>JF414E · LADA Granta</span><b>126 000 ₽</b></div>
+<div class="fc-row"><span>U760E · Camry XV50/55</span><b>208 000 ₽</b></div>
+<div class="fc-row"><span>Диагностика АКПП</span><b style="font-family:inherit;font-weight:600;opacity:.8">по запросу</b></div></div>
+<div class="float-card fc-rate" data-float="-1"><b data-count="5.0">5.0</b><span>в 2ГИС<br>239 оценок</span></div>
+</div>
 </div></section>
 
 <section class="sec sym" id="simptomy"><div class="wrap">
 <span class="kicker">Симптомы</span><h2 style="margin-top:.5rem">Коробка ведёт себя странно? Что делать</h2>
-<div class="grid g2" style="margin-top:1.4rem"><div class="card"><span class="q">Толчки и рывки при переключении</span><span class="a">→ Не откладывайте — запишитесь на диагностику, пока износ не затронул другие узлы.</span></div><div class="card"><span class="q">Пробуксовка, обороты растут без разгона</span><span class="a">→ Проверьте уровень и состояние масла, затем — диагностика АКПП.</span></div><div class="card"><span class="q">Задержка при включении D или R</span><span class="a">→ Частый признак неисправности гидроблока или фрикционов — нужна диагностика.</span></div><div class="card"><span class="q">Ошибка на панели, аварийный режим</span><span class="a">→ Не ездите долго в аварийном режиме: позвоните нам и опишите симптомы.</span></div></div>
+<div class="grid g2" style="margin-top:1.4rem"><div class="card lift" data-pick="Толчки и рывки при переключении" data-pick-k="sym" role="button" tabindex="0"><span class="q">Толчки и рывки при переключении</span><span class="a">→ Не откладывайте — запишитесь на диагностику, пока износ не затронул другие узлы.</span></div><div class="card lift" data-pick="Пробуксовка, обороты растут без разгона" data-pick-k="sym" role="button" tabindex="0"><span class="q">Пробуксовка, обороты растут без разгона</span><span class="a">→ Проверьте уровень и состояние масла, затем — диагностика АКПП.</span></div><div class="card lift" data-pick="Задержка при включении D или R" data-pick-k="sym" role="button" tabindex="0"><span class="q">Задержка при включении D или R</span><span class="a">→ Частый признак неисправности гидроблока или фрикционов — нужна диагностика.</span></div><div class="card lift" data-pick="Ошибка на панели, аварийный режим" data-pick-k="sym" role="button" tabindex="0"><span class="q">Ошибка на панели, аварийный режим</span><span class="a">→ Не ездите долго в аварийном режиме: позвоните нам и опишите симптомы.</span></div></div>
 </div></section>
 
 <section class="sec" id="garantiya" style="padding-top:0"><div class="wrap">
@@ -174,26 +312,71 @@ body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
 <section class="sec" id="katalog" style="padding-top:0"><div class="wrap">
 <span class="kicker">Каталог</span><h2 style="margin-top:.5rem">Восстановленные АКПП и вариаторы</h2>
 <p class="lead">Цены из витрины сервиса в 2ГИС. Наличие и сроки уточняйте по телефону.</p>
-<div class="cat" style="margin-top:1.4rem"><div class="unit"><span class="chip t">восстановленная, с обменом</span><span class="code">JF414E</span><span class="car">LADA Granta</span><span class="p">126 000 ₽</span><a class="btn btn-ghost" href="#zayavka" data-pick="Восстановленная АКПП / вариатор" style="min-height:42px">Узнать наличие</a></div><div class="unit"><span class="chip t">восстановленная</span><span class="code">U151F</span><span class="car">Lexus RX330</span><span class="p">178 000 ₽</span><a class="btn btn-ghost" href="#zayavka" data-pick="Восстановленная АКПП / вариатор" style="min-height:42px">Узнать наличие</a></div><div class="unit"><span class="chip t">усиленная</span><span class="code">U760E</span><span class="car">Toyota Camry XV50/55</span><span class="p">208 000 ₽</span><a class="btn btn-ghost" href="#zayavka" data-pick="Восстановленная АКПП / вариатор" style="min-height:42px">Узнать наличие</a></div><div class="unit"><span class="chip t">восстановленный</span><span class="code">QR019CHB</span><span class="car">Вариатор</span><span class="p">210 000 ₽</span><a class="btn btn-ghost" href="#zayavka" data-pick="Восстановленная АКПП / вариатор" style="min-height:42px">Узнать наличие</a></div></div>
+<div class="cat" style="margin-top:1.4rem"><div class="unit lift"><span class="chip t">восстановленная, с обменом</span><span class="code">JF414E</span><span class="car">LADA Granta</span><span class="p">126 000 ₽</span><a class="btn btn-ghost" href="#zayavka" data-pick="АКПП JF414E (LADA Granta)" style="min-height:42px">Узнать наличие</a></div><div class="unit lift"><span class="chip t">восстановленная</span><span class="code">U151F</span><span class="car">Lexus RX330</span><span class="p">178 000 ₽</span><a class="btn btn-ghost" href="#zayavka" data-pick="АКПП U151F (Lexus RX330)" style="min-height:42px">Узнать наличие</a></div><div class="unit lift"><span class="chip t">усиленная</span><span class="code">U760E</span><span class="car">Toyota Camry XV50/55</span><span class="p">208 000 ₽</span><a class="btn btn-ghost" href="#zayavka" data-pick="АКПП U760E (Toyota Camry XV50/55)" style="min-height:42px">Узнать наличие</a></div><div class="unit lift"><span class="chip t">восстановленный</span><span class="code">QR019CHB</span><span class="car">Вариатор</span><span class="p">210 000 ₽</span><a class="btn btn-ghost" href="#zayavka" data-pick="Вариатор QR019CHB" style="min-height:42px">Узнать наличие</a></div></div>
 <div class="price-list" style="margin-top:1rem"><div class="pr"><span class="n">Диагностика / ремонт АКПП<small>зависит от модели и неисправности</small></span><span class="p q">по запросу</span></div></div>
 <p class="src">Цены — по данным 2ГИС на 09.11.2026.</p>
 </div></section>
 
 <section class="sec" id="zayavka" style="padding-top:0"><div class="wrap grid g2" style="gap:2rem;align-items:start">
-<div><span class="kicker">Заявка</span><h2 style="margin-top:.5rem">Опишите проблему — перезвоним</h2><p class="lead">Укажите марку, модель и симптом. Мастер перезвонит и предложит время диагностики. Телефон: <a href="tel:+79234092952" style="color:var(--accent-ink);font-weight:700">+7 (923) 409-29-52</a>.</p></div>
-<div class="form-card" data-form-box>
-<form class="form" data-demo novalidate>
-<div class="two"><div><label for="f-name">Имя</label><input id="f-name" name="name" required autocomplete="name" placeholder="Имя"></div>
-<div><label for="f-tel">Телефон</label><input id="f-tel" name="tel" type="tel" required autocomplete="tel" placeholder="+7 ___ ___-__-__" minlength="10"></div></div>
-<div class="two"><div><label for="f-car">Марка и модель</label><input id="f-car" name="car" required placeholder="Напр. Toyota Camry 2014"></div>
-<div><label for="svc">Что нужно</label><select id="svc" name="svc"><option>Диагностика АКПП</option><option>Ремонт АКПП / вариатора</option><option>Восстановленная АКПП / вариатор</option></select></div></div>
-<div><label for="f-sym">Симптом</label><select id="f-sym" name="sym"><option>Толчки / рывки</option><option>Пробуксовка</option><option>Задержка включения передач</option><option>Ошибка / аварийный режим</option><option>Другое</option></select></div>
-<div><label for="f-msg">Комментарий</label><textarea id="f-msg" name="msg" placeholder="Пробег, когда появилась проблема (необязательно)"></textarea></div>
-<button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>Отправить заявку</button>
-<p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+<div class="rv"><span class="kicker">Заявка</span><h2 style="margin-top:.5rem">Заявка на диагностику за минуту</h2><p class="lead">Что нужно, авто и симптом, удобный день — мастер перезвонит и согласует время. Телефон: <a href="tel:+79234092952" style="color:var(--accent-ink);font-weight:700">+7 (923) 409-29-52</a>.</p>
+<div class="summary" data-summary hidden><b>Ваша заявка</b><div data-sum-rows></div></div></div>
+<div class="book rv" id="booking" data-booking>
+<div class="bk-top"><div class="bk-title" data-bk-title></div><div class="bk-count"><span data-bk-n>1</span>/<span data-bk-of>5</span></div></div>
+<div class="bk-bar"><i data-bk-bar></i></div>
+<div class="bk-pane" data-pane="1">
+ <p class="bk-q">Что нужно?</p>
+ <div class="opt-grid">
+  <button type="button" class="opt" data-k="svc" data-v="Диагностика АКПП" data-p="по запросу" data-next><b>Диагностика АКПП</b><small>Найти причину</small><em class="q">по запросу</em></button>
+  <button type="button" class="opt" data-k="svc" data-v="Ремонт АКПП / вариатора" data-p="по запросу" data-next><b>Ремонт АКПП / вариатора</b><small>После диагностики</small><em class="q">по запросу</em></button>
+ </div>
+ <p class="bk-q bk-gap">Восстановленный агрегат</p>
+ <div class="opt-grid">
+  <button type="button" class="opt" data-k="svc" data-v="АКПП JF414E (LADA Granta)" data-p="126 000 ₽" data-next><b>JF414E</b><small>LADA Granta · с обменом</small><em>126 000 ₽</em></button>
+  <button type="button" class="opt" data-k="svc" data-v="АКПП U151F (Lexus RX330)" data-p="178 000 ₽" data-next><b>U151F</b><small>Lexus RX330</small><em>178 000 ₽</em></button>
+  <button type="button" class="opt" data-k="svc" data-v="АКПП U760E (Toyota Camry XV50/55)" data-p="208 000 ₽" data-next><b>U760E · усиленная</b><small>Toyota Camry XV50/55</small><em>208 000 ₽</em></button>
+  <button type="button" class="opt" data-k="svc" data-v="Вариатор QR019CHB" data-p="210 000 ₽" data-next><b>Вариатор QR019CHB</b><small>Восстановленный</small><em>210 000 ₽</em></button>
+  <button type="button" class="opt opt-wide" data-k="svc" data-v="Другая АКПП / вариатор" data-p="по запросу" data-next><b>Другая коробка</b><small>Наличие и цену уточнит мастер</small><em class="q">по запросу</em></button>
+ </div>
+ <p class="bk-note">Цены — из витрины сервиса в 2ГИС на 09.11.2026, наличие уточняйте.</p>
+</div>
+<div class="bk-pane" data-pane="2" hidden data-req="car,sym">
+ <div><label for="f-car">Марка и модель</label><input id="f-car" data-k="car" required autocomplete="off" placeholder="Напр. Toyota Camry 2014"></div>
+ <p class="bk-q bk-gap">Что беспокоит?</p>
+ <div class="chips"><button type="button" class="qchip" data-k="sym" data-v="Толчки и рывки при переключении" data-why="Не откладывайте — запишитесь на диагностику, пока износ не затронул другие узлы.">Толчки и рывки при переключении</button><button type="button" class="qchip" data-k="sym" data-v="Пробуксовка, обороты растут без разгона" data-why="Проверьте уровень и состояние масла, затем — диагностика АКПП.">Пробуксовка, обороты растут без разгона</button><button type="button" class="qchip" data-k="sym" data-v="Задержка при включении D или R" data-why="Частый признак неисправности гидроблока или фрикционов — нужна диагностика.">Задержка при включении D или R</button><button type="button" class="qchip" data-k="sym" data-v="Ошибка на панели, аварийный режим" data-why="Не ездите долго в аварийном режиме: позвоните нам и опишите симптомы.">Ошибка на панели, аварийный режим</button><button type="button" class="qchip" data-k="sym" data-v="Другое" data-why="Опишите симптом в комментарии — мастер уточнит по телефону.">Другое</button></div>
+ <div class="calc-res" data-why-box hidden><div><small>Что делать</small><div data-why style="font-weight:600"></div></div></div>
+ <p class="bk-err" hidden>Укажите авто и выберите симптом.</p>
+ <div style="margin-top:1rem"><button type="button" class="btn btn-primary btn-sm" data-go-next>Далее →</button></div>
+</div>
+<div class="bk-pane" data-pane="3" hidden>
+ <p class="bk-q">Когда удобно приехать</p>
+ <div class="days" data-days role="listbox" aria-label="День"></div>
+ <p class="bk-q bk-gap">Удобное время</p>
+ <div class="slots" data-slots aria-live="polite"></div>
+ <p class="bk-note">Режим работы уточняйте по телефону — точное время диагностики мастер согласует при звонке.</p>
+</div>
+<form class="bk-pane form" data-pane="4" hidden novalidate>
+ <div class="two"><div><label for="f-name">Имя</label><input id="f-name" name="name" required autocomplete="name" placeholder="Как к вам обращаться"></div>
+ <div><label for="f-tel">Телефон</label><input id="f-tel" name="tel" type="tel" inputmode="tel" required autocomplete="tel" placeholder="+7 ___ ___-__-__"></div></div>
+ <div><label for="f-msg">Комментарий</label><textarea id="f-msg" name="msg" placeholder="Пробег, когда появилась проблема (необязательно)"></textarea></div>
+ <button class="btn btn-primary" type="submit" data-submit><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span>Отправить заявку</span></button>
+ <p class="bk-err" hidden>Проверьте имя и телефон — нужен номер из 11 цифр.</p>
+ <p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
 </form>
-<div class="ok-msg" role="status" aria-live="polite"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h3><span data-name></span>заявка отправлена!</h3><p>Мастер АКПП Транс Сервис перезвонит и предложит время диагностики.</p><p class="note" style="margin-top:.8rem">Это демо-форма: данные никуда не отправляются.</p><button type="button" class="btn btn-ghost" data-again style="margin-top:1rem">Отправить ещё одну</button></div>
-</div></div></section>
+<div class="bk-pane done" data-pane="5" hidden role="status" tabindex="-1">
+ <div class="check"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none"/><path fill="none" d="M15 27l7 7 15-15"/></svg></div>
+ <h3 data-done-h>Заявка принята</h3>
+ <p class="done-when" data-done-when></p>
+ <div class="ticket" data-ticket></div>
+ <p class="tg-sent" data-tg-sent><span class="tg-dot"></span>Заявка ушла в Telegram</p>
+ <details class="tg-note"><summary>Как её увидит администратор</summary>
+  <div class="tg-msg"><div class="tg-h"><span class="tg-av">АТ</span><b>АКПП Транс Сервис · заявки</b><small>только что</small></div><div data-tg></div></div>
+ </details>
+ <div class="done-acts" style="margin-top:1rem"><button type="button" class="btn btn-ghost btn-sm" data-again>Новая заявка</button></div>
+ <p class="note" style="margin-top:.8rem">Это демо: данные никуда не отправляются.</p>
+</div>
+<div class="bk-nav"><button type="button" class="link" data-back hidden>← Назад</button></div>
+</div>
+</div></section>
 
 <section class="sec" id="kontakty" style="padding-top:0"><div class="wrap contacts-grid">
 <div class="card"><h2>Контакты</h2>
@@ -206,27 +389,114 @@ body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
 <div class="mapbox"><svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="var(--maproad)" stroke-linecap="round"><path d="M-10 70 C120 60 220 110 420 90" stroke-width="14"/><path d="M60 -10 C80 90 70 180 110 280" stroke-width="10"/><path d="M250 -10 C240 80 300 170 280 280" stroke-width="12"/><path d="M-10 190 C120 170 260 210 420 180" stroke-width="8"/><path d="M150 -10 L190 280" stroke-width="5"/><path d="M330 -10 L360 280" stroke-width="5"/></g><g transform="translate(200 118)"><circle r="26" fill="var(--accent)" opacity=".18"/><path d="M0 -30c-11 0-19 8-19 19 0 14 19 31 19 31s19-17 19-31c0-11-8-19-19-19z" fill="var(--accent)"/><circle cy="-11" r="7" fill="var(--card)"/></g></svg><div class="pin-label">ул. Смирнова, 7/8 ст1</div></div>
 </div></section>
 </main>
-<footer class="footer"><div class="wrap"><div class="foot-in"><div><b style="color:var(--text)">АКПП Транс Сервис — ремонт АКПП и вариаторов в Томске</b><br>ул. Смирнова, 7/8 ст1 · <a href="tel:+79234092952">+7 (923) 409-29-52</a></div><div>Цены и условия — по данным открытых источников на 09.11.2026, уточняйте по телефону.</div></div><div class="demo-badge" id="demo-badge">Демо-версия сайта от Suiweb</div></div></footer>
+<footer class="footer"><div class="wrap"><div class="foot-in"><div><b style="color:var(--text)">АКПП Транс Сервис — ремонт АКПП и вариаторов в Томске</b><br>ул. Смирнова, 7/8 ст1 · <a href="tel:+79234092952">+7 (923) 409-29-52</a></div><div>Цены и условия — по данным открытых источников на 09.11.2026, уточняйте по телефону.</div></div><p class="concept">Это концепт. С вашими фото и правками будет ещё лучше.</p><p class="credit">Фото в первом экране — иллюстрация, не фото сервиса: <a href="https://www.pexels.com/photo/photo-of-automobile-under-chassis-8986137/" target="_blank" rel="noopener">Artem Podrez / Pexels</a> (Pexels License).</p><div class="demo-badge" id="demo-badge">Демо-версия сайта от Suiweb</div></div></footer>
 <div class="sticky" id="sticky"><a class="btn btn-ghost" href="tel:+79234092952" aria-label="Позвонить +7 (923) 409-29-52"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Позвонить</a><a class="btn btn-primary" href="#zayavka"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Заявка</a></div>
 
 <script>
 
-document.querySelectorAll('form[data-demo]').forEach(function(f){
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!f.checkValidity()){f.reportValidity();return;}
-    var box=f.closest('[data-form-box]');
-    var ok=box.querySelector('.ok-msg');
-    var nm=(f.querySelector('[name=name]')||{}).value||'';
-    var t=ok.querySelector('[data-name]'); if(t) t.textContent=nm?(nm.trim()+', '):'';
-    f.style.display='none'; ok.classList.add('show');
-    ok.setAttribute('tabindex','-1'); ok.focus({preventScroll:true});
-    ok.scrollIntoView({block:'center',behavior:'smooth'});
-  });
-});
-document.querySelectorAll('[data-again]').forEach(function(b){b.addEventListener('click',function(){var box=b.closest('[data-form-box]');var f=box.querySelector('form');f.reset();f.style.display='';box.querySelector('.ok-msg').classList.remove('show');});});
-document.querySelectorAll('[data-pick]').forEach(function(el){el.addEventListener('click',function(){var s=document.querySelector(el.getAttribute('data-target')||'#svc');if(s){for(var i=0;i<s.options.length;i++){if(s.options[i].text===el.getAttribute('data-pick')){s.selectedIndex=i;}}}});});
 
+
+
+/* ===== live layer ===== */
+window.LIVE={titles:['Что нужно','Авто и симптом','Когда удобно','Контакты','Готово'],
+onSel:function(k,S,a){if(k==='sym'){var c=document.querySelector('.qchip[data-k="sym"][data-v="'+S.sym+'"]'),b=document.querySelector('[data-why-box]');b.hidden=false;b.querySelector('[data-why]').textContent=c.dataset.why;b.style.animation='none';b.offsetHeight;b.style.animation=''}},
+summary:function(S,a){return [['Нужно',S.svc?(S.svc+(S.svc_p&&S.svc_p!=='по запросу'?' · '+S.svc_p:'')):''],['Авто',S.car],['Симптом',S.sym],['Когда',S.date&&S.time?a.when():'']]},
+ticket:function(S,a){return [['Нужно',S.svc+' · '+S.svc_p],['Авто',S.car],['Симптом',S.sym],['Удобно',a.when()],['Где','ул. Смирнова, 7/8 ст1'],['Ваш телефон',S.tel]]},
+tg:function(S,a){return ['Новая заявка с сайта',S.svc+' · '+S.svc_p,S.car+' — '+S.sym,'Удобно: '+a.when(),S.name+', '+S.tel,S.msg?'«'+S.msg+'»':'']},
+doneWhen:'Мастер АКПП Транс Сервис перезвонит и согласует время диагностики.',
+onPick:function(el,S,a){if(el.getAttribute('data-pick-k')==='sym'){var bk=document.querySelector('[data-booking]');if(document.querySelector('[data-pane="5"]:not([hidden])'))bk.querySelector('[data-again]').click();bk.querySelector('.opt[data-v="Диагностика АКПП"]').click();var map={'Толчки и рывки при переключении':0,'Пробуксовка, обороты растут без разгона':1,'Задержка при включении D или R':2,'Ошибка на панели, аварийный режим':3};var ch=bk.querySelectorAll('.qchip[data-k="sym"]')[map[el.getAttribute('data-pick')]];setTimeout(function(){ch.click()},300);bk.scrollIntoView({block:'start',behavior:'smooth'});return true}}};
+document.querySelectorAll('.sym .card[data-pick]').forEach(function(r){r.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();r.click()}})});
+(function(){
+var L=window.LIVE||{};
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.remove('no-js');
+var nav=document.querySelector('.nav'),sticky=document.getElementById('sticky'),bk=document.querySelector('[data-booking]');
+/* ---- reveal on scroll ---- */
+var rvs=[].slice.call(document.querySelectorAll('.rv'));
+var auto=document.querySelectorAll(L.reveal||'main section:not(.hero) :is(.kicker,.eyebrow,h2,.lead,.card,.price-list,.unit,.step,.promo,.sched,.mapbox,.notice,.warn,.calc,.ph,.tabs,.src,.c-item)');
+[].forEach.call(auto,function(e){if(e.closest('.rv')||e.closest('[data-booking]')||e.classList.contains('rv'))return;e.classList.add('rv');var p=e.parentElement,sib=[].filter.call(p.children,function(x){return x.tagName===e.tagName&&x.className.split(' ')[0]===e.className.split(' ')[0]}),i=sib.indexOf(e);if(i>0)e.style.setProperty('--d',(i%3)*0.08+'s');rvs.push(e)});
+document.querySelectorAll('.hero-copy > .rv').forEach(function(e,i){e.style.setProperty('--d',i*0.08+'s')});
+var io=null;
+function countUp(el){if(el._c)return;el._c=1;var to=parseFloat(el.getAttribute('data-count')),dec=(el.getAttribute('data-count').split('.')[1]||'').length,t0=null;if(RM){return}function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(dec).replace('.',L.decSep||'.');if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+if(RM||!('IntersectionObserver' in window)){rvs.forEach(function(e){e.classList.add('in')})}
+else{io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);[].forEach.call(en.target.querySelectorAll?en.target.querySelectorAll('[data-count]'):[],countUp);if(en.target.hasAttribute&&en.target.hasAttribute('data-count'))countUp(en.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});rvs.forEach(function(e){io.observe(e)});
+ document.querySelectorAll('[data-count]').forEach(function(c){if(!c.closest('.rv')){var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){countUp(c);o.disconnect()}},{threshold:.5});o.observe(c)}})}
+/* ---- nav shadow, sticky hide, parallax ---- */
+var par=document.querySelector('[data-parallax]'),fl=[].slice.call(document.querySelectorAll('[data-float]')),tick=false;
+function onScroll(){var y=window.scrollY;if(nav)nav.classList.toggle('scrolled',y>8);
+ if(sticky&&bk){var br=bk.getBoundingClientRect();sticky.classList.toggle('hide',br.top<window.innerHeight*.85&&br.bottom>window.innerHeight*.25)}
+ if(!RM&&par&&y<window.innerHeight*1.2){par.style.transform='translate3d(0,'+(y*0.06)+'px,0)';var img=par.querySelector('img');if(img)img.style.transform='translate3d(0,'+(-y*0.08)+'px,0)';fl.forEach(function(f){var k=parseFloat(f.dataset.float||1);f.style.transform='translate3d(0,'+(-y*0.12*k)+'px,0)'})}
+ tick=false}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+/* ---- booking wizard ---- */
+if(!bk)return;
+var panes=[].slice.call(bk.querySelectorAll('[data-pane]')),N=panes.length,step=1,S={};
+var RUd=['вс','пн','вт','ср','чт','пт','сб'],RUm=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'],RUw=['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+function q(s,r){return (r||bk).querySelector(s)}function qa(s,r){return [].slice.call((r||bk).querySelectorAll(s))}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function nb(s){return String(s==null?'':s).replace(/(\d) (?=\d)/g,'$1\u00a0').replace(/ ₽/g,'\u00a0₽').replace(/(^|\s)от /g,'$1от\u00a0')}
+function fmtDate(d){return d.getDate()+' '+RUm[d.getMonth()]+', '+RUw[d.getDay()]}
+var api={S:S,fmtDate:fmtDate,esc:esc,go:go,when:function(){return S.date?(fmtDate(S.date)+(S.time?', '+(/^\d/.test(S.time)?S.time:S.time.toLowerCase()):'')):''}};
+function go(n,back){step=n;bk.dataset.step=n;panes.forEach(function(p){var on=+p.dataset.pane===n;p.hidden=!on;if(on){p.classList.toggle('back',!!back);p.style.animation='none';p.offsetHeight;p.style.animation=''}});
+ q('[data-bk-title]').textContent=(L.titles||[])[n-1]||'';q('[data-bk-n]').textContent=n;q('[data-bk-of]').textContent=N;q('[data-bk-bar]').style.width=(n/N*100)+'%';
+ q('[data-back]').hidden=(n===1||n===N);qa('.bk-err').forEach(function(e){e.hidden=true});renderSummary();
+ var pn=q('[data-pane="'+n+'"]');if(pn.querySelector('[data-days]'))buildDays(pn);
+ if(n>1&&document.activeElement&&bk.contains(document.activeElement)){var f=pn.querySelector('button:not([disabled]),input');if(f)f.focus({preventScroll:true})}}
+function renderSummary(){var box=document.querySelector('[data-summary]');if(!box)return;var rows=(L.summary?L.summary(S,api):[]).filter(function(r){return r&&r[1]});
+ box.hidden=!rows.length||step===N;box.querySelector('[data-sum-rows]').innerHTML=rows.map(function(r){return '<div class="sum-r"><span>'+esc(r[0])+'</span><strong>'+esc(nb(r[1]))+'</strong></div>'}).join('')}
+function sel(el){var k=el.dataset.k;qa('[data-k="'+k+'"]').forEach(function(o){o.classList.toggle(o.classList.contains('qchip')?'on':'sel',o===el);if(o.hasAttribute('aria-pressed'))o.setAttribute('aria-pressed',o===el?'true':'false')});
+ S[k]=el.dataset.v;S[k+'_p']=el.dataset.p||'';el.classList.remove('bad');var pn=el.closest('[data-pane]');qa('.bk-err',pn).forEach(function(e){e.hidden=true});qa('.chips,.opt-grid',pn).forEach(function(g){g.classList.remove('bad')});
+ if(L.onSel)L.onSel(k,S,api);renderSummary();
+ if(el.hasAttribute('data-next')){var n=+pn.dataset.pane;setTimeout(function(){if(step===n)go(n+1)},RM?0:260)}}
+qa('.opt[data-k],.qchip[data-k]').forEach(function(o){o.setAttribute('type','button');o.addEventListener('click',function(){sel(o)})});
+qa('input[data-k],textarea[data-k]').forEach(function(i){i.addEventListener('input',function(){S[i.dataset.k]=i.value.trim();i.classList.remove('bad');renderSummary()})});
+function valid(pn){var ok=true,first=null;(pn.dataset.req||'').split(',').filter(Boolean).forEach(function(k){if(!S[k]){ok=false;var g=pn.querySelector('[data-k="'+k+'"]');if(g){var box=g.closest('.chips,.opt-grid')||g;box.classList.add('bad');setTimeout(function(){box.classList.remove('bad')},900);first=first||g}}});
+ qa('input[required]',pn).forEach(function(i){if(i.value.trim().length<2){ok=false;i.classList.add('bad');first=first||i}});
+ var e=pn.querySelector('.bk-err');if(e)e.hidden=ok;if(!ok&&first&&first.focus)first.focus({preventScroll:true});return ok}
+qa('[data-go-next]').forEach(function(b){b.addEventListener('click',function(){var pn=b.closest('[data-pane]');if(valid(pn))go(+pn.dataset.pane+1)})});
+/* days & slots (demo, deterministic) */
+function hash(s){var h=7;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h}
+function buildDays(pn){var wrap=pn.querySelector('[data-days]');if(wrap.childElementCount)return;var now=new Date();
+ for(var i=0;i<12;i++){var d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);var b=document.createElement('button');b.type='button';b.className='day';b.setAttribute('role','option');
+  b.innerHTML='<small>'+(i===0?'сегодня':i===1?'завтра':RUd[d.getDay()])+'</small><b>'+d.getDate()+'</b><small>'+RUm[d.getMonth()].slice(0,3)+'</small>';
+  b._d=d;b.addEventListener('click',function(){selectDay(this,pn)});wrap.appendChild(b)}
+ selectDay(wrap.children[(L.hours&&now.getHours()>=L.hours[1]-2)||(!L.hours&&now.getHours()>=17)?1:0],pn)}
+function selectDay(b,pn){qa('.day',pn).forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false')});b.classList.add('on');b.setAttribute('aria-selected','true');S.date=b._d;S.time='';
+ var sl=pn.querySelector('[data-slots]');sl.innerHTML='';var now=new Date(),isToday=b._d.toDateString()===now.toDateString(),key=b._d.toDateString()+(S[L.slotKey||'svc']||''),i=0,list=[];
+ if(L.hours){sl.classList.remove('parts');for(var h=L.hours[0];h<L.hours[1];h++)for(var m=0;m<60;m+=30){list.push({t:h+':'+(m?'30':'00'),past:isToday&&(h<now.getHours()+1)})}}
+ else{sl.classList.add('parts');(L.parts||[['Утро','',12],['День','',17],['Вечер','',21]]).forEach(function(p){list.push({t:p[0],sub:p[1],past:isToday&&now.getHours()>=p[2]-1})})}
+ list.forEach(function(x){var busy=x.past||(L.hours&&hash(key+x.t)%10<4);
+  var s=document.createElement('button');s.type='button';s.className='slot';s.innerHTML=esc(x.t)+(x.sub?'<small>'+esc(x.sub)+'</small>':'');s.dataset.t=x.t;s.style.setProperty('--i',i++);if(busy){s.disabled=true;s.setAttribute('aria-label',x.t+(x.past?' — уже прошло':' — занято'))}
+  s.addEventListener('click',function(){qa('.slot',pn).forEach(function(z){z.classList.remove('on')});this.classList.add('on');S.time=this.dataset.t;renderSummary();var n=+pn.dataset.pane;if(pn.dataset.req){return}setTimeout(function(){if(step===n)go(n+1)},RM?0:260)});sl.appendChild(s)});
+ if(!sl.querySelector('.slot:not([disabled])'))sl.innerHTML='<p class="bk-note">На этот день свободного времени нет — выберите другой.</p>';
+ renderSummary()}
+/* contacts */
+var form=q('form[data-pane]'),tel=q('#f-tel'),nm=q('#f-name');
+tel.addEventListener('input',function(){var d=tel.value.replace(/\D/g,'');if(d[0]==='8')d='7'+d.slice(1);if(d&&d[0]!=='7')d='7'+d;d=d.slice(0,11);var o='+7';if(d.length>1)o+=' '+d.slice(1,4);if(d.length>4)o+=' '+d.slice(4,7);if(d.length>7)o+='-'+d.slice(7,9);if(d.length>9)o+='-'+d.slice(9,11);tel.value=d?o:'';tel.classList.remove('bad')});
+nm.addEventListener('input',function(){nm.classList.remove('bad')});
+form.addEventListener('submit',function(e){e.preventDefault();var okN=nm.value.trim().length>1,okT=tel.value.replace(/\D/g,'').length===11;
+ nm.classList.toggle('bad',!okN);tel.classList.toggle('bad',!okT);var er=form.querySelector('.bk-err');if(er)er.hidden=okN&&okT;if(!okN){nm.focus();return}if(!okT){tel.focus();return}
+ qa('input[data-k],textarea[data-k]',form).forEach(function(i){if(i.required&&i.value.trim().length<2){i.classList.add('bad')}});if(form.querySelector('.bad')){var b0=form.querySelector('.bad');b0.focus();if(er)er.hidden=false;return}
+ S.name=nm.value.trim();S.tel=tel.value;var m=q('#f-msg');S.msg=m?m.value.trim():'';var btn=q('[data-submit]');btn.classList.add('loading');var sp=btn.querySelector('span'),t0=sp.textContent;sp.textContent='Отправляем…';
+ setTimeout(function(){btn.classList.remove('loading');sp.textContent=t0;done()},RM?0:700)});
+function done(){q('[data-done-h]').textContent=S.name+', заявка принята';
+ q('[data-done-when]').textContent=L.doneWhen||'Администратор свяжется с вами, чтобы подтвердить.';
+ q('[data-ticket]').innerHTML=(L.ticket?L.ticket(S,api):[]).filter(function(r){return r&&r[1]}).map(function(r){return '<div class="sum-r"><span>'+esc(r[0])+'</span><strong>'+esc(nb(r[1]))+'</strong></div>'}).join('');
+ q('[data-tg]').innerHTML=(L.tg?L.tg(S,api):[]).filter(Boolean).map(function(l,i){return i===1?'<b>'+esc(l)+'</b>':esc(l)}).join('<br>');
+ var ic=q('[data-ics]');if(ic)ic.hidden=!(L.ics&&S.date&&/^\d/.test(S.time||''));
+ go(N);var d=q('[data-pane="'+N+'"]');d.focus({preventScroll:true});var r=bk.getBoundingClientRect();if(r.top<0||r.top>window.innerHeight*.5)bk.scrollIntoView({block:'start',behavior:RM?'auto':'smooth'})}
+var icb=q('[data-ics]');if(icb)icb.addEventListener('click',function(){var p=S.time.split(':'),d=new Date(S.date);d.setHours(+p[0],+p[1]);var e=new Date(d.getTime()+3600000);
+ function f(x){return x.getFullYear()+String(x.getMonth()+1).padStart(2,'0')+String(x.getDate()).padStart(2,'0')+'T'+String(x.getHours()).padStart(2,'0')+String(x.getMinutes()).padStart(2,'0')+'00'}
+ var I=L.ics(S);var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Suiweb demo//RU','BEGIN:VEVENT','UID:'+Date.now()+'@suiweb-demo','DTSTAMP:'+f(new Date()),'DTSTART:'+f(d),'DTEND:'+f(e),'SUMMARY:'+I.summary,'LOCATION:'+I.location,'DESCRIPTION:'+I.desc,'BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:'+I.summary,'END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+ var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));a.download=I.file||'zapis.ics';document.body.appendChild(a);a.click();a.remove()});
+q('[data-again]').addEventListener('click',function(){Object.keys(S).forEach(function(k){delete S[k]});form.reset();qa('input[data-k],textarea[data-k]').forEach(function(i){i.value=''});qa('[data-days]').forEach(function(w){w.innerHTML=''});qa('.opt,.qchip').forEach(function(o){o.classList.remove('sel','on')});if(L.reset)L.reset(S,api);go(1,true)});
+q('[data-back]').addEventListener('click',function(){go(step-1,true)});
+/* external triggers: price cards, CTA */
+document.querySelectorAll('[data-pick]').forEach(function(el){el.addEventListener('click',function(){var v=el.getAttribute('data-pick'),k=el.getAttribute('data-pick-k')||L.pickKey||'svc';var o=bk.querySelector('[data-k="'+k+'"][data-v="'+v.replace(/"/g,'\\"')+'"]');
+ if(L.onPick&&L.onPick(el,S,api)===true)return;if(o){if(step===N)q('[data-again]').click();sel(o);if(!o.hasAttribute('data-next')&&+o.closest('[data-pane]').dataset.pane===step){}}else go(1);if(!/^#/.test(el.getAttribute('href')||''))bk.scrollIntoView({block:'start',behavior:RM?'auto':'smooth'})})});
+if(L.init)L.init(S,api);
+go(1);
+})();
 
 </script>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -72,6 +72,144 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 
 @media(min-width:900px){.sticky{display:none}body{padding-bottom:0}}
 .note{font-size:.8rem;color:var(--sec);margin-top:.7rem}
 .actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
+:root{--L-accent:#F0A11A;--L-accent-ink:#F0A11A;--L-on-accent:#0E1013;--L-card:#1A1E24;--L-field:#242A33;--L-line:#2E3642;--L-text:#F3EEE4;--L-muted:#9AA3B0;--L-chip:rgba(240,161,26,.14);--L-ring:rgba(240,161,26,.4);--L-glow:rgba(240,161,26,.55);--L-shadow:0 26px 54px -22px rgba(0,0,0,.75);--L-shadow-s:0 10px 24px -12px rgba(0,0,0,.6);--L-glass:rgba(26,30,36,.8);--L-glass-line:rgba(255,255,255,.09);--L-ok:#3DCF8E}
+.lv-msg{background:#E9EEF3}
+.lv-credit a{color:var(--sec)}
+.svc.lift:hover{transform:translateY(-3px)}
+.svc{display:block;text-align:left;color:var(--text)}
+@media(min-width:960px){.grid-4{grid-template-columns:repeat(4,1fr)}}
+/* ===== live layer: motion & interaction (Suiweb, по образцу alfa-dent-tomsk) ===== */
+[hidden]{display:none!important}
+:root{--ease:cubic-bezier(.22,.8,.24,1)}
+.nav{transition:box-shadow .3s var(--ease),background .3s}
+.nav.scrolled{box-shadow:0 10px 28px -18px rgba(0,0,0,.55)}
+.btn{transition:transform .18s var(--ease),box-shadow .25s var(--ease),background .2s,border-color .2s,filter .2s,color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0) scale(.97);transition-duration:.06s}
+.btn-primary{box-shadow:0 6px 18px -8px var(--L-glow)}
+.btn-primary:hover{box-shadow:0 10px 26px -10px var(--L-glow)}
+.btn:focus-visible,.lv-opt:focus-visible,.lv-day:focus-visible,.lv-slot:focus-visible,.lv-link:focus-visible,.lv-pick:focus-visible{outline:3px solid var(--L-ring);outline-offset:2px}
+.btn-sm{min-height:42px;padding:.5rem 1rem;font-size:.9rem}
+.lift{transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .2s}
+.lift:hover{transform:translateY(-4px);box-shadow:var(--L-shadow);border-color:var(--L-accent)}
+.lift .ico{transition:transform .35s var(--ease),background .3s,color .3s}
+.lift:hover .ico{transform:rotate(-8deg) scale(1.08)}
+.lv-pick{cursor:pointer}
+/* hero */
+.lv-hero-grid{position:relative;display:grid;gap:2.2rem;align-items:center}
+@media(min-width:920px){.lv-hero-grid{grid-template-columns:1.05fr .95fr}}
+.lv-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.5rem 0 1rem}
+.lv-visual{position:relative;max-width:540px;width:100%;margin-inline:auto}
+.lv-photo{border-radius:26px;overflow:hidden;aspect-ratio:5/5.4;box-shadow:var(--L-shadow);will-change:transform;background:var(--L-card);border:1px solid var(--L-line)}
+.lv-photo img{width:100%;height:115%;object-fit:cover;animation:lvKb 1.6s var(--ease) both;will-change:transform}
+@keyframes lvKb{from{transform:scale(1.08);opacity:.001}to{transform:scale(1);opacity:1}}
+.lv-float{position:absolute;background:var(--L-glass);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid var(--L-glass-line);border-radius:18px;box-shadow:var(--L-shadow);color:var(--L-text);will-change:transform}
+.lv-fc-a{left:-2rem;bottom:1.6rem;width:min(290px,80%);padding:.9rem 1.05rem .45rem}
+.lv-fc-b{right:-1rem;top:1.4rem;display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem;max-width:72%}
+.lv-fc-b b{font-weight:800;font-size:1.05rem;color:var(--L-accent-ink);line-height:1.15}
+.lv-fc-b span{font-size:.78rem;color:var(--L-muted);line-height:1.3}
+.lv-fc-h{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--L-muted);margin-bottom:.15rem}
+.lv-fr{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.55rem 0;border-top:1px dashed var(--L-line);font-size:.9rem}
+.lv-fr:first-of-type{border-top:0}
+.lv-fr b{color:var(--L-accent-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.lv-credit{font-size:.78rem;opacity:.8;margin-top:.8rem}
+.lv-credit a{text-decoration:underline;text-underline-offset:2px}
+@media(max-width:919px){.lv-fc-a{left:.8rem}.lv-fc-b{right:.8rem}.lv-photo{aspect-ratio:4/3.2}}
+@media(max-width:600px){.lv-photo{aspect-ratio:16/11}.lv-fc-a{display:none}.lv-fc-b{top:.8rem;right:.8rem}}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+/* wizard */
+.lv-book{position:relative;overflow:hidden;background:var(--L-card);border:1px solid var(--L-line);border-radius:24px;padding:clamp(1.2rem,3.5vw,2rem);box-shadow:var(--L-shadow);color:var(--L-text)}
+.lv-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.6rem}
+.lv-title{font-weight:800;font-size:1.12rem}
+.lv-count{font-size:.82rem;color:var(--L-muted);font-weight:700;white-space:nowrap}
+.lv-bar{height:4px;border-radius:9px;background:var(--L-line);overflow:hidden;margin-bottom:1.2rem}
+.lv-bar i{display:block;height:100%;width:25%;background:var(--L-accent);border-radius:inherit;transition:width .5s var(--ease)}
+.lv-pane{animation:lvIn .45s var(--ease) both}
+.lv-pane.back{animation-name:lvBack}
+@keyframes lvIn{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+@keyframes lvBack{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+.lv-q{font-weight:700;font-size:.95rem;margin-bottom:.6rem}
+.lv-q + .lv-q{margin-top:1rem}
+.lv-opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+@media(max-width:380px){.lv-opts{grid-template-columns:1fr}}
+.lv-opts.one{grid-template-columns:1fr}
+.lv-opt{position:relative;text-align:left;font:inherit;color:var(--L-text);background:var(--L-field);border:1.5px solid var(--L-line);border-radius:16px;padding:.8rem .9rem;cursor:pointer;display:flex;flex-direction:column;gap:.12rem;min-width:0;transition:border-color .2s,transform .2s var(--ease),box-shadow .25s var(--ease),background .2s}
+.lv-opt b{font-size:.95rem;line-height:1.25}
+.lv-opt small{color:var(--L-muted);font-size:.8rem;line-height:1.3}
+.lv-opt em{font-style:normal;font-weight:800;color:var(--L-accent-ink);margin-top:.25rem;font-variant-numeric:tabular-nums}
+.lv-opt:hover{border-color:var(--L-accent);transform:translateY(-2px);box-shadow:var(--L-shadow-s)}
+.lv-opt:active{transform:scale(.98)}
+.lv-opt.sel{border-color:var(--L-accent);background:var(--L-chip)}
+.lv-days{display:flex;gap:.45rem;overflow-x:auto;padding:.2rem .25rem .5rem;margin-inline:-.25rem;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.lv-day{flex:none;font:inherit;font-weight:600;border:1.5px solid var(--L-line);background:var(--L-field);color:var(--L-text);border-radius:14px;padding:.5rem .7rem;min-width:64px;text-align:center;scroll-snap-align:start;display:flex;flex-direction:column;line-height:1.2;cursor:pointer;transition:all .2s var(--ease)}
+.lv-day small{font-size:.72rem;color:var(--L-muted);font-weight:600;text-transform:uppercase}
+.lv-day b{font-size:1.15rem}
+.lv-day:hover{border-color:var(--L-accent)}
+.lv-day.on{background:var(--L-accent);border-color:var(--L-accent);color:var(--L-on-accent)}
+.lv-day.on small{color:inherit;opacity:.85}
+.lv-day.off{opacity:.45}
+.lv-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem}
+@media(max-width:420px){.lv-slots{grid-template-columns:repeat(3,1fr)}}
+.lv-slot{font:inherit;font-weight:700;font-size:.92rem;border:1.5px solid var(--L-line);background:var(--L-field);color:var(--L-text);border-radius:12px;padding:.65rem 0;cursor:pointer;transition:all .18s var(--ease);animation:lvPop .35s var(--ease) both;animation-delay:calc(var(--i,0)*18ms)}
+@keyframes lvPop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.lv-slot:hover{border-color:var(--L-accent);background:var(--L-chip);transform:translateY(-1px)}
+.lv-slot:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed;transform:none;background:transparent}
+.lv-slot.on{background:var(--L-accent);border-color:var(--L-accent);color:var(--L-on-accent)}
+.lv-note{font-size:.78rem;color:var(--L-muted);margin-top:.7rem}
+.lv-form{display:grid;gap:.9rem}
+.lv-form .two{display:grid;gap:.9rem}
+@media(min-width:640px){.lv-form .two{grid-template-columns:1fr 1fr}}
+.lv-form input,.lv-form textarea{font-size:16px}
+.lv-form input.bad{border-color:#E0795F!important;box-shadow:0 0 0 3px rgba(224,121,95,.18)!important;animation:lvShake .3s}
+@keyframes lvShake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.lv-chk{display:flex;align-items:flex-start;gap:.6rem;font-size:.88rem;color:var(--L-muted);text-transform:none;letter-spacing:0;font-weight:500}
+.lv-chk input{width:auto;margin-top:.2rem;accent-color:var(--L-accent)}
+.btn.loading{pointer-events:none;filter:saturate(.7)}
+.btn.loading span{opacity:.7}
+.btn.loading svg{animation:lvFly .7s var(--ease) infinite alternate}
+@keyframes lvFly{to{transform:translate(3px,-3px)}}
+.lv-nav{margin-top:.8rem;min-height:1.2rem;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.lv-link{background:none;border:0;font:inherit;font-size:.88rem;font-weight:600;color:var(--L-muted);cursor:pointer;padding:.2rem 0;transition:color .2s}
+.lv-link:hover{color:var(--L-accent-ink)}
+.lv-summary{margin-top:1.4rem;background:var(--L-card);border:1px solid var(--L-line);border-radius:18px;padding:1rem 1.2rem;animation:lvIn .4s var(--ease) both;color:var(--L-text)}
+.lv-summary > b{font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;color:var(--L-muted)}
+.lv-r{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-top:1px dashed var(--L-line);font-size:.93rem}
+.lv-r:first-child{border-top:0}.lv-r span{color:var(--L-muted);flex:none}.lv-r strong{text-align:right;overflow-wrap:anywhere}
+.lv-done{text-align:center}
+.lv-check{width:64px;height:64px;margin:.2rem auto .8rem}
+.lv-check circle{stroke:var(--L-ok);stroke-width:3;stroke-dasharray:151;stroke-dashoffset:151;animation:lvDraw .6s var(--ease) forwards}
+.lv-check path{stroke:var(--L-ok);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:36;stroke-dashoffset:36;animation:lvDraw .35s .45s var(--ease) forwards}
+@keyframes lvDraw{to{stroke-dashoffset:0}}
+.lv-done h3{font-size:1.25rem}
+.lv-when{color:var(--L-muted);margin-top:.3rem}
+.lv-ticket{margin:1rem 0;text-align:left;background:var(--L-field);border:1px solid var(--L-line);border-radius:16px;padding:.4rem 1rem}
+.lv-acts{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.lv-tg{margin-top:1rem;text-align:left;font-size:.88rem;color:var(--L-text)}
+.lv-tg summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;justify-content:center;font-weight:700}
+.lv-tg summary::-webkit-details-marker{display:none}
+.lv-tg summary small{font-weight:500;color:var(--L-muted)}
+.lv-dot{width:8px;height:8px;border-radius:50%;background:#2AABEE;box-shadow:0 0 0 0 rgba(42,171,238,.5);animation:lvPulse 2s infinite;flex:none}
+@keyframes lvPulse{70%{box-shadow:0 0 0 8px rgba(42,171,238,0)}100%{box-shadow:0 0 0 0 rgba(42,171,238,0)}}
+.lv-msg{margin-top:.7rem;background:#EEF3F7;border-radius:14px;padding:.7rem .85rem;color:#1F2A37;line-height:1.5;animation:lvIn .35s var(--ease) both;text-align:left}
+.lv-mh{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}.lv-mh small{margin-left:auto;color:#5B6878;font-size:.74rem}
+.lv-av{width:26px;height:26px;border-radius:50%;background:#2AABEE;color:#fff;display:grid;place-items:center;font-weight:800;font-size:.66rem;flex:none}
+.lv-demo{font-size:.8rem;color:var(--L-muted);margin-top:.8rem}
+.sticky{transition:transform .35s var(--ease)}
+.sticky.hide{transform:translateY(110%)}
+.concept-note{margin:1.4rem auto 0;text-align:center;font-size:.9rem;font-weight:600;color:var(--L-text);background:var(--L-chip);border:1px solid var(--L-line);border-radius:14px;padding:.7rem 1rem;width:fit-content;max-width:100%}
+.demo-badge{margin:1rem auto 0;text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.02em;color:var(--L-muted);border:1px dashed var(--L-line);border-radius:999px;padding:.55rem 1rem;width:fit-content;max-width:100%}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+ .rv{opacity:1;transform:none}
+ [data-parallax],[data-float],.lv-photo img{transform:none!important}
+}
+.lv-split{display:grid;gap:2rem;align-items:start}
+@media(min-width:900px){.lv-split{grid-template-columns:.85fr 1.15fr}}
+.lv-split > *{min-width:0}
+
 </style>
 </head>
 <body>
@@ -88,68 +226,44 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 
 </div></header>
 
 <main id="top">
-<section class="hero"><div class="wrap hero-grid">
-  <div>
-    <div class="eyebrow">Томск · Нефтяная 1в ст1</div>
-    <h1>Диагностика без сюрпризов.</h1>
-    <p class="lead" style="margin-top:1rem">Ремонт с понятным прайсом и гарантией на работы.</p>
-    <div class="cta-row">
+<section class="hero"><div class="wrap lv-hero-grid">
+  <div class="lv-copy">
+    <div class="eyebrow rv">Томск · Нефтяная 1в ст1</div>
+    <h1 class="rv">Диагностика без сюрпризов.</h1>
+    <p class="lead rv" style="margin-top:1rem">Ремонт с понятным прайсом и гарантией на работы. Выберите диагностику и свободное окно прямо здесь — смету согласуем до начала работ.</p>
+    <div class="cta-row rv">
       <a class="btn btn-primary" href="#zapis">Записаться на диагностику</a>
+      <a class="btn btn-ghost" href="tel:+73822501505">+7 (3822) 50-15-05</a>
       <a class="btn btn-wa" href="https://wa.me/73822501505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D1%83." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-ghost" href="#price">Прайс</a>
     </div>
-    <p class="meta">Пн–пт 9:00–19:00 · Сб–вс 10:00–18:00 · <a href="tel:+73822501505">+7 (3822) 50-15-05</a></p>
-    <p class="note">Ответ в течение рабочего дня · Без предоплаты за запись</p>
+    <p class="meta rv">Пн–пт 9:00–19:00 · Сб–вс 10:00–18:00</p>
+    <p class="note rv">Ответ в течение рабочего дня · Без предоплаты за запись</p>
   </div>
-  <aside class="panel" id="diagnostika">
-    <h3 style="margin-bottom:.75rem">Частые виды диагностики</h3>
-    <div class="svc-grid">
-      <div class="svc active" data-svc="Компьютерная диагностика"><b>Компьютерная диагностика</b><span>30–60 мин</span><div class="price">от 1 500 ₽</div></div>
-      <div class="svc" data-svc="Диагностика ходовой"><b>Диагностика ходовой</b><span>~1 час</span><div class="price">от 1 200 ₽</div></div>
-      <div class="svc" data-svc="Диагностика перед покупкой"><b>Перед покупкой</b><span>1,5–2 часа</span><div class="price">от 3 500 ₽</div></div>
-      <div class="svc" data-svc="Электрика / Check Engine"><b>Электрика / Check Engine</b><span>по ситуации</span><div class="price">от 1 800 ₽</div></div>
-    </div>
-  </aside>
+  <div class="lv-visual rv">
+    <div class="lv-photo" data-parallax><img src="assets/hero.jpg" width="1600" height="900" alt="Механик работает с двигателем под капотом (иллюстрация)" fetchpriority="high"></div>
+    <div class="lv-float lv-fc-a" data-float><div class="lv-fc-h">Диагностика «от»</div><div class="lv-fr"><span>Компьютерная</span><b>от 1 500 ₽</b></div><div class="lv-fr"><span>Ходовая</span><b>от 1 200 ₽</b></div><div class="lv-fr"><span>Перед покупкой</span><b>от 3 500 ₽</b></div></div>
+    <div class="lv-float lv-fc-b" data-float="-1"><b>Гарантия</b><span>на работы до 6 мес.<br>или 10 000 км</span></div>
+  </div>
+</div></section>
+<section class="sec" id="diagnostika" style="padding:1rem 0 2rem"><div class="wrap">
+  <h2 class="rv">Частые виды диагностики</h2>
+  <p class="lead rv">Нажмите на карточку — откроется запись с этой услугой.</p>
+  <div class="svc-grid grid-4" data-stagger><a class="svc lift lv-pick" href="#zapis" data-lv-pick="svc" data-v="Компьютерная диагностика"><b>Компьютерная диагностика</b><span>30–60 мин</span><div class="price">от 1 500 ₽</div></a><a class="svc lift lv-pick" href="#zapis" data-lv-pick="svc" data-v="Диагностика ходовой"><b>Диагностика ходовой</b><span>~1 час</span><div class="price">от 1 200 ₽</div></a><a class="svc lift lv-pick" href="#zapis" data-lv-pick="svc" data-v="Диагностика перед покупкой"><b>Перед покупкой</b><span>1,5–2 часа</span><div class="price">от 3 500 ₽</div></a><a class="svc lift lv-pick" href="#zapis" data-lv-pick="svc" data-v="Электрика / Check Engine"><b>Электрика / Check Engine</b><span>по ситуации</span><div class="price">от 1 800 ₽</div></a></div>
 </div></section>
 
-<section class="sec" id="zapis" style="padding-top:1rem"><div class="wrap">
-  <h2>Запись на диагностику</h2>
-  <p class="lead" style="margin-bottom:1.35rem">Выберите услугу и удобное окно — подтвердим по телефону или в WhatsApp.</p>
-  <div class="panel">
-    <form id="form">
-      <div class="form-grid two">
-        <div><label for="name">Имя</label><input id="name" required autocomplete="name"></div>
-        <div><label for="phone">Телефон</label><input id="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
-        <div><label for="car">Марка / модель / год</label><input id="car" placeholder="Kia Sportage, 2019" required></div>
-        <div><label for="service">Услуга</label>
-          <select id="service" required>
-            <option>Компьютерная диагностика</option>
-            <option>Диагностика ходовой</option>
-            <option>Диагностика перед покупкой</option>
-            <option>Электрика / Check Engine</option>
-            <option>Другое</option>
-          </select>
-        </div>
-        <div><label for="date">Дата</label><input id="date" type="date" required></div>
-        <div><label for="slot">Предпочтительное время</label>
-          <select id="slot" required><option>Утро</option><option>День</option><option>Вечер</option></select>
-        </div>
-      </div>
-      <div style="margin-top:.9rem"><label for="comment">Комментарий</label><textarea id="comment" placeholder="Что беспокоит?"></textarea></div>
-      <div class="actions">
-        <button class="btn btn-primary" type="submit">Отправить заявку</button>
-        <a class="btn btn-wa" href="https://wa.me/73822501505?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D1%83." target="_blank" rel="noopener">Или WhatsApp</a>
-      </div>
-      <p class="note">Демо: без бэкенда, только подтверждение на странице.</p>
-    </form>
-    <div class="success" id="ok"><div class="ok">✓</div><h3>Заявка ушла</h3><p class="lead" style="margin:.5rem auto 0">Перезвоним или напишем, чтобы подтвердить время.</p></div>
+<section class="sec" id="zapis" style="padding-top:1rem"><div class="wrap lv-split">
+  <div class="rv">
+    <h2>Запись на диагностику</h2>
+    <p class="lead">Выберите услугу и удобное окно — подтвердим по телефону или в WhatsApp. Или позвоните: <a href="tel:+73822501505" style="color:var(--accent);font-weight:600">+7 (3822) 50-15-05</a>.</p>
+    <div class="lv-summary" data-lv-summary hidden><b>Ваш выбор</b><div data-lv-sum-rows></div></div>
   </div>
+  <div class="lv-book rv" id="wizard" data-lv-book data-hours='{"d":[9,19],"0":[10,18],"6":[10,18]}' data-wa="73822501505" data-wa-intro="Записался на сайте" data-tg-title="Новая запись с сайта"><div class="lv-top"><div class="lv-title" data-lv-title>…</div><div class="lv-count"><span data-lv-n>1</span>/<span data-lv-total>4</span></div></div><div class="lv-bar"><i data-lv-bar></i></div><div class="lv-pane" data-pane="1" data-title="Услуга"><p class="lv-q">С чем приехать?</p><div class="lv-opts"><button type="button" class="lv-opt" data-k="svc" data-kl="Услуга" data-v="Компьютерная диагностика" data-price="от 1 500 ₽"><b>Компьютерная диагностика</b><small>30–60 мин</small><em>от 1 500 ₽</em></button><button type="button" class="lv-opt" data-k="svc" data-kl="Услуга" data-v="Диагностика ходовой" data-price="от 1 200 ₽"><b>Диагностика ходовой</b><small>~1 час</small><em>от 1 200 ₽</em></button><button type="button" class="lv-opt" data-k="svc" data-kl="Услуга" data-v="Диагностика перед покупкой" data-price="от 3 500 ₽"><b>Перед покупкой</b><small>1,5–2 часа</small><em>от 3 500 ₽</em></button><button type="button" class="lv-opt" data-k="svc" data-kl="Услуга" data-v="Электрика / Check Engine" data-price="от 1 800 ₽"><b>Электрика / Check Engine</b><small>по ситуации</small><em>от 1 800 ₽</em></button><button type="button" class="lv-opt" data-k="svc" data-kl="Услуга" data-v="ТО / ремонт — по смете" data-price="по запросу"><b>ТО / ремонт</b><small>Замена масла, тормоза, подвеска</small><em>по запросу</em></button></div></div><div class="lv-pane" data-pane="2" data-title="Дата и время" hidden><p class="lv-q">Выберите день</p><div class="lv-days" data-lv-days aria-label="День"></div><p class="lv-q" style="margin-top:1.1rem">Свободное время</p><div class="lv-slots" data-lv-slots aria-live="polite"></div><p class="lv-note">Демо-расписание по часам работы: пн–пт 9:00–19:00, сб–вс 10:00–18:00. В рабочей версии — из графика сервиса.</p></div><form class="lv-pane lv-form" data-pane="3" data-title="Авто и контакты" hidden novalidate><div class="two"><div><label for="lv-name">Имя</label><input id="lv-name" data-lv-name required autocomplete="name" placeholder="Как к вам обращаться"></div><div><label for="lv-tel">Телефон</label><input id="lv-tel" type="tel" inputmode="tel" required autocomplete="tel" placeholder="+7 900 123-45-67"></div></div><div><label for="lv-car">Марка / модель / год</label><input id="lv-car" data-k="car" data-kl="Авто" required placeholder="Kia Sportage, 2019"></div><div><label for="lv-c">Комментарий</label><textarea id="lv-c" data-k="comment" data-kl="Комментарий" placeholder="Что беспокоит?"></textarea></div><button class="btn btn-primary" type="submit" data-lv-submit><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span>Отправить заявку</span></button><p class="lv-note" style="margin-top:0">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p></form><div class="lv-pane lv-done" data-pane="4" data-title="Готово" hidden role="status" tabindex="-1"><div class="lv-check"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none"/><path fill="none" d="M15 27l7 7 15-15"/></svg></div><h3 data-lv-done-h>Заявка принята</h3><p class="lv-when">Перезвоним или напишем, чтобы подтвердить время. Нефтяная 1в ст1.</p><div class="lv-ticket" data-lv-ticket></div><div class="lv-acts"><a class="btn btn-wa btn-sm" data-lv-wa hidden target="_blank" rel="noopener">Продублировать в WhatsApp</a><button type="button" class="btn btn-ghost btn-sm" data-lv-again>Новая заявка</button></div><details class="lv-tg" open><summary><span class="lv-dot"></span>Заявка ушла в Telegram</summary><div class="lv-msg"><div class="lv-mh"><span class="lv-av">ZBS</span><b>ZBS Авто · запись</b><small>только что</small></div><div data-lv-tg></div></div></details><p class="lv-demo">Это демо: данные никуда не отправляются.</p></div><div class="lv-nav"><button type="button" class="lv-link" data-lv-back hidden>← Назад</button></div></div>
 </div></section>
 
 <section class="sec" id="price"><div class="wrap">
   <h2>Понятный прайс</h2>
   <p class="lead" style="margin-bottom:1.25rem">Базовые работы. Точная сумма — после диагностики, без «накруток по ходу».</p>
-  <div class="price-table">
+  <div class="price-table rv">
     <details class="price-group" open><summary>Диагностика <span style="color:var(--sec);font-weight:500">3</span></summary>
       <div class="row"><span>Компьютерная диагностика</span><b>от 1 500 ₽</b></div>
       <div class="row"><span>Ходовая</span><b>от 1 200 ₽</b></div>
@@ -171,13 +285,13 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 
 
 <section class="sec" id="works"><div class="wrap">
   <h2>Гарантия и живые работы</h2>
-  <p class="lead" style="margin-bottom:1.5rem">Не стоковые фото. Реальные машины с Нефтяной — плейсхолдеры до замены.</p>
-  <div class="grid-3" style="margin-bottom:1.5rem">
+  <p class="lead" style="margin-bottom:1.5rem">Здесь будут фото реальных работ с Нефтяной — пока плейсхолдеры до замены.</p>
+  <div class="grid-3" style="margin-bottom:1.5rem" data-stagger>
     <div class="card"><div class="mark">✓ Гарантия на работы</div><p style="color:var(--sec);font-size:.92rem">До 6 месяцев или 10 000 км (что раньше) — уточним при записи.</p></div>
     <div class="card"><div class="mark">✓ Согласование сметы</div><p style="color:var(--sec);font-size:.92rem">Ничего лишнего без вашего «ок».</p></div>
     <div class="card"><div class="mark">✓ Оригинал / аналог</div><p style="color:var(--sec);font-size:.92rem">Говорим, что ставим, до установки.</p></div>
   </div>
-  <div class="gallery">
+  <div class="gallery" data-stagger>
     <div class="ph">Honda CR-V — сайлентблоки</div>
     <div class="ph">Toyota Camry — проводка</div>
     <div class="ph">Kia Sportage — ТО + тормоза</div>
@@ -200,20 +314,107 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 
   </div>
 </div></section>
 </main>
-<footer class="footer"><div class="wrap">© ZBS Авто · Томск · Нефтяная 1в ст1 · Запись онлайн · Диагностика · Ремонт с гарантией</div></footer>
+<footer class="footer"><div class="wrap">© ZBS Авто · Томск · Нефтяная 1в ст1 · <a href="tel:+73822501505">+7 (3822) 50-15-05</a><p class="lv-credit">Фото в первом экране — иллюстрация: Artem Podrez / <a href="https://www.pexels.com/photo/mechanic-repairing-engine-8985461/" target="_blank" rel="noopener">Pexels</a> (Pexels License), «Mechanic Repairing Engine».</p><p class="concept-note">Это концепт. С вашими фото и правками будет ещё лучше</p><div class="demo-badge">Демо-версия сайта от Suiweb</div></div></footer>
 <div class="sticky">
+  <a class="btn btn-ghost" href="tel:+73822501505" aria-label="Позвонить +7 (3822) 50-15-05">Звонок</a>
   <a class="btn btn-primary" href="#zapis">Запись</a>
   <a class="btn btn-wa" href="https://wa.me/73822501505" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 <script>
-document.querySelectorAll('.svc').forEach(el=>el.addEventListener('click',()=>{
-  document.querySelectorAll('.svc').forEach(x=>x.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('service').value=el.dataset.svc;
-}));
-const form=document.getElementById('form'), ok=document.getElementById('ok');
-document.getElementById('date').min=new Date().toISOString().slice(0,10);
-form.addEventListener('submit',e=>{e.preventDefault();form.style.display='none';ok.classList.add('show')});
+window.LV_HOOKS={ticketExtra:function(){return [["Где","Томск, Нефтяная 1в ст1"]]}};
+</script>
+<script>
+/* ===== live layer engine (Suiweb demo; ничего не отправляет) ===== */
+(function(){
+var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.remove('no-js');
+var H=window.LV_HOOKS||{};
+/* reveal */
+var rvs=[].slice.call(document.querySelectorAll('.rv'));
+[].forEach.call(document.querySelectorAll('[data-stagger]'),function(g){[].forEach.call(g.children,function(c,i){if(!c.classList.contains('rv')){c.classList.add('rv');rvs.push(c)}c.style.setProperty('--d',(i%3)*0.08+'s')})});
+[].forEach.call(document.querySelectorAll('.lv-copy .rv'),function(e,i){e.style.setProperty('--d',i*0.08+'s')});
+var io=null;
+if(RM||!('IntersectionObserver' in window)){rvs.forEach(function(e){e.classList.add('in')})}
+else{io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});rvs.forEach(function(e){io.observe(e)})}
+/* nav shadow, sticky hide over booking, hero parallax */
+var nav=document.querySelector('.nav'),sticky=document.querySelector('.sticky'),bk=document.querySelector('[data-lv-book]');
+var par=document.querySelector('[data-parallax]'),fl=[].slice.call(document.querySelectorAll('[data-float]')),tick=false;
+function onScroll(){var y=window.scrollY||0;if(nav)nav.classList.toggle('scrolled',y>8);
+ if(sticky&&bk){var r=bk.getBoundingClientRect();sticky.classList.toggle('hide',r.top<window.innerHeight*.85&&r.bottom>window.innerHeight*.25)}
+ if(!RM&&par&&y<window.innerHeight*1.2){par.style.transform='translate3d(0,'+(y*0.06)+'px,0)';var img=par.querySelector('img');if(img)img.style.transform='translate3d(0,'+(-y*0.08)+'px,0)';fl.forEach(function(f){var k=parseFloat(f.getAttribute('data-float')||1);f.style.transform='translate3d(0,'+(-y*0.12*k)+'px,0)'})}
+ tick=false}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+if(!bk)return;
+/* ===== wizard ===== */
+var panes=[].slice.call(bk.querySelectorAll('[data-pane]')),N=panes.length,step=1,S={},order=[];
+var RUd=['вс','пн','вт','ср','чт','пт','сб'],RUm=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'],RUw=['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+function q(s,r){return (r||bk).querySelector(s)}function qa(s,r){return [].slice.call((r||bk).querySelectorAll(s))}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fmtDate(d){return d.getDate()+' '+RUm[d.getMonth()]+', '+RUw[d.getDay()]}
+function paneOf(el){var p=el.closest('[data-pane]');return p?+p.getAttribute('data-pane'):step}
+function set(k,l,v){if(v===''||v==null){if(k in S){delete S[k];order.splice(order.indexOf(k),1)}}else{if(!(k in S))order.push(k);S[k]={l:l,v:v}}renderSummary();if(H.onSet)H.onSet(k,v,S)}
+function rows(){return order.filter(function(k){return S[k]&&!S[k].hide}).map(function(k){return [S[k].l,S[k].v]})}
+function renderSummary(){var box=document.querySelector('[data-lv-summary]');if(!box)return;var r=rows();box.hidden=!r.length||step===N;box.querySelector('[data-lv-sum-rows]').innerHTML=r.map(function(x){return '<div class="lv-r"><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></div>'}).join('')}
+function go(n,back){step=n;bk.setAttribute('data-step',n);
+ panes.forEach(function(p){var on=+p.getAttribute('data-pane')===n;p.hidden=!on;if(on){p.classList.toggle('back',!!back);p.style.animation='none';void p.offsetHeight;p.style.animation=''}});
+ var cur=q('[data-pane="'+n+'"]');
+ q('[data-lv-title]').textContent=cur.getAttribute('data-title')||'';q('[data-lv-n]').textContent=n;q('[data-lv-total]').textContent=N;q('[data-lv-bar]').style.width=(n/N*100)+'%';
+ q('[data-lv-back]').hidden=(n===1||n===N);
+ if(cur.querySelector('[data-lv-days]'))buildDays(cur);
+ renderSummary();if(H.onGo)H.onGo(n,S);
+ var f=cur.querySelector('button:not([disabled]),input');if(n>1&&f&&document.activeElement&&bk.contains(document.activeElement)){try{f.focus({preventScroll:true})}catch(e){}}}
+function choose(o,immediate){var g=o.closest('[data-group]')||o.closest('[data-pane]');qa('.lv-opt',g).forEach(function(x){x.classList.toggle('sel',x===o)});
+ var v=o.getAttribute('data-v'),pr=o.getAttribute('data-price');set(o.getAttribute('data-k'),o.getAttribute('data-kl')||'',pr?v+' · '+pr.replace(/ /g,'\u00a0'):v);
+ if(o.hasAttribute('data-stay'))return;var nx=paneOf(o)+1;if(immediate||RM)go(nx);else setTimeout(function(){go(nx)},220)}
+qa('.lv-opt[data-k]').forEach(function(o){o.addEventListener('click',function(){choose(o)})});
+qa('[data-lv-next]').forEach(function(b){b.addEventListener('click',function(){if(H.beforeNext&&H.beforeNext(step,S)===false)return;go(step+1)})});
+/* days & slots: data-hours='{"d":[9,21],"0":[10,19]}' (конец — последний час работы), null = выходной; либо data-slot-list */
+var hours={};try{hours=JSON.parse(bk.getAttribute('data-hours')||'{}')}catch(e){}
+var slotList=(bk.getAttribute('data-slot-list')||'').split(',').filter(Boolean),stepMin=+(bk.getAttribute('data-step-min')||60),nDays=+(bk.getAttribute('data-days')||12);
+function hoursFor(d){var k=String(d.getDay());return (k in hours)?hours[k]:(hours.d||[9,20])}
+function hash(s){var h=7;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h}
+function buildDays(pane){var wrap=q('[data-lv-days]',pane);if(wrap.childElementCount)return;var now=new Date(),first=null;
+ for(var i=0;i<nDays;i++){var d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i),hh=slotList.length?[1,1]:hoursFor(d);var b=document.createElement('button');b.type='button';b.className='lv-day'+(hh?'':' off');
+  b.innerHTML='<small>'+(i===0?'сегодня':i===1?'завтра':RUd[d.getDay()])+'</small><b>'+d.getDate()+'</b><small>'+(hh?RUm[d.getMonth()].slice(0,3):'вых.')+'</small>';
+  b._d=d;b.addEventListener('click',function(){selectDay(this,pane)});wrap.appendChild(b);if(hh&&!first&&!(i===0&&daySlots(d).every(function(s){return s.busy})))first=b}
+ selectDay(first||wrap.children[0],pane)}
+function daySlots(d){var out=[],now=new Date(),isToday=d.toDateString()===now.toDateString(),list=[];
+ if(slotList.length)list=slotList.slice();else{var hh=hoursFor(d);if(!hh)return [];for(var m=hh[0]*60;m<hh[1]*60;m+=stepMin)list.push(Math.floor(m/60)+':'+(m%60<10?'0':'')+(m%60))}
+ var key=d.toDateString()+JSON.stringify(order.map(function(k){return S[k]&&S[k].v}));
+ list.forEach(function(t){var p=t.split(':'),mins=+p[0]*60+(+p[1]);var past=isToday&&mins<now.getHours()*60+now.getMinutes()+60;out.push({t:t,busy:past||(hash(key+t)%10<3)})});return out}
+function selectDay(b,pane){qa('.lv-day',pane).forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+ var sl=q('[data-lv-slots]',pane);sl.innerHTML='';var list=daySlots(b._d);
+ list.forEach(function(it,i){var s=document.createElement('button');s.type='button';s.className='lv-slot';s.textContent=it.t;s.style.setProperty('--i',i);if(it.busy){s.disabled=true;s.setAttribute('aria-label',it.t+' занято')}
+  s.addEventListener('click',function(){qa('.lv-slot',pane).forEach(function(x){x.classList.remove('on')});this.classList.add('on');set(pane.getAttribute('data-when-k')||'when',pane.getAttribute('data-when-l')||'Когда',fmtDate(b._d)+', '+this.textContent);var nx=paneOf(this)+1;setTimeout(function(){go(nx)},RM?0:260)});sl.appendChild(s)});
+ if(!list.some(function(x){return !x.busy}))sl.innerHTML='<p class="lv-note" style="grid-column:1/-1">'+(list.length?'На этот день свободного времени нет — выберите другой.':'Выходной — выберите другой день.')+'</p>'}
+/* form */
+var form=q('form[data-pane]'),tel=form&&q('input[type=tel]',form);
+if(tel)tel.addEventListener('input',function(){var d=tel.value.replace(/\D/g,'');if(d[0]==='8')d='7'+d.slice(1);if(d&&d[0]!=='7')d='7'+d;d=d.slice(0,11);var o='+7';if(d.length>1)o+=' '+d.slice(1,4);if(d.length>4)o+=' '+d.slice(4,7);if(d.length>7)o+='-'+d.slice(7,9);if(d.length>9)o+='-'+d.slice(9,11);tel.value=d?o:'';tel.classList.remove('bad')});
+if(form){qa('input,textarea',form).forEach(function(i){i.addEventListener('input',function(){i.classList.remove('bad')})});
+ form.addEventListener('submit',function(e){e.preventDefault();var bad=null;
+  qa('[required]',form).forEach(function(i){var ok=i.type==='tel'?i.value.replace(/\D/g,'').length===11:i.value.trim().length>1;i.classList.toggle('bad',!ok);if(!ok&&!bad)bad=i});
+  if(bad){bad.focus();return}
+  qa('[data-k]',form).forEach(function(i){if(i.type==='checkbox')return;set(i.getAttribute('data-k'),i.getAttribute('data-kl')||'',i.value.trim())});
+  var btn=q('[data-lv-submit]',form),sp=btn.querySelector('span'),t0=sp.textContent;btn.classList.add('loading');sp.textContent='Отправляем…';
+  setTimeout(function(){btn.classList.remove('loading');sp.textContent=t0;done()},RM?0:700)})}
+function done(){var nm=(q('[data-lv-name]')||{value:''}).value.trim(),tv=tel?tel.value:'';
+ var extra=H.ticketExtra?H.ticketExtra(S):[];var all=rows().concat(extra);
+ q('[data-lv-done-h]').textContent=(nm?nm+', ':'')+'заявка принята';
+ q('[data-lv-ticket]').innerHTML=all.concat([['Телефон',tv]]).map(function(r){return '<div class="lv-r"><span>'+esc(r[0])+'</span><strong>'+esc(r[1])+'</strong></div>'}).join('');
+ q('[data-lv-tg]').innerHTML=esc(bk.getAttribute('data-tg-title')||'Новая заявка с сайта')+'<br>'+all.map(function(r){return esc(r[0])+': <b>'+esc(r[1])+'</b>'}).join('<br>')+'<br>'+esc(nm)+', '+esc(tv);
+ var wa=q('[data-lv-wa]');if(wa){var dg=H.waDigits?H.waDigits(S):bk.getAttribute('data-wa');if(dg){wa.hidden=false;wa.href='https://wa.me/'+dg+'?text='+encodeURIComponent('Здравствуйте! '+(bk.getAttribute('data-wa-intro')||'Заявка с сайта')+': '+all.map(function(r){return r[0]+' — '+r[1]}).join('; ')+'. '+nm)}else wa.hidden=true}
+ if(H.onDone)H.onDone(S);go(N);var p=q('[data-pane="'+N+'"]');try{p.focus({preventScroll:true})}catch(e){}}
+q('[data-lv-again]').addEventListener('click',function(){var keep=H.keepOnAgain||[];order.slice().forEach(function(k){if(keep.indexOf(k)<0){delete S[k];order.splice(order.indexOf(k),1)}});if(form)form.reset();qa('[data-lv-days]').forEach(function(w){w.innerHTML=''});qa('.lv-opt').forEach(function(o){if(keep.indexOf(o.getAttribute('data-k'))<0)o.classList.remove('sel')});if(H.onAgain)H.onAgain(S);go(1,true)});
+q('[data-lv-back]').addEventListener('click',function(){go(step-1,true)});
+/* внешние триггеры: карточки услуг/прайса */
+[].forEach.call(document.querySelectorAll('[data-lv-pick]'),function(el){el.addEventListener('click',function(){var k=el.getAttribute('data-lv-pick'),v=el.getAttribute('data-v');var o=v&&bk.querySelector('.lv-opt[data-k="'+k+'"][data-v="'+v.replace(/"/g,'\\"')+'"]');if(o)choose(o,true);else go(1)})});
+window.LV={set:set,go:go,S:S,choose:choose,step:function(){return step}};
+go(1);
+})();
+
+</script>
+<script>
+
 </script>
 </body>
 </html>

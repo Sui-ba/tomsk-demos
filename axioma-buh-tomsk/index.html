@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="no-js">
 <head>
+<!-- suiweb live layer · motion + step wizard -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Аксиома — бухгалтерские услуги для ИП и ООО в Томске</title>
@@ -94,6 +95,153 @@ footer{background:var(--gr);color:#A9A3A4;font-size:.88rem;padding:2rem 0 1.5rem
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:.5rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(0,0,0,.06)}
 .sticky .btn{flex:1;min-height:48px;padding:.6rem .5rem}
 @media(min-width:960px){.sticky{display:none}body{padding-bottom:0}}
+:root{--L-acc:#FD4F00;--L-acc-ink:#C93E00;--L-on:#fff;--L-bg:#F4F5F7;--L-card:#fff;--L-line:#E3E5EA;--L-text:#231F20;--L-mute:#62656C;--L-chip:#FFF0E8;--L-ring:rgba(253,79,0,.22);--L-r1:12px;--L-r2:22px;--L-fh:Onest,system-ui,sans-serif}
+/* ===== live: motion & interaction layer (Suiweb) ===== */
+[hidden]{display:none!important}
+:root{--ease:cubic-bezier(.22,.8,.24,1)}
+.nav{transition:box-shadow .3s var(--ease),background .3s}
+.nav.scrolled{box-shadow:0 10px 28px -18px rgba(0,0,0,.45)}
+.btn:focus-visible,.lv-opt:focus-visible,.lv-chip:focus-visible,.lv-day:focus-visible,.lv-stp button:focus-visible,.lv-link:focus-visible{outline:3px solid var(--L-ring);outline-offset:2px}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+/* hero photo */
+.lv-visual{position:relative;max-width:540px;width:100%;margin-inline:auto;justify-self:center}
+.lv-photo{border-radius:var(--L-r2);overflow:hidden;aspect-ratio:5/5.6;box-shadow:0 2px 4px rgba(0,0,0,.06),0 26px 50px -22px rgba(0,0,0,.45);background:var(--L-bg);will-change:transform}
+.lv-photo img{width:100%;height:115%;object-fit:cover;display:block;max-width:none;animation:lvkb 1.6s var(--ease) both;will-change:transform}
+@keyframes lvkb{from{transform:scale(1.08);opacity:.001}to{transform:scale(1);opacity:1}}
+.lv-float{position:absolute;background:rgba(255,255,255,.9);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.7);border-radius:18px;box-shadow:0 2px 4px rgba(0,0,0,.06),0 22px 40px -18px rgba(0,0,0,.4);color:var(--L-text);will-change:transform}
+.lv-fc-a{left:-1.8rem;bottom:1.4rem;width:min(300px,80%);padding:.9rem 1.05rem .5rem}
+.lv-fc-b{right:-1rem;top:1.3rem;display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem}
+.lv-fc-b b{font-family:var(--L-fh);font-weight:800;font-size:1.65rem;color:var(--L-acc-ink);line-height:1}
+.lv-fc-b span{font-size:.78rem;color:var(--L-mute);line-height:1.25}
+.lv-fc-h{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--L-mute);margin-bottom:.15rem}
+.lv-row{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;padding:.5rem 0;border-top:1px dashed var(--L-line);font-size:.9rem}
+.lv-fc-h+.lv-row{border-top:0}
+.lv-row b{font-family:var(--L-fh);color:var(--L-acc-ink);white-space:nowrap}
+@media(max-width:959px){.lv-fc-a{left:.8rem}.lv-fc-b{right:.8rem}.lv-photo{aspect-ratio:4/3.2}}
+@media(max-width:600px){.lv-photo{aspect-ratio:16/11}.lv-fc-a{display:none}.lv-fc-b{top:.8rem;right:.8rem}}
+/* wizard */
+.lv-book{position:relative;overflow:hidden;background:var(--L-card);color:var(--L-text);border:var(--L-bw,1px) solid var(--L-bc,var(--L-line));border-radius:var(--L-r2);padding:clamp(1.2rem,3.5vw,2.1rem);box-shadow:var(--L-shadow,0 1px 2px rgba(0,0,0,.05),0 18px 40px -22px rgba(0,0,0,.3));min-width:0}
+.lv-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.6rem}
+.lv-title{font-family:var(--L-fh);font-weight:800;font-size:1.15rem}
+.lv-count{font-size:.82rem;color:var(--L-mute);font-weight:700;white-space:nowrap}
+.lv-bar{height:4px;border-radius:9px;background:var(--L-line);overflow:hidden;margin-bottom:.9rem}
+.lv-bar i{display:block;height:100%;width:25%;background:var(--L-acc);border-radius:inherit;transition:width .5s var(--ease)}
+.lv-crumbs{display:flex;flex-wrap:wrap;gap:.35rem;min-height:0;margin-bottom:.9rem}
+.lv-crumbs:empty{display:none}
+.lv-crumbs span{font-size:.76rem;font-weight:700;padding:.25rem .6rem;border-radius:999px;background:var(--L-chip);color:var(--L-acc-ink);animation:lvPop .3s var(--ease) both}
+.lv-pane{animation:lvIn .45s var(--ease) both}
+.lv-pane.back{animation-name:lvBack}
+@keyframes lvIn{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+@keyframes lvBack{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+@keyframes lvPop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+.lv-q{font-weight:700;font-size:.96rem;margin:0 0 .6rem}
+.lv-q+.lv-q,.lv-gap{margin-top:1.1rem}
+.lv-opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.lv-opts.c1{grid-template-columns:1fr}
+@media(max-width:380px){.lv-opts{grid-template-columns:1fr}}
+.lv-opt{position:relative;text-align:left;font:inherit;color:var(--L-text);background:var(--L-bg);border:1.5px solid var(--L-line);border-radius:var(--L-r1);padding:.8rem .9rem;cursor:pointer;display:flex;flex-direction:column;gap:.1rem;min-width:0;transition:border-color .2s,transform .2s var(--ease),box-shadow .25s var(--ease),background .2s}
+.lv-opt b{font-size:.96rem}.lv-opt small{color:var(--L-mute);font-size:.8rem;line-height:1.35}
+.lv-opt em{font-style:normal;font-family:var(--L-fh);font-weight:800;color:var(--L-acc-ink);margin-top:.25rem}
+.lv-opt:hover{border-color:var(--L-acc);transform:translateY(-2px);box-shadow:0 10px 22px -14px rgba(0,0,0,.35)}
+.lv-opt:active{transform:scale(.98)}
+.lv-opt.sel{border-color:var(--L-acc);background:var(--L-chip)}
+.lv-opt.sel::after{content:"✓";position:absolute;top:.55rem;right:.7rem;width:22px;height:22px;border-radius:50%;background:var(--L-acc);color:var(--L-on);display:grid;place-items:center;font-size:.75rem;font-weight:800;animation:lvPop .25s var(--ease) both}
+.lv-chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.lv-chip,.lv-day{font:inherit;font-weight:600;font-size:.9rem;border:1.5px solid var(--L-line);background:var(--L-card);color:var(--L-text);border-radius:999px;padding:.5rem .9rem;cursor:pointer;transition:all .2s var(--ease)}
+.lv-chip:hover,.lv-day:hover{border-color:var(--L-acc)}
+.lv-chip:active,.lv-day:active{transform:scale(.96)}
+.lv-chip.on,.lv-day.on{background:var(--L-acc);border-color:var(--L-acc);color:var(--L-on)}
+.lv-days{display:flex;gap:.45rem;overflow-x:auto;padding:.2rem .25rem .5rem;margin-inline:-.25rem;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.lv-day{flex:none;border-radius:14px;padding:.45rem .65rem;min-width:62px;text-align:center;scroll-snap-align:start;display:flex;flex-direction:column;line-height:1.2}
+.lv-day small{font-size:.7rem;color:var(--L-mute);font-weight:600;text-transform:uppercase}
+.lv-day b{font-family:var(--L-fh);font-size:1.12rem}
+.lv-day.on small{color:inherit;opacity:.85}
+.lv-rng{display:grid;gap:.45rem}
+.lv-rng label{display:flex;justify-content:space-between;gap:1rem;font-weight:700;font-size:.92rem}
+.lv-rng output{font-family:var(--L-fh);font-weight:800;color:var(--L-acc-ink)}
+.lv-rng input[type=range]{width:100%;accent-color:var(--L-acc);padding:0;border:0;background:none;min-height:28px}
+.lv-res{margin-top:1rem;background:var(--L-chip);border-radius:var(--L-r1);padding:1rem 1.1rem}
+.lv-res small{display:block;color:var(--L-mute);font-size:.82rem}
+.lv-big{font-family:var(--L-fh);font-weight:800;font-size:clamp(1.45rem,4.5vw,2.05rem);color:var(--L-acc-ink);line-height:1.15;margin:.2rem 0;font-variant-numeric:tabular-nums}
+.lv-big.flash{animation:lvPop .3s var(--ease)}
+.lv-stp{display:inline-flex;align-items:center;border:1.5px solid var(--L-line);border-radius:999px;overflow:hidden;background:var(--L-card)}
+.lv-stp button{font:inherit;font-weight:800;font-size:1.1rem;width:44px;height:44px;border:0;background:transparent;color:var(--L-text);cursor:pointer;transition:background .2s}
+.lv-stp button:hover{background:var(--L-chip)}
+.lv-stp output{min-width:3.2rem;text-align:center;font-family:var(--L-fh);font-weight:800;font-size:1.1rem}
+.lv-book form.lv-form{background:none;border:0;border-radius:0;box-shadow:none;padding:0;display:grid;gap:.9rem}
+.lv-two{display:grid;gap:.9rem}
+@media(min-width:640px){.lv-two{grid-template-columns:1fr 1fr}}
+.lv-book .lv-f{display:block;font-size:.8rem;font-weight:700;color:var(--L-mute)}
+.lv-book .lv-f span{display:block;margin-bottom:.35rem}
+.lv-book .lv-f input,.lv-book .lv-f textarea{width:100%;font:inherit;font-size:16px;color:var(--L-text);background:var(--L-bg);border:1.5px solid var(--L-line);border-radius:12px;padding:.8rem .95rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.lv-book .lv-f textarea{min-height:84px;resize:vertical}
+.lv-book .lv-f input:focus,.lv-book .lv-f textarea:focus{border-color:var(--L-acc);box-shadow:0 0 0 3px var(--L-ring);outline:none}
+.lv-book input.bad{border-color:#D9534F!important;box-shadow:0 0 0 3px rgba(217,83,79,.15)!important;animation:lvShake .3s}
+@keyframes lvShake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.lv-err{color:#C0392B;font-size:.86rem;font-weight:600;margin-top:.7rem}
+.lv-err:empty{display:none}
+.lv-note{font-size:.78rem;color:var(--L-mute);margin-top:.7rem;line-height:1.45}
+.lv-acts{display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;margin-top:1.1rem}
+.lv-acts .btn{min-height:48px}
+.lv-link{background:none;border:0;font:inherit;font-size:.9rem;font-weight:700;color:var(--L-mute);cursor:pointer;padding:.3rem 0;transition:color .2s}
+.lv-link:hover{color:var(--L-acc-ink)}
+.btn.loading{pointer-events:none;filter:saturate(.7)}
+.btn.loading svg{animation:lvFly .7s var(--ease) infinite alternate}
+@keyframes lvFly{to{transform:translate(3px,-3px)}}
+.lv-done{text-align:center}
+.lv-check{width:64px;height:64px;margin:.2rem auto .8rem}
+.lv-check circle{stroke:var(--L-acc);stroke-width:3;stroke-dasharray:151;stroke-dashoffset:151;animation:lvDraw .6s var(--ease) forwards}
+.lv-check path{stroke:var(--L-acc);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:36;stroke-dashoffset:36;animation:lvDraw .35s .45s var(--ease) forwards}
+@keyframes lvDraw{to{stroke-dashoffset:0}}
+.lv-done h3{font-family:var(--L-fh);font-size:1.3rem}
+.lv-done-sub{color:var(--L-mute);margin-top:.3rem}
+.lv-ticket{margin:1rem 0;text-align:left;background:var(--L-bg);border:1px solid var(--L-line);border-radius:14px;padding:.35rem 1rem}
+.lv-sr{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-top:1px dashed var(--L-line);font-size:.92rem}
+.lv-sr:first-child{border-top:0}.lv-sr span{color:var(--L-mute)}.lv-sr strong{text-align:right;overflow-wrap:anywhere}
+.lv-tg{margin-top:.6rem;text-align:left;font-size:.9rem}
+.lv-tg summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:.55rem;font-weight:800;color:var(--L-text)}
+.lv-tg summary::-webkit-details-marker{display:none}
+.lv-tg summary small{font-weight:600;color:var(--L-mute)}
+.lv-dot{width:9px;height:9px;border-radius:50%;background:#2AABEE;box-shadow:0 0 0 0 rgba(42,171,238,.5);animation:lvPulse 2s infinite;flex:none}
+@keyframes lvPulse{70%{box-shadow:0 0 0 8px rgba(42,171,238,0)}100%{box-shadow:0 0 0 0 rgba(42,171,238,0)}}
+.lv-tgm{margin-top:.7rem;background:#EEF3F7;border-radius:14px;padding:.7rem .85rem;color:#1F2A37;line-height:1.5;animation:lvIn .35s var(--ease) both}
+.lv-tgh{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}.lv-tgh small{margin-left:auto;color:#5B6878;font-size:.74rem}
+.lv-av{width:26px;height:26px;border-radius:50%;background:#2AABEE;color:#fff;display:grid;place-items:center;font-weight:800;font-size:.66rem}
+.lv-demo-n{font-size:.78rem;color:var(--L-mute);margin-top:.9rem}
+.sticky{transition:transform .35s var(--ease)}
+.sticky.lv-hide{transform:translateY(110%)}
+.lv-concept{display:block;margin:1rem auto 0;width:fit-content;max-width:100%;text-align:center;font-size:.85rem;font-weight:600;padding:.5rem 1rem;border-radius:999px;border:1px dashed currentColor;opacity:.9}
+.lv-credit{font-size:.78rem;opacity:.75;margin-top:.8rem}
+.lv-credit a{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+ .rv{opacity:1;transform:none}
+ [data-parallax],[data-float],.lv-photo img{transform:none!important}
+}
+.lv-cgrid{display:grid;gap:2rem;align-items:start}
+@media(min-width:900px){.lv-cgrid{grid-template-columns:.95fr 1.05fr}}
+.lv-pts{list-style:none;display:grid;gap:.55rem;margin-top:1.3rem}
+.lv-pts li{display:flex;gap:.55rem;align-items:flex-start;font-weight:600}
+.lv-pts li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.72rem;font-weight:800;background:var(--L-chip);color:var(--L-acc-ink);margin-top:.1rem}
+.lv-cta-card{background:var(--L-card);color:var(--L-text);border:var(--L-bw,1px) solid var(--L-bc,var(--L-line));border-radius:var(--L-r2);padding:1.6rem;display:grid;gap:.8rem;align-content:start}
+.lv-cta-card p{color:var(--L-mute)}
+.lv-cta-card .btn{width:100%}
+.lv-rec{font-size:.68rem!important;font-weight:800;color:var(--L-acc-ink)!important;text-transform:uppercase;letter-spacing:.05em}
+body{overflow-x:clip}
+#order,#trial,#form,#request,.lv-cgrid>*{min-width:0}
+.lv-pane{min-width:0}.lv-days{max-width:100%}
+
+.btn{transition:transform .18s var(--ease),box-shadow .25s var(--ease),background .2s,border-color .2s,color .2s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.97);transition-duration:.06s}
+.btn-or{box-shadow:0 6px 18px -8px rgba(253,79,0,.7)}.btn-or:hover{box-shadow:0 10px 24px -10px rgba(253,79,0,.85)}
+.card{transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(35,31,32,.35);border-color:#F4C2A8}
+.card .ico{transition:transform .35s var(--ease)}.card:hover .ico{transform:rotate(-8deg) scale(1.08)}
+.pk .card .btn{margin-top:.9rem}
+.lv-fc-b b{font-family:"IBM Plex Mono",monospace;font-size:1.25rem}
+
 </style>
 </head>
 <body>
@@ -107,29 +255,26 @@ footer{background:var(--gr);color:#A9A3A4;font-size:.88rem;padding:2rem 0 1.5rem
 <main id="top">
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div data-hero-copy>
       <span class="tag">Бухгалтерские услуги · Томск</span>
       <h1>Бухгалтерия для ИП и ООО <span>под ключ</span></h1>
       <p class="lead">Ведём учёт, сдаём отчётность в ИФНС и фонды, считаем зарплату, отпускные и больничные. Офис — ул. Яковлева, 71.</p>
       <div class="cta"><a class="btn btn-or" href="#calc">Рассчитать стоимость</a><a class="btn btn-out" href="tel:+79138500769">+7 (913) 850-07-69</a></div>
       <div class="rate"><b>550–700 ₽</b><small>за чел./час — стоимость бухгалтерского сопровождения по трудозатратам</small></div>
     </div>
-    <div class="sheet" aria-hidden="true">
-      <div class="sheet-h"><div class="dots"><i></i><i></i><i></i></div><span class="mono">отчётность.xlsx</span></div>
-      <div class="row"><span>Учёт операций</span><span class="st ok">ведём</span></div>
-      <div class="row"><span>Отчётность в ИФНС</span><span class="st ok">сдаём</span></div>
-      <div class="row"><span>Отчётность в фонды</span><span class="st ok">сдаём</span></div>
-      <div class="row"><span>Зарплата и отпускные</span><span class="st">считаем</span></div>
-      <div class="row"><span>Больничные</span><span class="st">считаем</span></div>
-    </div>
+<div class="lv-visual rv">
+ <div class="lv-photo" data-parallax><img src="assets/hero.jpg" width="1800" height="1200" alt="Рабочий стол бухгалтера: калькулятор и документы (иллюстрация)" fetchpriority="high"></div>
+ <div class="lv-float lv-fc-a" data-float><div class="lv-fc-h">Что берём на себя</div><div class="lv-row"><span>Учёт операций</span><b>ведём</b></div><div class="lv-row"><span>Отчётность в ИФНС и фонды</span><b>сдаём</b></div><div class="lv-row"><span>Зарплата, отпускные, больничные</span><b>считаем</b></div></div>
+ <div class="lv-float lv-fc-b" data-float="-1"><b>550–700 ₽</b><span>за чел./час<br>по трудозатратам</span></div>
+</div>
   </div>
 </section>
 
 <section class="sec" id="services">
   <div class="wrap">
-    <span class="tag">Что входит</span>
-    <h2>Услуги</h2>
-    <div class="grid g3" style="margin-top:1.6rem">
+    <span class="tag rv">Что входит</span>
+    <h2 class="rv">Услуги</h2>
+    <div class="grid g3" style="margin-top:1.6rem" data-stagger>
       <div class="card hl"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF7A3D" stroke-width="2"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg></div><h3>Бухгалтерское сопровождение</h3><p>Ведение учёта, оплата по фактическим трудозатратам.</p><div class="pr">550–700 ₽ / чел.‑час</div></div>
       <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FD4F00" stroke-width="2"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>Сдача отчётности</h3><p>Отчётность в ИФНС, ПФР и ФСС.</p><div class="pr q">Цена по запросу</div></div>
       <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FD4F00" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></div><h3>Расчёт зарплаты</h3><p>Зарплата, отпускные, больничные.</p><div class="pr q">Цена по запросу</div></div>
@@ -139,33 +284,69 @@ footer{background:var(--gr);color:#A9A3A4;font-size:.88rem;padding:2rem 0 1.5rem
 
 <section class="sec bg" id="packs">
   <div class="wrap">
-    <span class="tag">Пакеты</span>
-    <h2>Для ИП и для ООО</h2>
+    <span class="tag rv">Пакеты</span>
+    <h2 class="rv">Для ИП и для ООО</h2>
     <p class="lead">Стоимость пакета зависит от объёма операций и сотрудников — назовём после короткого разговора.</p>
-    <div class="pk" style="margin-top:1.6rem">
-      <div class="card"><h3>ИП</h3><ul><li>Учёт и налоги</li><li>Отчётность в ИФНС и фонды</li><li>Зарплата сотрудников — при наличии</li></ul><div class="pr q">Пакет: по запросу</div></div>
-      <div class="card"><h3>ООО</h3><ul><li>Бухгалтерский учёт</li><li>Отчётность в ИФНС и фонды</li><li>Зарплата, отпускные, больничные</li></ul><div class="pr q">Пакет: по запросу</div></div>
+    <div class="pk" style="margin-top:1.6rem" data-stagger>
+      <div class="card"><h3>ИП</h3><ul><li>Учёт и налоги</li><li>Отчётность в ИФНС и фонды</li><li>Зарплата сотрудников — при наличии</li></ul><div class="pr q">Пакет: по запросу</div><a class="btn btn-out" href="#calc" data-pick="ИП">Рассчитать для ИП</a></div>
+      <div class="card"><h3>ООО</h3><ul><li>Бухгалтерский учёт</li><li>Отчётность в ИФНС и фонды</li><li>Зарплата, отпускные, больничные</li></ul><div class="pr q">Пакет: по запросу</div><a class="btn btn-out" href="#calc" data-pick="ООО">Рассчитать для ООО</a></div>
     </div>
   </div>
 </section>
 
 <section class="sec" id="calc">
-  <div class="wrap">
-    <div class="calc">
-      <div>
-        <span class="tag">Предварительный расчёт</span>
-        <h2>Сколько будет стоить</h2>
-        <p class="lead">Ориентир по ставке 550–700 ₽ за час работы бухгалтера. Укажите, сколько часов в месяц примерно нужно — точный объём оценим вместе.</p>
-        <div class="field"><label for="hrs">Часов в месяц <output id="hrsO">10</output></label><input id="hrs" type="range" min="1" max="80" value="10"></div>
-        <div class="field"><label>Форма бизнеса</label><div class="seg" id="seg"><button type="button" aria-pressed="true">ИП</button><button type="button" aria-pressed="false">ООО</button></div></div>
-      </div>
-      <div class="res" aria-live="polite">
-        <small>Ориентир в месяц</small>
-        <div class="big" id="sum">5 500 – 7 000 ₽</div>
-        <small id="sumNote">ИП · 10 ч × 550–700 ₽. Не оферта — итог зависит от объёма операций.</small>
-        <a class="btn btn-or" href="#form" style="width:100%;margin-top:1.2rem">Получить точный расчёт</a>
-      </div>
+  <div class="wrap lv-cgrid">
+    <div class="rv">
+      <span class="tag">Расчёт и заявка</span>
+      <h2>Сколько будет стоить бухгалтерия</h2>
+      <p class="lead">Четыре шага: форма бизнеса, задачи, примерный объём в часах и контакты. Ориентир считаем по ставке компании — 550–700 ₽ за чел./час, точный объём оценим вместе.</p>
+      <ul class="lv-pts"><li>Оплата по фактическим трудозатратам</li><li>Учёт, отчётность в ИФНС и фонды, зарплата</li><li>Офис: ул. Яковлева, 71, офис 310</li></ul>
     </div>
+    <div id="form"><div class="lv-book rv" id="lv-book" data-step="1">
+<div class="lv-top"><div class="lv-title" data-t></div><div class="lv-count"><span data-n>1</span>/5</div></div>
+<div class="lv-bar"><i data-bar></i></div>
+<div class="lv-crumbs" data-crumbs aria-live="polite"></div>
+<div class="lv-pane" data-pane="1" data-auto>
+ <p class="lv-q">Какая у вас форма бизнеса?</p>
+ <div class="lv-opts">
+  <button type="button" class="lv-opt" data-k="biz" data-v="ИП"><b>ИП</b><small>Учёт и налоги, отчётность, зарплата сотрудников — при наличии</small></button>
+  <button type="button" class="lv-opt" data-k="biz" data-v="ООО"><b>ООО</b><small>Бухучёт, отчётность в ИФНС и фонды, зарплата</small></button>
+ </div>
+</div><div class="lv-pane" data-pane="2" hidden>
+ <p class="lv-q">Что нужно? Можно выбрать несколько</p>
+ <div class="lv-opts c1" data-multi>
+  <button type="button" class="lv-opt" data-k="tasks" data-v="Бухгалтерское сопровождение" aria-pressed="false"><b>Бухгалтерское сопровождение</b><small>Ведение учёта, оплата по трудозатратам</small><em>550–700 ₽ / чел.‑час</em></button>
+  <button type="button" class="lv-opt" data-k="tasks" data-v="Сдача отчётности" aria-pressed="false"><b>Сдача отчётности</b><small>ИФНС, ПФР и ФСС</small><em>по запросу</em></button>
+  <button type="button" class="lv-opt" data-k="tasks" data-v="Расчёт зарплаты" aria-pressed="false"><b>Расчёт зарплаты</b><small>Зарплата, отпускные, больничные</small><em>по запросу</em></button>
+ </div>
+ <p class="lv-err" role="alert"></p><div class="lv-acts"><span></span><button type="button" class="btn btn-or" data-next>Далее →</button></div>
+</div><div class="lv-pane" data-pane="3" hidden>
+ <div class="lv-rng"><label for="lv-hrs">Часов работы бухгалтера в месяц <output id="lv-hrs-o">10</output></label><input id="lv-hrs" type="range" min="1" max="80" value="10" data-k="hrs"></div>
+ <div class="lv-chips lv-gap" data-multi><button type="button" class="lv-chip" data-k="unk" data-v="1" aria-pressed="false">Не знаю объём — оценим вместе</button></div>
+ <div class="lv-res" aria-live="polite"><small>Ориентир в месяц</small><div class="lv-big" id="lv-sum">5 500 – 7 000 ₽</div><small id="lv-sum-n"></small></div>
+ <p class="lv-err" role="alert"></p><div class="lv-acts"><span></span><button type="button" class="btn btn-or" data-next>Далее →</button></div>
+</div><form class="lv-pane lv-form" data-pane="4" hidden novalidate>
+ <div class="lv-two"><label class="lv-f"><span>Имя</span><input name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+ <label class="lv-f"><span>Телефон</span><input name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 ___ ___-__-__"></label></div>
+ <div><p class="lv-q" style="font-size:.85rem">Когда удобно перезвонить</p><div class="lv-chips"><button type="button" class="lv-chip" data-k="when" data-v="утром">Утром</button><button type="button" class="lv-chip" data-k="when" data-v="днём">Днём</button><button type="button" class="lv-chip" data-k="when" data-v="вечером">Вечером</button></div></div>
+ <label class="lv-f"><span>Комментарий</span><textarea data-k="msg" placeholder="Например: УСН, 3 сотрудника"></textarea></label>
+ <p class="lv-err" role="alert"></p>
+ <button class="btn btn-or" type="submit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span>Отправить заявку</span></button>
+ <p class="lv-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+</form>
+<div class="lv-pane lv-done" data-pane="5" hidden role="status" tabindex="-1">
+ <div class="lv-check"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none"/><path fill="none" d="M15 27l7 7 15-15"/></svg></div>
+ <h3 data-done-h>Заявка принята</h3>
+ <p class="lv-done-sub" data-done-sub></p>
+ <div class="lv-ticket" data-ticket></div>
+ <details class="lv-tg"><summary><span class="lv-dot"></span>Заявка ушла в Telegram <small>· показать</small></summary>
+  <div class="lv-tgm"><div class="lv-tgh"><span class="lv-av">АК</span><b>Аксиома · заявки</b><small>только что</small></div><div data-tg></div></div>
+ </details>
+ <div class="lv-acts" style="justify-content:center"><button type="button" class="btn btn-out" data-again>Новая заявка</button></div>
+ <p class="lv-demo-n">Это демо: данные никуда не отправляются.</p>
+</div>
+<div><button type="button" class="lv-link" data-back hidden>← Назад</button></div>
+</div></div>
   </div>
 </section>
 
@@ -173,36 +354,107 @@ footer{background:var(--gr);color:#A9A3A4;font-size:.88rem;padding:2rem 0 1.5rem
   <div class="wrap form-wrap">
     <div>
       <span class="tag">Контакты</span>
-      <h2>Обсудим вашу бухгалтерию</h2>
+      <h2 class="rv">Обсудим вашу бухгалтерию</h2>
       <div class="ci">
         <div><span>📍</span><p><small>Адрес</small><span>Томск, ул. Яковлева, 71, офис 310</span></p></div>
         <div><span>☎</span><p><small>Телефон</small><a href="tel:+79138500769">+7 (913) 850-07-69</a></p></div>
         <div><span>✉</span><p><small>Email</small><a href="mailto:axioma.tomsk@gmail.com">axioma.tomsk@gmail.com</a></p></div>
       </div>
     </div>
-    <form id="form" novalidate>
-      <h3 style="font-size:1.4rem">Заявка на расчёт</h3>
-      <label>Имя<input name="name" required autocomplete="name"></label>
-      <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7"></label>
-      <label>Форма бизнеса<select name="type"><option>ИП</option><option>ООО</option></select></label>
-      <label>Что нужно<textarea name="msg" rows="3" placeholder="Например: отчётность и зарплата на 3 сотрудников"></textarea></label>
-      <button class="btn btn-or" type="submit">Отправить</button>
-      <div class="ok" role="status"></div>
-    </form>
+    <div class="lv-cta-card rv"><h3 style="font-size:1.35rem">Удобнее поговорить?</h3><p>Позвоните — расскажем, как считается стоимость для ИП и ООО, и что нужно для старта.</p><a class="btn btn-or" href="tel:+79138500769">+7 (913) 850-07-69</a><a class="btn btn-out" href="#calc">Рассчитать стоимость</a></div>
   </div>
 </section>
 </main>
-<footer><div class="wrap f-in"><span>Аксиома · ООО «АСТ-ИНФОРМ» · Томск, ул. Яковлева, 71, оф. 310</span><a href="tel:+79138500769">+7 (913) 850-07-69</a></div></footer>
+<footer><div class="wrap f-in"><span>Аксиома · ООО «АСТ-ИНФОРМ» · Томск, ул. Яковлева, 71, оф. 310</span><a href="tel:+79138500769">+7 (913) 850-07-69</a></div><div class="wrap"><p class="lv-credit">Фото в первом экране — иллюстрация, не фото компании: <a href="https://www.pexels.com/photo/a-woman-computing-with-a-calculator-8296974/" target="_blank" rel="noopener">Mikhail Nilov / Pexels</a> (Pexels License).</p><p class="lv-concept">Это концепт. С вашими фото и правками будет ещё лучше</p></div></footer>
 <div class="demo">Демо-версия сайта от Suiweb</div>
 <div class="sticky"><a class="btn btn-out" href="tel:+79138500769">Позвонить</a><a class="btn btn-or" href="#form">Заявка</a></div>
 <script>
-var h=document.getElementById('hrs'),o=document.getElementById('hrsO'),s=document.getElementById('sum'),n=document.getElementById('sumNote'),type='ИП';
-function fmt(x){return x.toLocaleString('ru-RU').replace(/\u00a0/g,' ')}
-function calc(){var v=+h.value;o.textContent=v;s.textContent=fmt(v*550)+' – '+fmt(v*700)+' ₽';n.textContent=type+' · '+v+' ч × 550–700 ₽. Не оферта — итог зависит от объёма операций.'}
-h.addEventListener('input',calc);
-document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#seg button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');type=b.textContent;calc()})});
-calc();
-var f=document.getElementById('form');f.addEventListener('submit',function(e){e.preventDefault();var ok=f.querySelector('.ok');if(!f.elements['name'].value.trim()||!f.elements['phone'].value.trim()){ok.textContent='Укажите имя и телефон.';ok.style.background='#FFF0E8';ok.style.color='#9A3200';ok.classList.add('show');return}ok.textContent='Спасибо! Заявка принята (демо — никуда не отправлена).';ok.style.background='';ok.style.color='';ok.classList.add('show');f.reset()});
+(function(){
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.remove('no-js');
+var nav=document.querySelector('.nav'),sticky=document.querySelector('.sticky'),bk=document.getElementById('lv-book');
+/* reveal on scroll */
+var rvs=[].slice.call(document.querySelectorAll('.rv'));
+document.querySelectorAll('[data-stagger]').forEach(function(g){[].forEach.call(g.children,function(c,i){c.classList.add('rv');c.style.setProperty('--d',(i%3)*0.08+'s');rvs.push(c)})});
+document.querySelectorAll('[data-hero-copy] > *').forEach(function(e,i){e.classList.add('rv');e.style.setProperty('--d',i*0.08+'s');rvs.push(e)});
+var cnts=[].slice.call(document.querySelectorAll('[data-count]'));
+function countUp(el){if(el._done)return;el._done=1;var raw=el.textContent.trim(),comma=raw.indexOf(',')>-1,to=parseFloat(raw.replace(',','.'))||0,t0=null;
+ function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/900,1),v=(to*(1-Math.pow(1-p,3))).toFixed(1);el.textContent=comma?v.replace('.',','):v;if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+if(RM||!('IntersectionObserver' in window)){rvs.forEach(function(e){e.classList.add('in')})}
+else{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});rvs.forEach(function(e){io.observe(e)});
+ var cio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){countUp(en.target);cio.unobserve(en.target)}})},{threshold:.6});cnts.forEach(function(e){cio.observe(e)})}
+/* nav shadow, sticky hide over booking, parallax */
+var par=document.querySelector('[data-parallax]'),fl=[].slice.call(document.querySelectorAll('[data-float]')),tick=false;
+function onScroll(){var y=window.scrollY||0;if(nav)nav.classList.toggle('scrolled',y>8);
+ if(sticky&&bk){var r=bk.getBoundingClientRect();sticky.classList.toggle('lv-hide',r.top<window.innerHeight*.85&&r.bottom>window.innerHeight*.25)}
+ if(!RM&&par&&y<window.innerHeight*1.2){par.style.transform='translate3d(0,'+(y*0.06)+'px,0)';var img=par.querySelector('img');if(img)img.style.transform='translate3d(0,'+(-y*0.08)+'px,0)';fl.forEach(function(f){var k=parseFloat(f.getAttribute('data-float')||1);f.style.transform='translate3d(0,'+(-y*0.12*k)+'px,0)'})}
+ tick=false}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+/* ===== wizard engine ===== */
+window.LiveWizard=function(cfg){
+ var el=cfg.el,S=cfg.init(),step=1,N=cfg.titles.length,hist=[];
+ function q(s){return el.querySelector(s)}function qa(s,r){return [].slice.call((r||el).querySelectorAll(s))}
+ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+ function upd(){if(cfg.update)cfg.update(S,api);var cr=q('[data-crumbs]');if(cr&&cfg.crumbs){var c=step<N?cfg.crumbs(S).filter(Boolean):[];cr.innerHTML=c.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')}}
+ function go(n,back){if(!back&&n!==step)hist.push(step);step=n;el.setAttribute('data-step',n);
+  qa('[data-pane]').forEach(function(p){var on=+p.getAttribute('data-pane')===n;p.hidden=!on;if(on){p.classList.toggle('back',!!back);p.style.animation='none';void p.offsetHeight;p.style.animation=''}});
+  q('[data-t]').textContent=cfg.titles[n-1];q('[data-n]').textContent=n;q('[data-bar]').style.width=(n/N*100)+'%';
+  var b=q('[data-back]');if(b)b.hidden=(n===1||n===N);qa('.lv-err').forEach(function(e){e.textContent=''});
+  if(cfg.onGo)cfg.onGo(n,S,api);upd()}
+ function err(t){var p=q('[data-pane="'+step+'"]'),e=p&&p.querySelector('.lv-err');if(e){e.textContent=t||'';}return !t}
+ function next(){var m=cfg.validate?cfg.validate(step,S):'';if(m){err(m);return}var n=cfg.nextStep?cfg.nextStep(step,S):step+1;go(n)}
+ function set(k,v){S[k]=v;qa('.lv-opt[data-k="'+k+'"],.lv-chip[data-k="'+k+'"]').forEach(function(o){if(!o.closest('[data-multi]'))o.classList.toggle(o.classList.contains('lv-opt')?'sel':'on',o.getAttribute('data-v')===String(v))});upd()}
+ el.addEventListener('click',function(e){var t=e.target;
+  var o=t.closest('.lv-opt[data-k],.lv-chip[data-k],.lv-day[data-k]');
+  if(o){var k=o.getAttribute('data-k'),v=o.getAttribute('data-v'),grp=o.closest('[data-multi]');
+   if(grp){var a=S[k]||[];var i=a.indexOf(v);if(i>-1)a.splice(i,1);else a.push(v);S[k]=a;o.classList.toggle(o.classList.contains('lv-opt')?'sel':'on',i<0);o.setAttribute('aria-pressed',i<0?'true':'false')}
+   else{qa('[data-k="'+k+'"]').forEach(function(x){if(x!==o){x.classList.remove('sel','on');x.setAttribute('aria-pressed','false')}});o.classList.add(o.classList.contains('lv-opt')?'sel':'on');o.setAttribute('aria-pressed','true');S[k]=v;if(o.hasAttribute('data-x'))S[k+'X']=o.getAttribute('data-x')}
+   err('');upd();if(!grp&&o.closest('[data-auto]'))setTimeout(next,RM?0:260);return}
+  var sp=t.closest('[data-stp]');if(sp){var k2=sp.getAttribute('data-stp'),d=+sp.getAttribute('data-d'),box=sp.closest('.lv-stp'),mn=+box.getAttribute('data-min'),mx=+box.getAttribute('data-max');S[k2]=Math.max(mn,Math.min(mx,(+S[k2]||mn)+d));box.querySelector('output').textContent=S[k2];upd();return}
+  if(t.closest('[data-next]')){next();return}
+  if(t.closest('[data-back]')){go(hist.length?hist.pop():Math.max(1,step-1),true);return}
+  if(t.closest('[data-again]')){S=cfg.init();hist=[];qa('.sel,.on').forEach(function(x){x.classList.remove('sel','on')});qa('[aria-pressed]').forEach(function(x){x.setAttribute('aria-pressed','false')});var f=q('form');if(f)f.reset();qa('input[data-k],textarea[data-k]').forEach(function(i){i.value=i.defaultValue;i.disabled=false;i.classList.remove('bad')});if(cfg.reset)cfg.reset(S,api);go(1,true);return}
+ });
+ qa('input[data-k],textarea[data-k]').forEach(function(i){i.addEventListener('input',function(){S[i.getAttribute('data-k')]=i.type==='range'?+i.value:i.value;i.classList.remove('bad');err('');upd()})});
+ /* days */
+ var RUd=['вс','пн','вт','ср','чт','пт','сб'],RUm=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+ qa('[data-days]').forEach(function(w){var k=w.getAttribute('data-days'),cnt=+(w.getAttribute('data-n')||14),now=new Date();
+  for(var i=0;i<cnt;i++){var d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i),b=document.createElement('button');b.type='button';b.className='lv-day';b.setAttribute('data-k',k);b.setAttribute('aria-pressed','false');
+   b.setAttribute('data-v',d.getDate()+' '+RUm[d.getMonth()]+', '+RUd[d.getDay()]);b.innerHTML='<small>'+(i===0?'сегодня':i===1?'завтра':RUd[d.getDay()])+'</small><b>'+d.getDate()+'</b><small>'+RUm[d.getMonth()].slice(0,3)+'</small>';w.appendChild(b)}});
+ /* contacts */
+ var tel=q('input[type=tel]'),nm=q('input[name=name]'),form=q('form');
+ if(tel)tel.addEventListener('input',function(){var d=tel.value.replace(/\D/g,'');if(d[0]==='8')d='7'+d.slice(1);if(d&&d[0]!=='7')d='7'+d;d=d.slice(0,11);var o='+7';if(d.length>1)o+=' '+d.slice(1,4);if(d.length>4)o+=' '+d.slice(4,7);if(d.length>7)o+='-'+d.slice(7,9);if(d.length>9)o+='-'+d.slice(9,11);tel.value=d?o:'';S.tel=tel.value});
+ if(nm)nm.addEventListener('input',function(){S.name=nm.value});
+ if(form)form.addEventListener('submit',function(e){e.preventDefault();var okN=nm.value.trim().length>1,okT=tel.value.replace(/\D/g,'').length===11;
+  nm.classList.toggle('bad',!okN);tel.classList.toggle('bad',!okT);if(!okN){err('Укажите имя.');nm.focus();return}if(!okT){err('Укажите телефон полностью: +7 900 123-45-67.');tel.focus();return}
+  var x=cfg.validate?cfg.validate(step,S):'';if(x){err(x);return}
+  S.name=nm.value.trim();S.tel=tel.value;var btn=form.querySelector('[type=submit]'),lab=btn.querySelector('span'),old=lab.textContent;btn.classList.add('loading');lab.textContent='Отправляем…';
+  setTimeout(function(){btn.classList.remove('loading');lab.textContent=old;done()},RM?0:700)});
+ function done(){q('[data-done-h]').textContent=S.name+', заявка принята';q('[data-done-sub]').textContent=cfg.doneSub(S);
+  q('[data-ticket]').innerHTML=cfg.ticket(S).filter(function(r){return r&&r[1]}).map(function(r){return '<div class="lv-sr"><span>'+esc(r[0])+'</span><strong>'+esc(r[1])+'</strong></div>'}).join('');
+  q('[data-tg]').innerHTML=cfg.tg(S).filter(Boolean).map(esc).join('<br>');go(N);var p=q('[data-pane="'+N+'"]');if(p)p.focus({preventScroll:true})}
+ var api={go:go,set:set,S:function(){return S},open:function(fn){fn(S,api);upd()},esc:esc,fmt:function(x){return Math.round(x).toLocaleString('ru-RU').replace(/\u00a0/g,' ')}};
+ go(1,true);return api};
+})();
+
+(function(){
+var W=LiveWizard({el:document.getElementById('lv-book'),
+ titles:['Форма бизнеса','Что нужно','Объём работ','Контакты','Готово'],
+ init:function(){return {biz:'',tasks:[],hrs:10,unk:[],when:'',msg:''}},
+
+ crumbs:function(S){return [S.biz,S.tasks.length?S.tasks.join(', '):'',S.tasks.length?(S.unk.length?'объём оценим вместе':S.hrs+' ч/мес'):'']},
+ update:function(S,api){var o=document.getElementById('lv-hrs-o'),r=document.getElementById('lv-hrs'),b=document.getElementById('lv-sum'),n=document.getElementById('lv-sum-n');if(!o)return;o.textContent=S.hrs;r.disabled=!!S.unk.length;
+  var t=S.unk.length?'по запросу':api.fmt(S.hrs*550)+' – '+api.fmt(S.hrs*700)+' ₽';if(b.textContent!==t){b.textContent=t;b.classList.remove('flash');void b.offsetWidth;b.classList.add('flash')}
+  var extra=S.tasks.filter(function(x){return x!=='Бухгалтерское сопровождение'}).length?' Сдача отчётности и расчёт зарплаты — по запросу.':'';
+  n.textContent=(S.unk.length?'Объём операций уточним по телефону и назовём стоимость.':(S.biz||'ИП/ООО')+' · '+S.hrs+' ч × 550–700 ₽ за чел./час. Не оферта.')+extra},
+ validate:function(st,S){if(st===2&&!S.tasks.length)return 'Выберите хотя бы одну задачу.';return ''},
+ doneSub:function(){return 'Бухгалтер перезвонит, уточнит объём операций и назовёт точную стоимость.'},
+ ticket:function(S){return [['Форма бизнеса',S.biz],['Что нужно',S.tasks.join(', ')],['Объём',S.unk.length?'оценим вместе':S.hrs+' ч в месяц'],['Ориентир',S.unk.length?'по запросу':document.getElementById('lv-sum').textContent+' / мес'],['Телефон',S.tel],['Перезвонить',S.when]]},
+ tg:function(S){return ['Новая заявка на расчёт с сайта',S.biz+' · '+S.tasks.join(', '),S.unk.length?'Объём: оценить вместе':'Объём: ~'+S.hrs+' ч/мес → '+document.getElementById('lv-sum').textContent,S.name+', '+S.tel,S.when?'Перезвонить '+S.when:'',S.msg?'«'+S.msg+'»':'']},
+ reset:function(){var r=document.getElementById('lv-hrs');r.value=10;r.disabled=false}
+});
+document.querySelectorAll('[data-pick]').forEach(function(a){a.addEventListener('click',function(){W.set('biz',a.getAttribute('data-pick'));W.go(2)})});
+})();
 </script>
 </body>
 </html>
