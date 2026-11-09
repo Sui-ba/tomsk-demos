@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Томское — грузотакси в Томске</title>
+<meta name="description" content="Газель по Томску — цена до звонка. Калькулятор кузова, города и грузчиков. WhatsApp и заявка.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12141A;--surface:#1C2028;--elev:#262C38;--text:#F4F2EC;--sec:#A7AFBC;--muted:#6E7685;--accent:#FF6A1A;--accent-h:#FF853F;--signal:#C8F542;--border:#2F3644;--ok:#3DCF8A;--wa:#25D366;--sticky:72px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Golos Text",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding-bottom:calc(var(--sticky) + env(safe-area-inset-bottom))}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,calc(100% - 2rem));margin-inline:auto}
+h1,h2,h3,.btn,.price-out{font-family:Manrope,system-ui,sans-serif}
+h1{font-size:clamp(1.85rem,4.5vw,3.1rem);font-weight:800;letter-spacing:-.025em;line-height:1.1}
+h2{font-size:clamp(1.35rem,3vw,1.85rem);font-weight:700;margin-bottom:.65rem}
+h3{font-size:1.05rem;font-weight:700}
+.sec{padding:4rem 0}
+.lead{color:var(--sec);max-width:34rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;color:var(--sec);background:rgba(255,106,26,.12);border:1px solid rgba(255,106,26,.28);padding:.35rem .7rem;border-radius:999px;margin-bottom:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:48px;padding:.7rem 1.15rem;border-radius:12px;font-weight:700;font-size:.95rem;border:1px solid transparent;cursor:pointer;transition:.15s}
+.btn-primary{background:var(--accent);color:#12141A}.btn-primary:hover{background:var(--accent-h)}
+.btn-ghost{border-color:var(--border);color:var(--text);background:transparent}.btn-ghost:hover{border-color:var(--accent)}
+.btn-wa{background:var(--wa);color:#fff}.btn-block{width:100%}
+.nav{position:sticky;top:0;z-index:40;background:rgba(18,20,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:1rem}
+.logo{font-family:Manrope,sans-serif;font-weight:800}.logo span{color:var(--accent)}
+.nav-links{display:none;gap:1.15rem;color:var(--sec);font-size:.9rem;font-weight:500}
+@media(min-width:900px){.nav-links{display:flex}}
+.hero{padding:2.75rem 0 2rem;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 85% 0%,rgba(255,106,26,.16),transparent 55%);pointer-events:none}
+.hero-grid{position:relative;display:grid;gap:1.75rem}
+@media(min-width:960px){.hero-grid{grid-template-columns:1fr 1.05fr;align-items:start}}
+.meta{color:var(--muted);font-size:.88rem;margin-top:.85rem}
+.calc{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:1.25rem}
+.calc h3{margin-bottom:.25rem}
+.calc .sub{color:var(--sec);font-size:.9rem;margin-bottom:1.1rem}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:.4rem}
+.seg{display:grid;gap:.5rem;grid-template-columns:repeat(3,1fr);margin-bottom:1rem}
+.seg-btn,.toggle-btn{border:1px solid var(--border);background:var(--elev);color:var(--text);border-radius:12px;padding:.75rem .5rem;font:inherit;font-weight:600;font-size:.82rem;cursor:pointer;text-align:center;transition:.15s}
+.seg-btn.on,.toggle-btn.on{border-color:var(--accent);background:rgba(255,106,26,.14);box-shadow:inset 0 0 0 1px rgba(255,106,26,.35)}
+.seg-btn small{display:block;font-weight:500;color:var(--muted);margin-top:.2rem;font-size:.7rem}
+.toggle{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1rem}
+input,select,textarea{width:100%;background:var(--elev);border:1px solid var(--border);border-radius:10px;padding:.8rem .95rem;color:var(--text);font:inherit;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,106,26,.15)}
+.km-row{display:none;margin-bottom:1rem}.km-row.show{display:block}
+.result{background:var(--elev);border-radius:14px;padding:1rem;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.price-out{font-size:clamp(1.5rem,4vw,2rem);font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.signal{color:var(--signal);font-size:.8rem;font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:.65rem}
+.note{font-size:.78rem;color:var(--muted);margin-top:.7rem}
+.tariffs{display:grid;gap:1rem}
+@media(min-width:800px){.tariffs{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.2rem}
+.card .from{color:var(--accent);font-family:Manrope,sans-serif;font-weight:800;margin-top:.85rem}
+.steps{display:grid;gap:1rem}
+@media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.2rem}
+.step .n{width:32px;height:32px;border-radius:10px;background:rgba(200,245,66,.15);color:var(--signal);display:grid;place-items:center;font-family:Manrope,sans-serif;font-weight:800;margin-bottom:.75rem}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:1.25rem}
+.form-grid{display:grid;gap:.85rem}
+@media(min-width:700px){.form-grid.two{grid-template-columns:1fr 1fr}}
+.success{display:none;text-align:center;padding:1.5rem}.success.show{display:block}
+.footer{border-top:1px solid var(--border);padding:2rem 0 6rem;color:var(--muted);font-size:.85rem}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:.5rem;padding:.65rem .85rem calc(.65rem + env(safe-area-inset-bottom));background:rgba(18,20,26,.96);border-top:1px solid var(--border)}
+.sticky .btn{flex:1}
+@media(min-width:900px){.sticky{display:none}body{padding-bottom:0}}
+.tel{font-family:Manrope,sans-serif;font-size:1.4rem;font-weight:800;color:var(--accent)}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap nav-inner">
+  <a class="logo" href="#top">Том<span>ское</span></a>
+  <nav class="nav-links">
+    <a href="#calc">Калькулятор</a>
+    <a href="#tariffs">Тарифы</a>
+    <a href="#how">Как заказать</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <a class="btn btn-primary" href="#calc">Рассчитать</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <div class="eyebrow">Грузотакси · Томск</div>
+    <h1>Газель по Томску — цена до звонка</h1>
+    <p class="lead" style="margin-top:1rem">Выбери кузов, город или межгород, грузчиков. Ориентир цены сразу. Заявка или WhatsApp.</p>
+    <p class="meta">пн–пт 8:00–20:00 · <a href="tel:+79138503399">+7 913 850-33-99</a></p>
+    <div class="actions" style="margin-top:1.25rem">
+      <a class="btn btn-primary" href="#calc">Рассчитать поездку</a>
+      <a class="btn btn-wa" id="waHero" href="https://wa.me/79138503399" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <aside class="calc" id="calc">
+    <h3>Сколько будет стоить</h3>
+    <p class="sub">Ориентир за 20 секунд. Без обязательств.</p>
+    <label>Кузов</label>
+    <div class="seg" id="vehicle">
+      <button type="button" class="seg-btn on" data-v="gazelle">Газель<small>до ~1.5 т</small></button>
+      <button type="button" class="seg-btn" data-v="long">Удлинённая<small>больше объёма</small></button>
+      <button type="button" class="seg-btn" data-v="van">Фургон<small>закрытый</small></button>
+    </div>
+    <label>Куда</label>
+    <div class="toggle" id="route">
+      <button type="button" class="toggle-btn on" data-r="city">По городу</button>
+      <button type="button" class="toggle-btn" data-r="inter">Межгород</button>
+    </div>
+    <div class="km-row" id="kmRow"><label for="km">Километры</label><input id="km" type="number" min="1" placeholder="например 80"></div>
+    <label>Грузчики</label>
+    <div class="toggle" id="loaders">
+      <button type="button" class="toggle-btn" data-l="1">Нужны грузчики</button>
+      <button type="button" class="toggle-btn on" data-l="0">Без грузчиков</button>
+    </div>
+    <div id="loaderOpts" style="display:none;margin-bottom:1rem" class="form-grid two">
+      <div><label for="people">Человек</label><input id="people" type="number" min="1" max="4" value="2"></div>
+      <div><label for="hours">Часов</label><input id="hours" type="number" min="1" max="8" value="1"></div>
+    </div>
+    <div class="result">
+      <div>
+        <div class="signal">Ориентир цены</div>
+        <div class="price-out" id="price">от 900 ₽</div>
+      </div>
+      <div style="font-size:.78rem;color:var(--muted);max-width:10rem;text-align:right">точная — после адреса и объёма</div>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="#order">Оставить заявку</a>
+      <a class="btn btn-wa" id="waCalc" href="https://wa.me/79138503399" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="note">Ориентир. Финальная цена — после адреса, этажей и объёма.</p>
+  </aside>
+</div></section>
+
+<section class="sec" id="tariffs"><div class="wrap">
+  <h2>Тарифы без сюрпризов</h2>
+  <p class="lead" style="margin-bottom:1.25rem">Ориентиры для Томска. Точную сумму скажем после адреса.</p>
+  <div class="tariffs">
+    <article class="card"><h3>Газель</h3><p style="color:var(--sec);margin-top:.4rem;font-size:.92rem">Переезд комнаты, стройматериалы, бытовка.</p><div class="from">от 900 ₽ · от 40 ₽/км</div></article>
+    <article class="card"><h3>Удлинённая</h3><p style="color:var(--sec);margin-top:.4rem;font-size:.92rem">Диван, длинномер, больше объёма за один рейс.</p><div class="from">от 1 200 ₽ · от 45 ₽/км</div></article>
+    <article class="card"><h3>Фургон</h3><p style="color:var(--sec);margin-top:.4rem;font-size:.92rem">Когда важно закрыть от дождя и пыли.</p><div class="from">от 1 100 ₽ · от 42 ₽/км</div></article>
+  </div>
+  <p class="note">Грузчики — от 500 ₽/час · Подъём без лифта — по договорённости</p>
+  <div class="actions" style="margin-top:1rem"><a class="btn btn-primary" href="#calc">Рассчитать мою поездку →</a></div>
+</div></section>
+
+<section class="sec" id="how" style="padding-top:0"><div class="wrap">
+  <h2>Три шага — и машина едет</h2>
+  <div class="steps" style="margin-top:1.25rem">
+    <div class="step"><div class="n">1</div><h3>Посчитай</h3><p style="color:var(--sec);margin-top:.4rem;font-size:.92rem">Кузов, город или км, грузчики — ориентир цены сразу.</p></div>
+    <div class="step"><div class="n">2</div><h3>Оставь заявку</h3><p style="color:var(--sec);margin-top:.4rem;font-size:.92rem">Или напиши в WhatsApp — ответим в рабочее время.</p></div>
+    <div class="step"><div class="n">3</div><h3>Подаём машину</h3><p style="color:var(--sec);margin-top:.4rem;font-size:.92rem">Согласуем время и адрес. Платишь по факту.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="order" style="padding-top:0"><div class="wrap">
+  <div class="panel">
+    <h2>Заявка на грузотакси</h2>
+    <p class="lead" style="margin-bottom:1rem">Данные из калькулятора подставятся в комментарий.</p>
+    <form id="form">
+      <div class="form-grid two">
+        <div><label for="name">Имя</label><input id="name" required></div>
+        <div><label for="phone">Телефон</label><input id="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+      </div>
+      <div style="margin-top:.85rem"><label for="comment">Комментарий</label><textarea id="comment" placeholder="Адрес, этаж, лифт"></textarea></div>
+      <div class="actions" style="margin-top:1rem">
+        <button class="btn btn-primary" type="submit">Отправить заявку</button>
+        <a class="btn btn-wa" id="waForm" href="https://wa.me/79138503399" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <p class="note">Демо без сервера. В рабочее время — перезвон за 5–10 минут.</p>
+    </form>
+    <div class="success" id="ok"><div style="font-size:1.8rem;color:var(--ok)">✓</div><h3 style="margin-top:.5rem">Заявка принята</h3><p class="lead" style="margin:.5rem auto 0">Перезвоним за 5–10 минут в рабочее время.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="contacts"><div class="wrap">
+  <h2>Контакты</h2>
+  <p style="margin:.8rem 0"><a class="tel" href="tel:+79138503399">+7 913 850-33-99</a></p>
+  <p style="color:var(--sec)">Пн–пт 8:00–20:00 · сб–вс — по договорённости</p>
+  <p style="color:var(--muted);margin-top:.5rem">Томск и область</p>
+  <div class="actions" style="margin-top:1.25rem">
+    <a class="btn btn-wa" href="https://wa.me/79138503399" target="_blank" rel="noopener">Написать в WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+79138503399">Позвонить</a>
+  </div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">Томское · грузотакси · © 2026 · MVP демо</div></footer>
+<div class="sticky">
+  <a class="btn btn-primary" href="#order">Заявка</a>
+  <a class="btn btn-wa" id="waSticky" href="https://wa.me/79138503399" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+<script>
+const state={v:'gazelle',r:'city',l:0};
+const cityBase={gazelle:900,long:1200,van:1100};
+const interRate={gazelle:40,long:45,van:42};
+const interBase={gazelle:500,long:700,van:600};
+function fmt(n){return 'от '+n.toLocaleString('ru-RU')+' ₽'}
+function calc(){
+  let total=0;
+  const kmRaw=Number(document.getElementById('km').value);
+  const km=(Number.isFinite(kmRaw)&&kmRaw>0)?kmRaw:0;
+  if(state.r==='city'){total=cityBase[state.v]}
+  else{
+    total=interBase[state.v]+(km>0?km*interRate[state.v]:interRate[state.v]*30);
+  }
+  if(state.l){
+    const p=Number(document.getElementById('people').value||1);
+    const h=Number(document.getElementById('hours').value||1);
+    total+=p*h*500;
+  }
+  document.getElementById('price').textContent=fmt(total);
+  const labels={gazelle:'Газель',long:'Удлинённая',van:'Фургон'};
+  const route=state.r==='city'?'по городу':'межгород'+(km>0?` ${km} км`:'');
+  const loaders=state.l?`, грузчики ${document.getElementById('people').value}×${document.getElementById('hours').value}ч`:'';
+  const summary=`${labels[state.v]}, ${route}${loaders}. Ориентир ${fmt(total)}`;
+  const wa=`https://wa.me/79138503399?text=${encodeURIComponent('Здравствуйте! Нужна '+summary)}`;
+  ['waHero','waCalc','waForm','waSticky'].forEach(id=>{const el=document.getElementById(id); if(el) el.href=wa});
+  const c=document.getElementById('comment');
+  if(c && !c.dataset.touched) c.value=summary;
+  return summary;
+}
+document.querySelectorAll('#vehicle .seg-btn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#vehicle .seg-btn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); state.v=b.dataset.v; calc();
+}));
+document.querySelectorAll('#route .toggle-btn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#route .toggle-btn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); state.r=b.dataset.r;
+  document.getElementById('kmRow').classList.toggle('show', state.r==='inter');
+  calc();
+}));
+document.querySelectorAll('#loaders .toggle-btn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#loaders .toggle-btn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); state.l=Number(b.dataset.l);
+  document.getElementById('loaderOpts').style.display=state.l?'grid':'none';
+  calc();
+}));
+['km','people','hours'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+document.getElementById('comment').addEventListener('input',()=>document.getElementById('comment').dataset.touched='1');
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('form').style.display='none';
+  document.getElementById('ok').classList.add('show');
+});
+calc();
+</script>
+</body>
+</html>

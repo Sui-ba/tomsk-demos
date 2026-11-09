@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Автогид — сеть автосервисов в Томске</title>
+<meta name="description" content="4 филиала, онлайн-запись, честный прайс. Герцена 74/1 и другие точки Томска.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B1F33;--muted:#5A6B7D;--surface:#fff;--canvas:#F7F8FA;--line:#E3E8EE;--teal:#0F9B8E;--teal-soft:#E6F6F4;--warn:#C45C26;--ok:#1F8A4C;--sticky:72px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--canvas);color:var(--ink);line-height:1.5;padding-bottom:calc(var(--sticky) + env(safe-area-inset-bottom))}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,calc(100% - 2rem));margin-inline:auto}
+h1{font-size:clamp(2rem,4.5vw,3.3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:.6rem;letter-spacing:-.015em}
+h3{font-size:1.05rem;font-weight:700}
+.sec{padding:4rem 0}
+.lead{color:var(--muted);max-width:36rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:48px;padding:.7rem 1.15rem;border-radius:12px;font-weight:700;font-size:.95rem;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:.15s}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{filter:brightness(1.05)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-wa{background:#25D366;color:#fff}.btn-block{width:100%}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.nav{position:sticky;top:0;z-index:40;background:rgba(247,248,250,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:1rem}
+.logo{font-weight:800;font-size:1.1rem;color:var(--ink)}.logo span{color:var(--teal)}
+.nav-links{display:none;gap:1.15rem;color:var(--muted);font-size:.9rem;font-weight:500}
+@media(min-width:900px){.nav-links{display:flex}}
+.hero{padding:3rem 0 2rem}
+.hero-grid{display:grid;gap:1.75rem}
+@media(min-width:900px){.hero-grid{grid-template-columns:1fr;}}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.25rem;color:var(--muted);font-size:.9rem;font-weight:600}
+.chip{background:#fff;border:1px solid var(--line);padding:.35rem .7rem;border-radius:999px}
+.branches{display:grid;gap:.85rem;margin-top:1.5rem}
+@media(min-width:700px){.branches{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.branches{grid-template-columns:repeat(4,1fr)}}
+.branch{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:1.1rem;cursor:pointer;transition:.15s;text-align:left}
+.branch:hover{border-color:#b7dcd8}
+.branch.selected{border-color:var(--teal);background:var(--teal-soft);box-shadow:0 0 0 3px rgba(15,155,142,.12)}
+.branch .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);font-weight:700;margin-bottom:.35rem}
+.branch .draft{display:inline-block;margin-left:.35rem;font-size:.65rem;background:#fff3e8;color:var(--warn);padding:.1rem .35rem;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:600}
+.branch .addr{font-weight:700;margin-bottom:.35rem}
+.branch .meta{font-size:.85rem;color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.35rem;box-shadow:0 8px 30px rgba(11,31,51,.04)}
+.stepper{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
+.step{font-size:.8rem;font-weight:700;color:var(--muted);padding:.35rem .7rem;border-radius:999px;background:#eef1f5}
+.step.on{background:var(--teal-soft);color:var(--teal)}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:.35rem}
+input,select,textarea{width:100%;background:#FBFCFF;border:1px solid var(--line);border-radius:10px;padding:.8rem .95rem;color:var(--ink);font:inherit;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,155,142,.15)}
+.form-grid{display:grid;gap:.9rem}.form-grid > *,.days{min-width:0}
+@media(min-width:700px){.form-grid.two{grid-template-columns:1fr 1fr}}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+@media(min-width:600px){.slots{grid-template-columns:repeat(5,1fr)}}
+.slot{border:1px solid var(--line);background:#fff;border-radius:10px;padding:.65rem;font-weight:600;font-size:.85rem;cursor:pointer}
+.slot.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+.slot:disabled{opacity:.35;cursor:not-allowed}
+.days{display:flex;gap:.5rem;overflow:auto;padding-bottom:.25rem}
+.day{min-width:72px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:.65rem .5rem;text-align:center;cursor:pointer;font-size:.8rem;font-weight:600}
+.day.on{border-color:var(--teal);background:var(--teal-soft);color:var(--teal)}
+.success{display:none;text-align:center;padding:1.5rem}.success.show{display:block}
+.price-grid{display:grid;gap:.75rem}
+@media(min-width:700px){.price-grid{grid-template-columns:1fr 1fr}}
+.price-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.price-item b{color:var(--teal);font-variant-numeric:tabular-nums;white-space:nowrap}
+.contact-list{display:grid;gap:.85rem}
+.contact-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1rem}
+.footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);font-size:.85rem}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:.5rem;padding:.65rem .85rem calc(.65rem + env(safe-area-inset-bottom));background:rgba(247,248,250,.96);border-top:1px solid var(--line)}
+.sticky .btn{flex:1}
+@media(min-width:900px){.sticky{display:none}body{padding-bottom:0}}
+.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
+.note{font-size:.8rem;color:var(--muted);margin-top:.7rem}
+.selected-bar{display:none;margin-top:1rem;padding:.85rem 1rem;border-radius:12px;background:var(--teal-soft);color:var(--ink);font-weight:600}
+.selected-bar.show{display:block}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap nav-inner">
+  <a class="logo" href="#top">Авто<span>гид</span></a>
+  <nav class="nav-links">
+    <a href="#services">Услуги</a>
+    <a href="#branches">Филиалы</a>
+    <a href="#booking">Запись</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <a class="btn btn-primary" href="#booking">Записаться</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <h1>Сеть автосервисов в Томске</h1>
+  <div class="chips"><span class="chip">4 филиала</span><span class="chip">онлайн-запись</span><span class="chip">честный прайс</span></div>
+  <p class="lead">Сначала адрес — потом слот. Запишитесь в удобный филиал без звонков вслепую.</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="#branches">Выбрать филиал и записаться</a>
+    <a class="btn btn-ghost" href="#services">Прайс на услуги</a>
+  </div>
+</div></section>
+
+<section class="sec" id="branches" style="padding-top:1rem"><div class="wrap">
+  <h2>Выберите филиал</h2>
+  <p class="lead" style="margin-bottom:1rem">Подтверждён: Герцена 74/1. Остальные адреса — черновик для демо UX.</p>
+  <div class="branches" id="branchList"></div>
+  <div class="selected-bar" id="selectedBar"></div>
+</div></section>
+
+<section class="sec" id="booking" style="padding-top:0"><div class="wrap">
+  <div class="panel">
+    <div class="stepper">
+      <span class="step on" id="s1">1 Филиал</span>
+      <span class="step" id="s2">2 Услуга</span>
+      <span class="step" id="s3">3 Время</span>
+      <span class="step" id="s4">4 Контакты</span>
+    </div>
+    <form id="form">
+      <input type="hidden" id="branchId">
+      <div class="form-grid two">
+        <div><label>Филиал</label>
+          <select id="branchSelect" required>
+            <option value="">Сначала выберите филиал</option>
+          </select>
+        </div>
+        <div><label for="service">Услуга</label>
+          <select id="service" required>
+            <option>Диагностика</option><option>ТО</option><option>Ходовая</option>
+            <option>Масло и фильтры</option><option>Шиномонтаж</option><option>Другое</option>
+          </select>
+        </div>
+        <div><label for="car">Автомобиль</label><input id="car" placeholder="Hyundai Solaris, 2020" required></div>
+        <div><label>Дата</label><div class="days" id="days"></div><input type="hidden" id="date" required></div>
+      </div>
+      <div style="margin-top:1rem"><label>Время</label><div class="slots" id="slots"></div><input type="hidden" id="time" required></div>
+      <div class="form-grid two" style="margin-top:1rem">
+        <div><label for="name">Имя</label><input id="name" required></div>
+        <div><label for="phone">Телефон</label><input id="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+      </div>
+      <div style="margin-top:.9rem"><label for="comment">Комментарий</label><textarea id="comment"></textarea></div>
+      <label style="display:flex;gap:.55rem;align-items:flex-start;margin-top:1rem;color:var(--muted);font-weight:500;font-size:.9rem">
+        <input type="checkbox" checked style="width:auto;margin-top:.2rem"> Дублировать подтверждение в WhatsApp
+      </label>
+      <div class="actions">
+        <button class="btn btn-primary" type="submit" id="submitBtn" disabled>Записаться</button>
+        <a class="btn btn-wa" id="formWa" href="https://wa.me/79009217988" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <p class="note">Демо-форма без сервера. Deep-link: ?branch=herzen</p>
+    </form>
+    <div class="success" id="ok"><div style="font-size:2rem;color:var(--ok)">✓</div><h3 style="margin-top:.5rem">Заявка принята</h3><p class="lead" id="okText" style="margin:.5rem auto 0"></p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <h2>Услуги и ориентиры по цене</h2>
+  <p class="lead" style="margin-bottom:1.25rem">Точную стоимость скажем после осмотра — на сайте честные вилки. Актуально для всех филиалов.</p>
+  <div class="price-grid">
+    <div class="price-item"><span>Компьютерная диагностика</span><b>от 1 500 ₽</b></div>
+    <div class="price-item"><span>ТО (масло + фильтры, работа)</span><b>от 2 500 ₽</b></div>
+    <div class="price-item"><span>Развал-схождение</span><b>от 2 000 ₽</b></div>
+    <div class="price-item"><span>Замена тормозных колодок</span><b>от 1 800 ₽</b></div>
+    <div class="price-item"><span>Шиномонтаж R16</span><b>от 2 200 ₽</b></div>
+  </div>
+  <div class="actions"><a class="btn btn-primary" href="#booking" onclick="document.getElementById('service').value='Диагностика'">Записаться на диагностику</a></div>
+</div></section>
+
+<section class="sec" id="contacts"><div class="wrap">
+  <h2>Контакты сети</h2>
+  <p class="lead" style="margin-bottom:1.25rem">Основной: <a href="tel:+79009217988" style="color:var(--teal);font-weight:700">+7 900 921-79-88</a> (Герцена)</p>
+  <div class="contact-list" id="contactList"></div>
+  <div class="actions" style="margin-top:1.25rem">
+    <a class="btn btn-wa" id="contactsWa" href="https://wa.me/79009217988" target="_blank" rel="noopener">Написать в WhatsApp</a>
+  </div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">© Автогид, Томск · MVP демо · <a href="#booking" style="color:var(--teal)">Записаться</a></div></footer>
+<div class="sticky">
+  <a class="btn btn-primary" href="#booking">Записаться</a>
+  <a class="btn btn-wa" id="stickyWa" href="https://wa.me/79009217988" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+<script>
+const branches=[
+  {id:'herzen',label:'Центр',address:'ул. Герцена, 74/1',phone:'+7 900 921-79-88',hours:'Ежедневно 9:00–19:00',draft:false},
+  {id:'irkutsk',label:'Восток',address:'Иркутский тракт, 61',phone:'TBD',hours:'Ежедневно 9:00–19:00',draft:true},
+  {id:'komsomol',label:'Север',address:'пр. Комсомольский, 70',phone:'TBD',hours:'Ежедневно 9:00–19:00',draft:true},
+  {id:'kashtak',label:'Каштак',address:'ул. 79 Гвардейской Дивизии, 15',phone:'TBD',hours:'Ежедневно 9:00–19:00',draft:true},
+];
+let selected=null;
+const list=document.getElementById('branchList');
+const select=document.getElementById('branchSelect');
+const bar=document.getElementById('selectedBar');
+const submitBtn=document.getElementById('submitBtn');
+branches.forEach(b=>{
+  const opt=document.createElement('option');
+  opt.value=b.id; opt.textContent=b.address+(b.draft?' (черновик)':'');
+  select.appendChild(opt);
+  const card=document.createElement('button');
+  card.type='button'; card.className='branch'; card.dataset.id=b.id;
+  card.innerHTML=`<div class="label">${b.label}${b.draft?'<span class="draft">черновик</span>':''}</div>
+    <div class="addr">${b.address}</div>
+    <div class="meta">${b.hours}<br>${b.phone}</div>`;
+  card.addEventListener('click',()=>selectBranch(b.id));
+  list.appendChild(card);
+  const c=document.createElement('div');
+  c.className='contact-card';
+  c.innerHTML=`<strong>${b.address}</strong><div style="color:var(--muted);margin:.35rem 0;font-size:.9rem">${b.label} · ${b.hours}</div>
+    <div style="font-weight:700">${b.phone==='TBD'?'телефон уточняется':`<a href="tel:+${b.phone.replace(/\D/g,'')}" style="color:var(--teal)">${b.phone}</a>`}</div>`;
+  document.getElementById('contactList').appendChild(c);
+});
+function selectBranch(id){
+  selected=branches.find(x=>x.id===id);
+  document.querySelectorAll('.branch').forEach(el=>el.classList.toggle('selected',el.dataset.id===id));
+  select.value=id; document.getElementById('branchId').value=id;
+  bar.classList.add('show');
+  bar.innerHTML=`Выбрано: ${selected.address} · <a href="#booking" style="color:var(--teal)">продолжить запись</a>`;
+  submitBtn.disabled=false;
+  document.getElementById('s1').classList.add('on');
+  document.getElementById('s2').classList.add('on');
+  const digits=selected.phone==='TBD'?null:selected.phone.replace(/\D/g,'');
+  const labels={formWa:'WhatsApp',stickyWa:'WhatsApp',contactsWa:'Написать в WhatsApp'};
+  ['formWa','stickyWa','contactsWa'].forEach(wid=>{
+    const el=document.getElementById(wid); if(!el) return;
+    if(!digits){
+      el.removeAttribute('href'); el.setAttribute('aria-disabled','true');
+      el.style.pointerEvents='none'; el.style.opacity='.45';
+      el.textContent='номер уточняется';
+    } else {
+      el.href='https://wa.me/'+digits; el.removeAttribute('aria-disabled');
+      el.style.pointerEvents=''; el.style.opacity='';
+      el.textContent=labels[wid];
+    }
+  });
+}
+select.addEventListener('change',()=>{if(select.value)selectBranch(select.value)});
+const params=new URLSearchParams(location.search);
+if(params.get('branch')&&branches.some(b=>b.id===params.get('branch')))selectBranch(params.get('branch'));
+
+const daysEl=document.getElementById('days');
+const dateInput=document.getElementById('date');
+for(let i=0;i<7;i++){
+  const d=new Date(); d.setDate(d.getDate()+i);
+  const iso=d.toISOString().slice(0,10);
+  const btn=document.createElement('button');
+  btn.type='button'; btn.className='day'+(i===0?' on':'');
+  btn.textContent=d.toLocaleDateString('ru-RU',{weekday:'short',day:'numeric'});
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.day').forEach(x=>x.classList.remove('on'));
+    btn.classList.add('on'); dateInput.value=iso;
+    document.getElementById('s3').classList.add('on');
+  });
+  daysEl.appendChild(btn);
+  if(i===0) dateInput.value=iso;
+}
+const slotsEl=document.getElementById('slots');
+const timeInput=document.getElementById('time');
+['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'].forEach((t,i)=>{
+  const b=document.createElement('button');
+  b.type='button'; b.className='slot'; b.textContent=t;
+  if(i===3){b.disabled=true;b.title='занято'}
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.slot').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); timeInput.value=t;
+    document.getElementById('s3').classList.add('on');
+    document.getElementById('s4').classList.add('on');
+  });
+  slotsEl.appendChild(b);
+});
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!selected){alert('Выберите филиал');return;}
+  if(!timeInput.value){alert('Выберите время');return;}
+  document.getElementById('form').style.display='none';
+  const ok=document.getElementById('ok'); ok.classList.add('show');
+  document.getElementById('okText').textContent=`Ждём вас на ${selected.address} в ${timeInput.value}. Перезвоним для подтверждения.`;
+});
+</script>
+</body>
+</html>
