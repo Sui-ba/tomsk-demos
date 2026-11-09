@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Аксиома — бухгалтерские услуги для ИП и ООО в Томске</title>
+<meta name="description" content="Аксиома: бухгалтерское сопровождение ИП и ООО в Томске, сдача отчётности, расчёт зарплаты. 550–700 ₽ за чел./час. ул. Яковлева, 71, офис 310.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--or:#FD4F00;--or2:#FF7A3D;--gr:#231F20;--gr2:#3A3536;--bg:#F4F5F7;--line:#E3E5EA;--mute:#62656C;--sticky:72px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Onest,system-ui,sans-serif;color:var(--gr);background:#fff;line-height:1.55;padding-bottom:calc(var(--sticky) + env(safe-area-inset-bottom))}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1140px,calc(100% - 2.5rem));margin-inline:auto}
+h1{font-size:clamp(2.1rem,5.2vw,3.9rem);line-height:1.05;letter-spacing:-.035em;font-weight:800}
+h2{font-size:clamp(1.6rem,3.3vw,2.5rem);line-height:1.1;letter-spacing:-.03em;font-weight:800;margin-bottom:.6rem}
+h3{font-size:1.1rem;font-weight:700;letter-spacing:-.01em}
+.mono{font-family:"IBM Plex Mono",monospace}
+.sec{padding:4.5rem 0}
+.tag{display:inline-block;font:600 .76rem "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--or);margin-bottom:.9rem}
+.lead{color:var(--mute);font-size:1.07rem;max-width:36rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:.75rem 1.4rem;border-radius:12px;font:700 .96rem Onest,sans-serif;border:2px solid transparent;cursor:pointer;transition:.15s}
+.btn-or{background:var(--or);color:#fff}.btn-or:hover{background:#E04600}
+.btn-dark{background:var(--gr);color:#fff}.btn-dark:hover{background:var(--gr2)}
+.btn-out{border-color:var(--gr);color:var(--gr);background:#fff}.btn-out:hover{border-color:var(--or);color:var(--or)}
+.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:66px}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
+.links{display:none;gap:1.6rem;font-size:.92rem;font-weight:500;color:var(--mute)}
+.links a:hover{color:var(--or)}
+@media(min-width:960px){.links{display:flex}}
+.nav .btn{min-height:42px;padding:.5rem 1rem;font-size:.9rem}
+.hero{padding:4rem 0 4.5rem;background:linear-gradient(180deg,#fff,var(--bg))}
+.hero-grid{display:grid;gap:2.5rem;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+.hero h1 span{color:var(--or)}
+.hero .lead{margin:1.2rem 0 1.8rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.rate{display:flex;align-items:center;gap:1rem;margin-top:2rem;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:14px;background:#fff;max-width:30rem}
+.rate b{font:600 1.35rem "IBM Plex Mono",monospace;color:var(--or);white-space:nowrap}
+.rate small{color:var(--mute);font-size:.88rem;line-height:1.35}
+.sheet{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 30px 60px rgba(35,31,32,.08);padding:1.4rem;position:relative}
+.sheet-h{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--mute);margin-bottom:1rem}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}.dots i:first-child{background:var(--or)}
+.row{display:grid;grid-template-columns:1fr auto;gap:.5rem;padding:.75rem 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.row:last-child{border:0}
+.row .st{font:600 .78rem "IBM Plex Mono",monospace;padding:.2rem .5rem;border-radius:6px;background:#FFF0E8;color:var(--or)}
+.row .st.ok{background:#EAF6EE;color:#1F7A44}
+.grid{display:grid;gap:1.1rem}
+@media(min-width:760px){.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column;gap:.6rem}
+.card p{color:var(--mute);font-size:.95rem}
+.card .pr{margin-top:auto;padding-top:1rem;border-top:1px solid var(--line);font:600 1.05rem "IBM Plex Mono",monospace}
+.card .pr.q{color:var(--mute);font-weight:500}
+.card.hl{background:var(--gr);color:#fff;border-color:var(--gr)}.card.hl p{color:#C8C3C4}.card.hl .pr{color:var(--or2);border-color:#3D3839}
+.ico{width:44px;height:44px;border-radius:12px;background:#FFF0E8;display:grid;place-items:center}
+.card.hl .ico{background:#3A3536}
+.bg{background:var(--bg)}
+.pk{display:grid;gap:1.1rem}
+@media(min-width:760px){.pk{grid-template-columns:1fr 1fr}}
+.pk .card ul{list-style:none;display:grid;gap:.45rem;color:var(--mute);font-size:.95rem}
+.pk .card li::before{content:"— ";color:var(--or)}
+.calc{display:grid;gap:1.5rem;background:var(--gr);color:#fff;border-radius:24px;padding:clamp(1.4rem,4vw,2.6rem)}
+@media(min-width:900px){.calc{grid-template-columns:1.1fr .9fr;align-items:center}}
+.calc .lead{color:#C8C3C4}
+.field{display:grid;gap:.5rem;margin-top:1.2rem}
+.field label{font-size:.88rem;color:#C8C3C4;display:flex;justify-content:space-between}
+.field output{font:600 1rem "IBM Plex Mono",monospace;color:#fff}
+input[type=range]{width:100%;accent-color:var(--or)}
+.seg{display:flex;flex-wrap:wrap;gap:.4rem}
+.seg button{flex:1;min-width:80px;min-height:44px;border-radius:10px;border:1px solid #4A4445;background:transparent;color:#fff;font:600 .9rem Onest;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--or);border-color:var(--or)}
+.res{background:#2E292A;border:1px solid #4A4445;border-radius:18px;padding:1.5rem}
+.res .big{font:600 clamp(1.6rem,4.5vw,2.3rem) "IBM Plex Mono",monospace;color:var(--or2);margin:.4rem 0}
+.res small{color:#A9A3A4;font-size:.85rem;display:block}
+.form-wrap{display:grid;gap:2rem}
+@media(min-width:900px){.form-wrap{grid-template-columns:1fr 1fr}}
+form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.6rem;display:grid;gap:.9rem}
+form label{display:grid;gap:.35rem;font-size:.84rem;font-weight:600;color:var(--mute)}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:.8rem .9rem;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--gr)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--or);border-color:var(--or)}
+.ok{display:none;padding:1rem;border-radius:10px;background:#EAF6EE;color:#1F5A36;font-weight:600}.ok.show{display:block}
+.ci{display:grid;gap:1rem;margin-top:1.5rem}
+.ci div{display:flex;gap:.9rem;align-items:flex-start;padding:1rem;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.ci small{display:block;color:var(--mute);font-size:.8rem}
+.ci a,.ci span{font-weight:600}
+.ci a:hover{color:var(--or)}
+footer{background:var(--gr);color:#A9A3A4;font-size:.88rem;padding:2rem 0 1.5rem}
+.f-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+.demo{background:var(--or);color:#fff;text-align:center;font-weight:700;font-size:.88rem;padding:.75rem 1rem}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:.5rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(0,0,0,.06)}
+.sticky .btn{flex:1;min-height:48px;padding:.6rem .5rem}
+@media(min-width:960px){.sticky{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#FD4F00"/><path d="M9 23l7-14 7 14M11.8 18h8.4" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Аксиома</a>
+    <nav class="links"><a href="#services">Услуги</a><a href="#packs">ИП и ООО</a><a href="#calc">Расчёт</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn btn-dark" href="tel:+79138500769">Позвонить</a>
+  </div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag">Бухгалтерские услуги · Томск</span>
+      <h1>Бухгалтерия для ИП и ООО <span>под ключ</span></h1>
+      <p class="lead">Ведём учёт, сдаём отчётность в ИФНС и фонды, считаем зарплату, отпускные и больничные. Офис — ул. Яковлева, 71.</p>
+      <div class="cta"><a class="btn btn-or" href="#calc">Рассчитать стоимость</a><a class="btn btn-out" href="tel:+79138500769">+7 (913) 850-07-69</a></div>
+      <div class="rate"><b>550–700 ₽</b><small>за чел./час — стоимость бухгалтерского сопровождения по трудозатратам</small></div>
+    </div>
+    <div class="sheet" aria-hidden="true">
+      <div class="sheet-h"><div class="dots"><i></i><i></i><i></i></div><span class="mono">отчётность.xlsx</span></div>
+      <div class="row"><span>Учёт операций</span><span class="st ok">ведём</span></div>
+      <div class="row"><span>Отчётность в ИФНС</span><span class="st ok">сдаём</span></div>
+      <div class="row"><span>Отчётность в фонды</span><span class="st ok">сдаём</span></div>
+      <div class="row"><span>Зарплата и отпускные</span><span class="st">считаем</span></div>
+      <div class="row"><span>Больничные</span><span class="st">считаем</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <span class="tag">Что входит</span>
+    <h2>Услуги</h2>
+    <div class="grid g3" style="margin-top:1.6rem">
+      <div class="card hl"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF7A3D" stroke-width="2"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg></div><h3>Бухгалтерское сопровождение</h3><p>Ведение учёта, оплата по фактическим трудозатратам.</p><div class="pr">550–700 ₽ / чел.‑час</div></div>
+      <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FD4F00" stroke-width="2"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>Сдача отчётности</h3><p>Отчётность в ИФНС, ПФР и ФСС.</p><div class="pr q">Цена по запросу</div></div>
+      <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FD4F00" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></div><h3>Расчёт зарплаты</h3><p>Зарплата, отпускные, больничные.</p><div class="pr q">Цена по запросу</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec bg" id="packs">
+  <div class="wrap">
+    <span class="tag">Пакеты</span>
+    <h2>Для ИП и для ООО</h2>
+    <p class="lead">Стоимость пакета зависит от объёма операций и сотрудников — назовём после короткого разговора.</p>
+    <div class="pk" style="margin-top:1.6rem">
+      <div class="card"><h3>ИП</h3><ul><li>Учёт и налоги</li><li>Отчётность в ИФНС и фонды</li><li>Зарплата сотрудников — при наличии</li></ul><div class="pr q">Пакет: по запросу</div></div>
+      <div class="card"><h3>ООО</h3><ul><li>Бухгалтерский учёт</li><li>Отчётность в ИФНС и фонды</li><li>Зарплата, отпускные, больничные</li></ul><div class="pr q">Пакет: по запросу</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="calc">
+  <div class="wrap">
+    <div class="calc">
+      <div>
+        <span class="tag">Предварительный расчёт</span>
+        <h2>Сколько будет стоить</h2>
+        <p class="lead">Ориентир по ставке 550–700 ₽ за час работы бухгалтера. Укажите, сколько часов в месяц примерно нужно — точный объём оценим вместе.</p>
+        <div class="field"><label for="hrs">Часов в месяц <output id="hrsO">10</output></label><input id="hrs" type="range" min="1" max="80" value="10"></div>
+        <div class="field"><label>Форма бизнеса</label><div class="seg" id="seg"><button type="button" aria-pressed="true">ИП</button><button type="button" aria-pressed="false">ООО</button></div></div>
+      </div>
+      <div class="res" aria-live="polite">
+        <small>Ориентир в месяц</small>
+        <div class="big" id="sum">5 500 – 7 000 ₽</div>
+        <small id="sumNote">ИП · 10 ч × 550–700 ₽. Не оферта — итог зависит от объёма операций.</small>
+        <a class="btn btn-or" href="#form" style="width:100%;margin-top:1.2rem">Получить точный расчёт</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec bg" id="contacts">
+  <div class="wrap form-wrap">
+    <div>
+      <span class="tag">Контакты</span>
+      <h2>Обсудим вашу бухгалтерию</h2>
+      <div class="ci">
+        <div><span>📍</span><p><small>Адрес</small><span>Томск, ул. Яковлева, 71, офис 310</span></p></div>
+        <div><span>☎</span><p><small>Телефон</small><a href="tel:+79138500769">+7 (913) 850-07-69</a></p></div>
+        <div><span>✉</span><p><small>Email</small><a href="mailto:axioma.tomsk@gmail.com">axioma.tomsk@gmail.com</a></p></div>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <h3 style="font-size:1.4rem">Заявка на расчёт</h3>
+      <label>Имя<input name="name" required autocomplete="name"></label>
+      <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7"></label>
+      <label>Форма бизнеса<select name="type"><option>ИП</option><option>ООО</option></select></label>
+      <label>Что нужно<textarea name="msg" rows="3" placeholder="Например: отчётность и зарплата на 3 сотрудников"></textarea></label>
+      <button class="btn btn-or" type="submit">Отправить</button>
+      <div class="ok" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+<footer><div class="wrap f-in"><span>Аксиома · ООО «АСТ-ИНФОРМ» · Томск, ул. Яковлева, 71, оф. 310</span><a href="tel:+79138500769">+7 (913) 850-07-69</a></div></footer>
+<div class="demo">Демо-версия сайта от Suiweb</div>
+<div class="sticky"><a class="btn btn-out" href="tel:+79138500769">Позвонить</a><a class="btn btn-or" href="#form">Заявка</a></div>
+<script>
+var h=document.getElementById('hrs'),o=document.getElementById('hrsO'),s=document.getElementById('sum'),n=document.getElementById('sumNote'),type='ИП';
+function fmt(x){return x.toLocaleString('ru-RU').replace(/\u00a0/g,' ')}
+function calc(){var v=+h.value;o.textContent=v;s.textContent=fmt(v*550)+' – '+fmt(v*700)+' ₽';n.textContent=type+' · '+v+' ч × 550–700 ₽. Не оферта — итог зависит от объёма операций.'}
+h.addEventListener('input',calc);
+document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#seg button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');type=b.textContent;calc()})});
+calc();
+var f=document.getElementById('form');f.addEventListener('submit',function(e){e.preventDefault();var ok=f.querySelector('.ok');if(!f.elements['name'].value.trim()||!f.elements['phone'].value.trim()){ok.textContent='Укажите имя и телефон.';ok.style.background='#FFF0E8';ok.style.color='#9A3200';ok.classList.add('show');return}ok.textContent='Спасибо! Заявка принята (демо — никуда не отправлена).';ok.style.background='';ok.style.color='';ok.classList.add('show');f.reset()});
+</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Совёнок (Il Gufo) — детский развивающий клуб в Томске</title>
+<meta name="description" content="Детский развивающий клуб «Совёнок» (Il Gufo) в Томске: занятия от 8 месяцев, запуск речи, подготовка к школе, логопед. Новосибирская ул., 43Б.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFD166;--t:#06D6A0;--c:#EF476F;--n:#073B4C;--cream:#FFFBF2;--line:#F0E6CF;--mute:#4D6872;--sticky:74px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Nunito,system-ui,sans-serif;color:var(--n);background:var(--cream);line-height:1.55;padding-bottom:calc(var(--sticky) + env(safe-area-inset-bottom));overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,calc(100% - 2.5rem));margin-inline:auto}
+h1{font-size:clamp(2.2rem,5.4vw,3.9rem);line-height:1.05;font-weight:900;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.1;font-weight:900;margin-bottom:.6rem}
+h3{font-size:1.15rem;font-weight:800}
+.sec{padding:4.5rem 0}
+.pill{display:inline-flex;align-items:center;gap:.4rem;background:#fff;border:2px solid var(--n);border-radius:999px;padding:.3rem .85rem;font-weight:800;font-size:.85rem}
+.lead{color:var(--mute);font-size:1.1rem;max-width:36rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:.75rem 1.4rem;border-radius:999px;font:800 1rem Nunito,sans-serif;border:2px solid var(--n);cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 0 var(--n)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--n)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--n)}
+.btn-c{background:var(--c);color:#fff}
+.btn-y{background:var(--y);color:var(--n)}
+.btn-w{background:#fff;color:var(--n)}
+.nav{position:sticky;top:0;z-index:40;background:rgba(255,251,242,.93);backdrop-filter:blur(10px);border-bottom:2px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
+.logo{display:flex;align-items:center;gap:.55rem;font-weight:900;font-size:1.25rem;line-height:1}
+.logo small{display:block;font-size:.72rem;font-weight:700;color:var(--mute);letter-spacing:.08em}
+.links{display:none;gap:1.5rem;font-weight:700;font-size:.95rem}
+.links a:hover{color:var(--c)}
+@media(min-width:960px){.links{display:flex}}
+.nav .btn{min-height:42px;padding:.45rem 1rem;font-size:.9rem;box-shadow:0 3px 0 var(--n)}
+.hero{padding:3.5rem 0 4.5rem;position:relative}
+.hero-grid{display:grid;gap:2rem;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+.hero h1 .hl{background:linear-gradient(transparent 62%,var(--y) 62%);padding:0 .1em}
+.hero .lead{margin:1.2rem 0 1.8rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.badges span{background:#fff;border:2px solid var(--line);border-radius:14px;padding:.45rem .8rem;font-weight:700;font-size:.9rem}
+.owl{width:min(420px,88vw);justify-self:center}
+.owl .blink{animation:bl 4s infinite}
+@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.owl .blink{transform-origin:center;transform-box:fill-box}
+.ages{display:flex;flex-wrap:wrap;gap:.55rem;margin:1.6rem 0 1.4rem}
+.ages button{min-height:46px;padding:.5rem 1.1rem;border-radius:999px;border:2px solid var(--n);background:#fff;font:800 .95rem Nunito;cursor:pointer;color:var(--n)}
+.ages button[aria-pressed=true]{background:var(--n);color:var(--y)}
+.progs{display:grid;gap:1.1rem}
+@media(min-width:720px){.progs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.progs{grid-template-columns:repeat(3,1fr)}}
+.prog{background:#fff;border:2px solid var(--n);border-radius:24px;padding:1.4rem;display:flex;flex-direction:column;gap:.5rem;box-shadow:6px 6px 0 var(--c);transition:.2s}
+.prog:nth-child(3n+2){box-shadow:6px 6px 0 var(--t)}.prog:nth-child(3n){box-shadow:6px 6px 0 var(--y)}
+.prog[hidden]{display:none}
+.age{align-self:flex-start;background:var(--y);border-radius:999px;padding:.15rem .7rem;font-weight:900;font-size:.82rem}
+.prog p{color:var(--mute);font-size:.95rem}
+.prog .pr{margin-top:auto;padding-top:.8rem;font-weight:900;font-size:1.35rem}
+.prog .pr small{font-size:.8rem;font-weight:700;color:var(--mute)}
+.wave{background:var(--n);color:#fff;position:relative}
+.wave .lead{color:#BFD6DD}
+.wave-top{display:block;width:100%;height:40px;background:var(--cream)}
+.tbl{width:100%;border-collapse:collapse;margin-top:1.5rem;background:#0A4A5E;border-radius:18px;overflow:hidden}
+.tbl td{padding:1rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.1);font-weight:700}
+.tbl td:last-child{text-align:right;color:var(--y);white-space:nowrap}
+.tbl tr:last-child td{border:0}
+.tbl .src{font-size:.82rem;color:#9CC2CC;font-weight:600}
+.two{display:grid;gap:1.2rem}
+@media(min-width:760px){.two{grid-template-columns:1fr 1fr}}
+.box{background:#fff;border:2px dashed #E4D6B4;border-radius:22px;padding:1.5rem}
+.box p{color:var(--mute);margin-top:.4rem}
+.rating{display:flex;align-items:center;gap:1.2rem;background:#fff;border:2px solid var(--n);border-radius:24px;padding:1.4rem 1.6rem;flex-wrap:wrap}
+.rating .score{font-size:3rem;font-weight:900;line-height:1;color:var(--c)}
+.rating small{color:var(--mute);display:block}
+.form-grid{display:grid;gap:2rem}
+@media(min-width:900px){.form-grid{grid-template-columns:.9fr 1.1fr}}
+form{background:#fff;border:2px solid var(--n);border-radius:26px;padding:1.6rem;display:grid;gap:.9rem;box-shadow:8px 8px 0 var(--t)}
+form label{display:grid;gap:.35rem;font-weight:800;font-size:.9rem}
+input,select{width:100%;font:inherit;font-size:1rem;padding:.8rem .95rem;border:2px solid var(--line);border-radius:14px;background:var(--cream);color:var(--n)}
+input:focus,select:focus{outline:none;border-color:var(--t)}
+.ok{display:none;padding:1rem;border-radius:14px;background:#E3FBF3;color:#055E47;font-weight:800}.ok.show{display:block}
+.ci{display:grid;gap:.8rem;margin-top:1.4rem}
+.ci div{background:#fff;border:2px solid var(--line);border-radius:18px;padding:.9rem 1.1rem}
+.ci small{display:block;font-weight:700;color:var(--mute);font-size:.8rem}
+.ci a,.ci span{font-weight:800}
+footer{background:var(--n);color:#BFD6DD;padding:2rem 0 1.5rem;font-size:.9rem}
+.f-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+.demo{background:var(--y);color:var(--n);text-align:center;font-weight:900;font-size:.9rem;padding:.75rem 1rem}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:.55rem;padding:.6rem .75rem calc(.65rem + env(safe-area-inset-bottom));background:rgba(255,251,242,.97);border-top:2px solid var(--line)}
+.sticky .btn{flex:1;min-height:48px;padding:.5rem;box-shadow:0 3px 0 var(--n)}
+@media(min-width:960px){.sticky{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#FFD166" stroke="#073B4C" stroke-width="2"/><circle cx="14" cy="18" r="5" fill="#fff" stroke="#073B4C" stroke-width="2"/><circle cx="26" cy="18" r="5" fill="#fff" stroke="#073B4C" stroke-width="2"/><circle cx="14" cy="18" r="2" fill="#073B4C"/><circle cx="26" cy="18" r="2" fill="#073B4C"/><path d="M18 24l2 3 2-3z" fill="#EF476F"/></svg><span>Совёнок<small>IL GUFO</small></span></a>
+    <nav class="links"><a href="#programs">Программы</a><a href="#prices">Цены</a><a href="#trial">Пробное занятие</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn btn-y" href="tel:+73822508250">Позвонить</a>
+  </div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill">🦉 Детский развивающий клуб · Томск</span>
+      <h1 style="margin-top:1rem">Развивайки для детей <span class="hl">от 8 месяцев</span></h1>
+      <p class="lead">Занятия для малышей с мамой, запуск речи, подготовка к школе и индивидуальный логопед. Новосибирская, 43Б — Октябрьский район.</p>
+      <div class="cta"><a class="btn btn-c" href="#trial">Записаться на пробное</a><a class="btn btn-w" href="tel:+73822508250">+7 (3822) 50-82-50</a></div>
+      <div class="badges"><span>⭐ 4,9 в 2ГИС · 260 оценок</span><span>20+ направлений</span></div>
+    </div>
+    <svg class="owl" viewBox="0 0 400 380" aria-hidden="true">
+      <circle cx="320" cy="70" r="34" fill="#FFD166"/>
+      <circle cx="70" cy="300" r="22" fill="#06D6A0"/>
+      <rect x="36" y="80" width="40" height="40" rx="10" fill="#EF476F" transform="rotate(-12 56 100)"/>
+      <path d="M40 350h320" stroke="#073B4C" stroke-width="6" stroke-linecap="round"/>
+      <path d="M90 340c60-20 160-20 220 0" stroke="#8B5E3C" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <g stroke="#073B4C" stroke-width="5" stroke-linejoin="round">
+        <path d="M130 120l-10-50 50 30M270 120l10-50-50 30" fill="#06D6A0"/>
+        <ellipse cx="200" cy="215" rx="100" ry="115" fill="#06D6A0"/>
+        <ellipse cx="200" cy="250" rx="62" ry="70" fill="#FFFBF2"/>
+        <path d="M170 235q8 8 16 0M200 255q8 8 16 0M178 280q8 8 16 0" fill="none" stroke-width="3"/>
+        <circle cx="160" cy="160" r="36" fill="#fff"/><circle cx="240" cy="160" r="36" fill="#fff"/>
+        <path d="M188 190l12 22 12-22z" fill="#EF476F"/>
+        <path d="M102 210q-30 40 6 90M298 210q30 40-6 90" fill="#06D6A0"/>
+      </g>
+      <g class="blink"><circle cx="164" cy="162" r="14" fill="#073B4C"/><circle cx="236" cy="162" r="14" fill="#073B4C"/></g>
+      <circle cx="169" cy="156" r="4" fill="#fff"/><circle cx="241" cy="156" r="4" fill="#fff"/>
+      <path d="M135 110h130l-8-26H143z" fill="#073B4C"/><path d="M200 84l70-16-70-18-70 18z" fill="#073B4C"/><path d="M262 72v28" stroke="#FFD166" stroke-width="4"/><circle cx="262" cy="104" r="6" fill="#FFD166"/>
+    </svg>
+  </div>
+</section>
+
+<section class="sec" id="programs" style="padding-top:2rem">
+  <div class="wrap">
+    <h2>Подберите программу по возрасту</h2>
+    <p class="lead">Ниже — программы с ценами из прайса клуба. Остальные направления (в клубе их 20+) и расписание подскажем по телефону.</p>
+    <div class="ages" id="ages">
+      <button type="button" aria-pressed="true" data-a="all">Все</button>
+      <button type="button" aria-pressed="false" data-a="8m">8 мес+</button>
+      <button type="button" aria-pressed="false" data-a="1">1+</button>
+      <button type="button" aria-pressed="false" data-a="17">1,7+</button>
+      <button type="button" aria-pressed="false" data-a="school">Перед школой</button>
+      <button type="button" aria-pressed="false" data-a="ind">Индивидуально</button>
+    </div>
+    <div class="progs">
+      <article class="prog" data-a="8m"><span class="age">8 мес+</span><h3>Карапузики</h3><p>Первые развивающие занятия для самых маленьких.</p><div class="pr">4 500 ₽ <small>абонемент</small></div></article>
+      <article class="prog" data-a="1"><span class="age">1+</span><h3>Мама и малыш</h3><p>Занятия вместе с мамой.</p><div class="pr">4 700 ₽</div></article>
+      <article class="prog" data-a="17"><span class="age">1,7+</span><h3>Болтушки</h3><p>Программа запуска речи.</p><div class="pr">5 400 ₽</div></article>
+      <article class="prog" data-a="school"><span class="age">дошкольники</span><h3>Подготовка к школе</h3><p>Готовимся к первому классу.</p><div class="pr">4 940 ₽</div></article>
+      <article class="prog" data-a="ind"><span class="age">индивидуально</span><h3>Логопед</h3><p>Индивидуальные занятия с логопедом.</p><div class="pr">от 1 250 ₽</div></article>
+      <article class="prog" data-a="all-only"><span class="age">20+ направлений</span><h3>Другие кружки</h3><p>Полный список направлений клуба и возраст — уточним по телефону.</p><div class="pr" style="font-size:1.05rem">Цены по запросу</div></article>
+    </div>
+  </div>
+</section>
+
+<div class="wave-top" style="background:linear-gradient(180deg,var(--cream) 50%,var(--n) 50%)"></div>
+<section class="sec wave" id="prices">
+  <div class="wrap">
+    <h2>Цены абонементов</h2>
+    <p class="lead">По прайсу клуба в 2ГИС. Состав абонемента и число занятий уточняйте по телефону.</p>
+    <table class="tbl">
+      <tr><td>Карапузики, 8 мес.+ <div class="src">абонемент</div></td><td>4 500 ₽</td></tr>
+      <tr><td>Мама и малыш, 1+</td><td>4 700 ₽</td></tr>
+      <tr><td>Болтушки, 1,7+ (запуск речи)</td><td>5 400 ₽</td></tr>
+      <tr><td>Подготовка к школе</td><td>4 940 ₽</td></tr>
+      <tr><td>Логопед (индивидуально)</td><td>от 1 250 ₽</td></tr>
+      <tr><td>Остальные направления</td><td>по запросу</td></tr>
+    </table>
+  </div>
+</section>
+<div class="wave-top" style="background:linear-gradient(180deg,var(--n) 50%,var(--cream) 50%)"></div>
+
+<section class="sec">
+  <div class="wrap two">
+    <div class="box"><h3>👩‍🏫 Педагоги</h3><p>Раздел для фото и описания педагогов — заполним по материалам клуба.</p></div>
+    <div class="box"><h3>🗓 Расписание</h3><p>Расписание групп — по запросу по телефону <a href="tel:+73822508250"><b>+7 (3822) 50-82-50</b></a>.</p></div>
+  </div>
+  <div class="wrap" style="margin-top:1.2rem">
+    <div class="rating"><div class="score">4,9</div><div><b>Оценка клуба в 2ГИС</b><small>260 оценок родителей (данные 2ГИС на 09.11.2026)</small></div></div>
+  </div>
+</section>
+
+<section class="sec" id="contacts" style="padding-top:1rem">
+  <div class="wrap form-grid">
+    <div>
+      <h2>Приходите на пробное занятие</h2>
+      <p class="lead">Оставьте заявку — мы перезвоним и подберём группу по возрасту.</p>
+      <div class="ci">
+        <div><small>Адрес</small><span>Томск, Новосибирская ул., 43Б, 2 этаж (Октябрьский р-н)</span></div>
+        <div><small>Телефон</small><a href="tel:+73822508250">+7 (3822) 50-82-50</a></div>
+        <div><small>Email</small><a href="mailto:ilgufotomsk@gmail.com">ilgufotomsk@gmail.com</a></div>
+      </div>
+    </div>
+    <form id="trial" novalidate>
+      <h3 style="font-size:1.45rem">Запись на пробное</h3>
+      <label>Имя родителя<input name="name" required autocomplete="name"></label>
+      <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7"></label>
+      <label>Возраст ребёнка<select name="age"><option>8–12 месяцев</option><option>1–1,7 года</option><option>1,7–3 года</option><option>3–5 лет</option><option>5–7 лет</option><option>7+ лет</option></select></label>
+      <label>Программа<select name="prog" id="progSel"><option>Подскажите, что подойдёт</option><option>Карапузики</option><option>Мама и малыш</option><option>Болтушки</option><option>Подготовка к школе</option><option>Логопед</option></select></label>
+      <button class="btn btn-c" type="submit">Записаться</button>
+      <div class="ok" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+<footer><div class="wrap f-in"><span>Совёнок (Il Gufo) · Томск, Новосибирская ул., 43Б</span><a href="tel:+73822508250">+7 (3822) 50-82-50</a></div></footer>
+<div class="demo">Демо-версия сайта от Suiweb</div>
+<div class="sticky"><a class="btn btn-w" href="tel:+73822508250">Позвонить</a><a class="btn btn-c" href="#trial">Пробное</a></div>
+<script>
+var bs=document.querySelectorAll('#ages button'),ps=document.querySelectorAll('.prog');
+bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');var a=b.dataset.a;ps.forEach(function(p){p.hidden=!(a==='all'||p.dataset.a===a)})})});
+var f=document.getElementById('trial');f.addEventListener('submit',function(e){e.preventDefault();var ok=f.querySelector('.ok');if(!f.elements['name'].value.trim()||!f.elements['phone'].value.trim()){ok.textContent='Укажите имя и телефон.';ok.style.background='#FDE8EE';ok.style.color='#9B1B3C';ok.classList.add('show');return}ok.textContent='Спасибо! Заявка на пробное принята (демо — никуда не отправлена).';ok.style.background='';ok.style.color='';ok.classList.add('show');f.reset()});
+</script>
+</body>
+</html>

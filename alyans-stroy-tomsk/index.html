@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Альянс Строй — ремонт квартир и строительство в Томске. Всё в одном месте</title>
+<meta name="description" content="Альянс Строй: косметический, капитальный и дизайнерский ремонт квартир, ванная под ключ, строительство домов в Томске. Цены от 2 490 ₽/м². Комсомольский пр., 7 ст2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--nv:#061020;--nv2:#0E1C33;--nv3:#16294A;--or:#F28C28;--or2:#FFA54D;--pk:#D34085;--cn:#D9D9D9;--cn2:#EFEFEF;--mute:#5E6573;--line:#E2E2E2;--sticky:72px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter Tight",system-ui,sans-serif;color:var(--nv);background:#fff;line-height:1.55;padding-bottom:calc(var(--sticky) + env(safe-area-inset-bottom))}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,calc(100% - 2.5rem));margin-inline:auto}
+h1{font-size:clamp(2.3rem,5.6vw,4.4rem);line-height:1;font-weight:900;letter-spacing:-.035em}
+h2{font-size:clamp(1.7rem,3.5vw,2.7rem);line-height:1.05;font-weight:800;letter-spacing:-.03em;margin-bottom:.6rem}
+h3{font-size:1.15rem;font-weight:700}
+.sec{padding:4.5rem 0}
+.k{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--or);margin-bottom:.9rem}
+.k::before{content:"";width:10px;height:10px;background:var(--or)}
+.lead{color:var(--mute);font-size:1.08rem;max-width:38rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:.75rem 1.4rem;border-radius:2px;font:700 .98rem "Inter Tight",sans-serif;border:2px solid transparent;cursor:pointer;transition:.15s}
+.btn-or{background:var(--or);color:var(--nv)}.btn-or:hover{background:var(--or2)}
+.btn-w{border-color:rgba(255,255,255,.35);color:#fff}.btn-w:hover{border-color:var(--or);color:var(--or2)}
+.btn-nv{background:var(--nv);color:#fff}.btn-nv:hover{background:var(--nv3)}
+.nav{position:sticky;top:0;z-index:40;background:rgba(6,16,32,.96);backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid #1A2B47}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:66px}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:900;font-size:1.15rem;letter-spacing:-.02em;text-transform:uppercase}
+.links{display:none;gap:1.5rem;font-size:.92rem;font-weight:500;color:#AEB8C9}
+.links a:hover{color:var(--or2)}
+@media(min-width:1000px){.links{display:flex}}
+.nav-tel{display:none;font-weight:700;color:var(--or2)}
+@media(min-width:700px){.nav-tel{display:block}}
+.hero{background:linear-gradient(120deg,var(--nv) 55%,var(--nv2));color:#fff;padding:4rem 0 0;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;gap:2.5rem;align-items:end}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+.hero h1 em{font-style:normal;color:var(--or)}
+.hero .lead{color:#B9C3D3;margin:1.2rem 0 1.8rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.hero-svg{width:100%;max-width:520px;justify-self:center;display:block}
+.one{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#1A2B47;margin-top:3rem;border-top:1px solid #1A2B47}
+@media(min-width:900px){.one{grid-template-columns:repeat(4,1fr)}}
+.one div{background:var(--nv);padding:1.3rem 1.2rem}
+.one b{display:block;font-size:1.02rem}
+.one small{color:#8D99AE;font-size:.86rem}
+.one i{font-style:normal;color:var(--or);font-weight:900;font-size:.8rem;letter-spacing:.1em}
+.calc{display:grid;gap:2rem;align-items:stretch}
+@media(min-width:960px){.calc{grid-template-columns:1.15fr .85fr}}
+.types{display:grid;gap:.6rem;margin-top:1.4rem}
+@media(min-width:600px){.types{grid-template-columns:repeat(3,1fr)}}
+.types button{text-align:left;padding:1rem;border:2px solid var(--line);background:#fff;border-radius:2px;cursor:pointer;font:inherit;color:var(--nv)}
+.types button b{display:block;font-size:1rem}
+.types button small{color:var(--mute)}
+.types button[aria-pressed=true]{border-color:var(--or);background:#FFF6EC}
+.area{margin-top:1.6rem;display:grid;gap:.6rem}
+.area label{display:flex;justify-content:space-between;font-weight:600}
+.area output{font-weight:800;color:var(--or)}
+input[type=range]{width:100%;accent-color:var(--or)}
+.area-n{width:120px!important}
+.result{background:var(--nv);color:#fff;padding:1.8rem;display:flex;flex-direction:column;gap:.6rem}
+.result .sum{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-.03em;color:var(--or2);line-height:1}
+.result small{color:#9AA6BA}
+.result .btn{margin-top:auto}
+.tariffs{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1.8rem}
+@media(min-width:760px){.tariffs{grid-template-columns:repeat(3,1fr)}}
+.tariff{background:#fff;padding:1.7rem;display:flex;flex-direction:column;gap:.6rem}
+.tariff .p{font-size:1.9rem;font-weight:900;letter-spacing:-.03em}
+.tariff .p small{font-size:.9rem;font-weight:600;color:var(--mute)}
+.tariff p{color:var(--mute);font-size:.95rem}
+.tariff.mid{background:var(--nv);color:#fff}.tariff.mid p,.tariff.mid .p small{color:#AEB8C9}.tariff.mid .p{color:var(--or2)}
+.grey{background:var(--cn2)}
+.case{display:grid;gap:0;background:#fff;border:1px solid var(--line);margin-top:1.8rem}
+@media(min-width:900px){.case{grid-template-columns:1fr 1fr}}
+.case-pic{background:var(--nv2);min-height:260px;display:grid;place-items:center;padding:1.5rem}
+.case-body{padding:1.8rem;display:grid;gap:1rem;align-content:center}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.facts div{border-left:3px solid var(--or);padding-left:.75rem}
+.facts b{display:block;font-size:clamp(1.15rem,3.5vw,1.6rem);font-weight:900;letter-spacing:-.02em;white-space:nowrap}
+.facts small{color:var(--mute);font-size:.82rem}
+.steps{display:grid;gap:1px;background:var(--line);margin-top:1.8rem;border:1px solid var(--line)}
+@media(min-width:900px){.steps{grid-template-columns:repeat(5,1fr)}}
+.steps div{background:#fff;padding:1.3rem}
+.steps i{font-style:normal;font-weight:900;color:var(--or);font-size:.9rem}
+.steps p{color:var(--mute);font-size:.92rem;margin-top:.3rem}
+.houses{display:grid;gap:2rem;align-items:center}
+@media(min-width:900px){.houses{grid-template-columns:1fr 1fr}}
+.dark{background:var(--nv);color:#fff}.dark .lead{color:#B9C3D3}
+.rate{display:inline-flex;gap:1rem;align-items:center;margin-top:1.5rem;padding:1rem 1.3rem;border:1px solid #1A2B47;background:var(--nv2)}
+.rate b{font-size:2.2rem;font-weight:900;color:var(--or2);line-height:1}
+.rate small{color:#9AA6BA;display:block}
+.cnt{display:grid;gap:2rem}
+@media(min-width:900px){.cnt{grid-template-columns:1fr 1fr}}
+.offices{display:grid;gap:.8rem;margin-top:1.4rem}
+.offices div{border:1px solid var(--line);padding:1rem 1.15rem}
+.offices small{display:block;color:var(--mute);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.offices a,.offices span{font-weight:700;font-size:1.05rem}
+.offices a:hover{color:var(--or)}
+form{background:var(--cn2);padding:1.6rem;display:grid;gap:.9rem}
+form label{display:grid;gap:.35rem;font-weight:600;font-size:.88rem;color:var(--mute)}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:.8rem .9rem;border:1px solid var(--cn);border-radius:2px;background:#fff;color:var(--nv)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--or);border-color:var(--or)}
+.ok{display:none;padding:1rem;background:#E6F4EA;color:#1D5631;font-weight:600}.ok.show{display:block}
+footer{background:var(--nv);color:#8D99AE;padding:2rem 0 1.5rem;font-size:.9rem}
+.f-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+.demo{background:var(--or);color:var(--nv);text-align:center;font-weight:800;font-size:.88rem;padding:.75rem 1rem}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:.5rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(6,16,32,.97);border-top:1px solid #1A2B47}
+.sticky .btn{flex:1;min-height:48px;padding:.5rem}
+@media(min-width:1000px){.sticky{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 28L16 4l14 24z" fill="none" stroke="#F28C28" stroke-width="3" stroke-linejoin="round"/><path d="M10 28V18h12v10" fill="#F28C28"/></svg>Альянс Строй</a>
+    <nav class="links"><a href="#calc">Калькулятор</a><a href="#tariffs">Тарифы</a><a href="#case">Пример</a><a href="#houses">Дома</a><a href="#contacts">Контакты</a></nav>
+    <a class="nav-tel" href="tel:+73822212156">+7 (3822) 21-21-56</a>
+  </div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div style="padding-bottom:1rem">
+      <span class="k">Ремонт и строительство · Томск</span>
+      <h1>Ремонт квартир под ключ и дома — <em>всё в одном месте</em></h1>
+      <p class="lead">Один сайт, один телефон, одна заявка: косметический, капитальный и дизайнерский ремонт, ванная и санузел под ключ, строительство домов.</p>
+      <div class="cta"><a class="btn btn-or" href="#request">Заявка на замер и смету</a><a class="btn btn-w" href="#calc">Рассчитать ремонт</a></div>
+    </div>
+    <svg class="hero-svg" viewBox="0 0 520 360" aria-hidden="true">
+      <g stroke="#F28C28" stroke-width="2" fill="none">
+        <path d="M40 340V140l120-90 120 90v200"/>
+        <path d="M280 340V200h200v140"/>
+      </g>
+      <g fill="none" stroke="#3A5179" stroke-width="2" stroke-dasharray="5 6"><path d="M40 340h460"/><path d="M100 200h120v80H100z"/><path d="M310 230h60v50h-60zM400 230h60v50h-60z"/></g>
+      <g stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"><path d="M360 120l90 90"/><path d="M340 100l30-10 20 20-10 30z" fill="#F28C28" stroke="#F28C28"/></g>
+      <rect x="150" y="290" width="40" height="50" fill="#F28C28"/>
+      <g font-family="Inter Tight,sans-serif" font-size="13" font-weight="700" fill="#8D99AE"><text x="96" y="190">квартира</text><text x="330" y="190">дом</text></g>
+    </svg>
+  </div>
+  <div class="wrap one">
+    <div><i>01</i><b>Квартиры</b><small>ремонт от 2 490 ₽/м²</small></div>
+    <div><i>02</i><b>Ванная и санузел</b><small>под ключ</small></div>
+    <div><i>03</i><b>Дизайнерский ремонт</b><small>от 7 850 ₽/м²</small></div>
+    <div><i>04</i><b>Дома</b><small>строительство</small></div>
+  </div>
+</section>
+
+<section class="sec" id="calc">
+  <div class="wrap calc">
+    <div>
+      <span class="k">Калькулятор</span>
+      <h2>Ориентир стоимости ремонта</h2>
+      <p class="lead">Считаем по минимальной цене за м² из прайса компании. Итог — по смете после замера.</p>
+      <div class="types" id="types">
+        <button type="button" aria-pressed="true" data-p="2490" data-n="Косметический"><b>Косметический</b><small>от 2 490 ₽/м², без материалов</small></button>
+        <button type="button" aria-pressed="false" data-p="5850" data-n="Капитальный"><b>Капитальный</b><small>от 5 850 ₽/м²</small></button>
+        <button type="button" aria-pressed="false" data-p="7850" data-n="Дизайнерский"><b>Дизайнерский</b><small>от 7 850 ₽/м²</small></button>
+      </div>
+      <div class="area"><label for="m2">Площадь, м² <output id="m2o">50</output></label><input id="m2" type="range" min="10" max="200" value="50"></div>
+    </div>
+    <div class="result" aria-live="polite">
+      <small id="rt">Косметический ремонт · 50 м²</small>
+      <div class="sum" id="sum">от 124 500 ₽</div>
+      <small>Не оферта. Минимальная цена × площадь; материалы, объём работ и сроки — в смете.</small>
+      <a class="btn btn-or" href="#request" id="toReq">Получить смету</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec grey" id="tariffs">
+  <div class="wrap">
+    <span class="k">Тарифы</span>
+    <h2>Три вида ремонта</h2>
+    <div class="tariffs">
+      <div class="tariff"><h3>Косметический</h3><div class="p">от 2 490 ₽ <small>/ м²</small></div><p>Без материалов.</p></div>
+      <div class="tariff mid"><h3>Капитальный</h3><div class="p">от 5 850 ₽ <small>/ м²</small></div><p>Капитальный ремонт, ванная и санузел под ключ.</p></div>
+      <div class="tariff"><h3>Дизайнерский</h3><div class="p">от 7 850 ₽ <small>/ м²</small></div><p>Ремонт по дизайн-проекту.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="case">
+  <div class="wrap">
+    <span class="k">Пример из практики</span>
+    <h2>Квартира 61 м² за 54 дня</h2>
+    <div class="case">
+      <div class="case-pic"><svg viewBox="0 0 300 220" width="100%" style="max-width:360px" aria-hidden="true"><g fill="none" stroke="#F28C28" stroke-width="3"><rect x="10" y="10" width="280" height="200"/><path d="M150 10v110M10 120h190M200 120v90M150 70h140"/></g><g fill="#3A5179" font-family="Inter Tight,sans-serif" font-size="12" font-weight="700"><text x="50" y="70" fill="#8D99AE">комната</text><text x="200" y="45" fill="#8D99AE">кухня</text><text x="50" y="170" fill="#8D99AE">комната</text><text x="215" y="100" fill="#8D99AE">с/у</text><text x="225" y="170" fill="#8D99AE">холл</text></g></svg></div>
+      <div class="case-body">
+        <div class="facts"><div><b>61 м²</b><small>площадь</small></div><div><b>54 дня</b><small>срок</small></div><div><b>732 000 ₽</b><small>стоимость</small></div></div>
+        <p class="lead" style="font-size:1rem">Пример с сайта компании. Планировка на схеме условная. Фото объектов добавим из портфолио.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec grey">
+  <div class="wrap">
+    <span class="k">Как работаем</span>
+    <h2>От заявки до сдачи</h2>
+    <div class="steps">
+      <div><i>01</i><h3>Заявка</h3><p>Звонок или форма на сайте.</p></div>
+      <div><i>02</i><h3>Замер</h3><p>Выезд на объект.</p></div>
+      <div><i>03</i><h3>Смета</h3><p>Расчёт работ и материалов.</p></div>
+      <div><i>04</i><h3>Ремонт</h3><p>Выполнение работ.</p></div>
+      <div><i>05</i><h3>Сдача</h3><p>Приёмка объекта.</p></div>
+    </div>
+    <p class="lead" style="margin-top:1.2rem;font-size:.95rem">Условия гарантии и стоимость замера — по запросу.</p>
+  </div>
+</section>
+
+<section class="sec dark" id="houses">
+  <div class="wrap houses">
+    <div>
+      <span class="k">Строительство</span>
+      <h2>Строительство домов</h2>
+      <p class="lead">Раньше — на отдельном сайте, теперь здесь же: ремонт и строительство у одной компании, с одной заявкой. Стоимость — по запросу, по проекту.</p>
+      <div class="cta" style="margin-top:1.4rem"><a class="btn btn-or" href="#request" data-t="Строительство дома">Обсудить дом</a></div>
+      <div class="rate"><b>4,8</b><div><strong>Оценка в 2ГИС</strong><small>80 оценок (данные 2ГИС на 09.11.2026)</small></div></div>
+    </div>
+    <svg viewBox="0 0 460 300" aria-hidden="true" style="width:100%;height:auto"><rect width="460" height="300" fill="#0E1C33"/><g fill="none" stroke="#F28C28" stroke-width="3"><path d="M60 260V140l110-80 110 80v120"/><path d="M60 260h340"/><rect x="140" y="180" width="60" height="80"/><rect x="230" y="160" width="36" height="36"/><path d="M280 140h80v120"/></g><g stroke="#3A5179" stroke-width="2" stroke-dasharray="4 6"><path d="M360 60v200M330 60h60"/></g></svg>
+  </div>
+</section>
+
+<section class="sec" id="contacts">
+  <div class="wrap cnt">
+    <div>
+      <span class="k">Контакты</span>
+      <h2>Один телефон для всего</h2>
+      <div class="offices">
+        <div><small>Телефон</small><a href="tel:+73822212156">+7 (3822) 21-21-56</a></div>
+        <div><small>Офис</small><span>Томск, Комсомольский пр., 7 ст2, офис 5, 2 этаж</span></div>
+        <div><small>Второй филиал</small><span>адрес уточняется</span></div>
+        <div><small>Email</small><a href="mailto:alians-st70@yandex.ru">alians-st70@yandex.ru</a></div>
+      </div>
+    </div>
+    <form id="request" novalidate>
+      <h3 style="font-size:1.45rem">Заявка на замер и смету</h3>
+      <label>Имя<input name="name" required autocomplete="name"></label>
+      <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7"></label>
+      <label>Что нужно<select name="type" id="reqType"><option>Косметический ремонт</option><option>Капитальный ремонт</option><option>Дизайнерский ремонт</option><option>Ванная и санузел под ключ</option><option>Строительство дома</option></select></label>
+      <label>Площадь, м²<input name="area" type="number" min="1" inputmode="numeric" id="reqArea"></label>
+      <button class="btn btn-nv" type="submit">Отправить заявку</button>
+      <div class="ok" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+<footer><div class="wrap f-in"><span>Альянс Строй · Томск, Комсомольский пр., 7 ст2, оф. 5</span><a href="tel:+73822212156">+7 (3822) 21-21-56</a></div></footer>
+<div class="demo">Демо-версия сайта от Suiweb</div>
+<div class="sticky"><a class="btn btn-w" href="tel:+73822212156">Позвонить</a><a class="btn btn-or" href="#request">Замер и смета</a></div>
+<script>
+var tb=document.querySelectorAll('#types button'),m2=document.getElementById('m2'),m2o=document.getElementById('m2o'),sum=document.getElementById('sum'),rt=document.getElementById('rt'),cur=tb[0];
+function fmt(x){return x.toLocaleString('ru-RU').replace(/\u00a0/g,' ')}
+function calc(){var a=+m2.value;m2o.textContent=a;sum.textContent='от '+fmt(a*(+cur.dataset.p))+' ₽';rt.textContent=cur.dataset.n+' ремонт · '+a+' м²'}
+tb.forEach(function(b){b.addEventListener('click',function(){tb.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');cur=b;calc()})});
+m2.addEventListener('input',calc);calc();
+var f=document.getElementById('request'),sel=document.getElementById('reqType');
+document.getElementById('toReq').addEventListener('click',function(){sel.value=cur.dataset.n+' ремонт';document.getElementById('reqArea').value=m2.value});
+document.querySelectorAll('[data-t]').forEach(function(a){a.addEventListener('click',function(){sel.value=a.dataset.t})});
+f.addEventListener('submit',function(e){e.preventDefault();var ok=f.querySelector('.ok');if(!f.elements['name'].value.trim()||!f.elements['phone'].value.trim()){ok.textContent='Укажите имя и телефон.';ok.style.background='#FFF1E3';ok.style.color='#8A4A0B';ok.classList.add('show');return}ok.textContent='Спасибо! Заявка принята (демо — никуда не отправлена).';ok.style.background='';ok.style.color='';ok.classList.add('show');f.reset()});
+</script>
+</body>
+</html>
