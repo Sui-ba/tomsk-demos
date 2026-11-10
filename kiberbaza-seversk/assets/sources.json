@@ -1,0 +1,21 @@
+{
+  "source_report": "/workspace/outreach-research/kiberbaza.md",
+  "source_directory": "/workspace/outreach-research/kiberbaza-assets",
+  "identity_source": "https://t.me/cyberbazanumber1",
+  "price_source": "https://t.me/cyberbazanumber1/33",
+  "photo_source": "https://yandex.tm/maps/org/kiberbaza/169832911694/",
+  "source_sha256": {
+    "telegram-avatar.jpg": "6db91ec132593cdae25b3a712a44154bca0f93776ffb42213650522c0b0ffd15",
+    "telegram-post-33.jpg": "3635857e3e6f17828a0965079ff5b9d6fde39c79210df3f8b0e7e53bf1e478d7",
+    "yandex-photo-01.jpg": "d100b377463f1be6e34c6f79224a5c5207a1bc9f6b431d78814d5e5c31b17d00",
+    "yandex-photo-02.jpg": "65d946cdfaf0537657c89a1f7ae1d7bbd597c6abe9762e93ace38aee4de33f30"
+  },
+  "mapping": {
+    "club-logo.webp": "telegram-avatar.jpg",
+    "published-price.webp": "telegram-post-33.jpg",
+    "club-entrance.webp": "yandex-photo-01.jpg",
+    "club-interior.webp": "yandex-photo-02.jpg"
+  },
+  "palette_note": "Sampled from source images, not an official brand book",
+  "font_note": "System Arial; official font not supplied"
+}
