@@ -16,6 +16,10 @@
     "club-entrance.webp": "yandex-photo-01.jpg",
     "club-interior.webp": "yandex-photo-02.jpg"
   },
-  "palette_note": "Sampled from source images, not an official brand book",
-  "font_note": "System Arial; official font not supplied"
+  "palette_note": "Style brief: background #030102, CTA #FC790E, text #FFF6F1, LED accent #0DD1CD; secondary gold #FABE0F",
+  "font_note": "Style brief: Google Fonts Russo One (headings) and Roboto (body), with system fallbacks",
+  "social_links": [
+    "https://vk.ru/cyberbazanumber1",
+    "https://t.me/cyberbazanumber1"
+  ]
 }
