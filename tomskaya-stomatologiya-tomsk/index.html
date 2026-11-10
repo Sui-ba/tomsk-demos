@@ -1,0 +1,228 @@
+<!doctype html><html lang="ru" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Томская стоматология — запись · концепт Suiweb</title><meta name="description" content="Томская стоматология в Томске: контакты и демонстрационная пошаговая запись. Это концепт, данные никуда не отправляются. "><link rel="icon" href="data:,"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"><style>:root{--accent:#347f94;--ink:#193c48;--bg:#fafcfd;--tint:#eaf3f6;--line:#d5e4e9;--muted:#5b7480;--card:#fff;--L-acc:var(--accent);--L-acc-ink:var(--accent);--L-on:#fff;--L-bg:var(--bg);--L-card:#fff;--L-line:var(--line);--L-text:var(--ink);--L-mute:var(--muted);--L-chip:var(--tint);--L-ring:color-mix(in srgb,var(--accent) 40%,transparent);--L-r1:12px;--L-r2:26px;--L-fh:Manrope,system-ui,sans-serif}
+/* ===== live: motion & interaction layer (Suiweb) ===== */
+[hidden]{display:none!important}
+:root{--ease:cubic-bezier(.22,.8,.24,1)}
+.nav{transition:box-shadow .3s var(--ease),background .3s}
+.nav.scrolled{box-shadow:0 10px 28px -18px rgba(0,0,0,.45)}
+.btn:focus-visible,.lv-opt:focus-visible,.lv-chip:focus-visible,.lv-day:focus-visible,.lv-stp button:focus-visible,.lv-link:focus-visible{outline:3px solid var(--L-ring);outline-offset:2px}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+/* hero photo */
+.lv-visual{position:relative;max-width:540px;width:100%;margin-inline:auto;justify-self:center}
+.lv-photo{border-radius:var(--L-r2);overflow:hidden;aspect-ratio:5/5.6;box-shadow:0 2px 4px rgba(0,0,0,.06),0 26px 50px -22px rgba(0,0,0,.45);background:var(--L-bg);will-change:transform}
+.lv-photo img{width:100%;height:115%;object-fit:cover;display:block;max-width:none;animation:lvkb 1.6s var(--ease) both;will-change:transform}
+@keyframes lvkb{from{transform:scale(1.08);opacity:.001}to{transform:scale(1);opacity:1}}
+.lv-float{position:absolute;background:rgba(255,255,255,.9);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.7);border-radius:18px;box-shadow:0 2px 4px rgba(0,0,0,.06),0 22px 40px -18px rgba(0,0,0,.4);color:var(--L-text);will-change:transform}
+.lv-fc-a{left:-1.8rem;bottom:1.4rem;width:min(300px,80%);padding:.9rem 1.05rem .5rem}
+.lv-fc-b{right:-1rem;top:1.3rem;display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem}
+.lv-fc-b b{font-family:var(--L-fh);font-weight:800;font-size:1.65rem;color:var(--L-acc-ink);line-height:1}
+.lv-fc-b span{font-size:.78rem;color:var(--L-mute);line-height:1.25}
+.lv-fc-h{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--L-mute);margin-bottom:.15rem}
+.lv-row{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;padding:.5rem 0;border-top:1px dashed var(--L-line);font-size:.9rem}
+.lv-fc-h+.lv-row{border-top:0}
+.lv-row b{font-family:var(--L-fh);color:var(--L-acc-ink);white-space:nowrap}
+@media(max-width:959px){.lv-fc-a{left:.8rem}.lv-fc-b{right:.8rem}.lv-photo{aspect-ratio:4/3.2}}
+@media(max-width:600px){.lv-photo{aspect-ratio:16/11}.lv-fc-a{display:none}.lv-fc-b{top:.8rem;right:.8rem}}
+/* wizard */
+.lv-book{position:relative;overflow:hidden;background:var(--L-card);color:var(--L-text);border:var(--L-bw,1px) solid var(--L-bc,var(--L-line));border-radius:var(--L-r2);padding:clamp(1.2rem,3.5vw,2.1rem);box-shadow:var(--L-shadow,0 1px 2px rgba(0,0,0,.05),0 18px 40px -22px rgba(0,0,0,.3));min-width:0}
+.lv-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.6rem}
+.lv-title{font-family:var(--L-fh);font-weight:800;font-size:1.15rem}
+.lv-count{font-size:.82rem;color:var(--L-mute);font-weight:700;white-space:nowrap}
+.lv-bar{height:4px;border-radius:9px;background:var(--L-line);overflow:hidden;margin-bottom:.9rem}
+.lv-bar i{display:block;height:100%;width:25%;background:var(--L-acc);border-radius:inherit;transition:width .5s var(--ease)}
+.lv-crumbs{display:flex;flex-wrap:wrap;gap:.35rem;min-height:0;margin-bottom:.9rem}
+.lv-crumbs:empty{display:none}
+.lv-crumbs span{font-size:.76rem;font-weight:700;padding:.25rem .6rem;border-radius:999px;background:var(--L-chip);color:var(--L-acc-ink);animation:lvPop .3s var(--ease) both}
+.lv-pane{animation:lvIn .45s var(--ease) both}
+.lv-pane.back{animation-name:lvBack}
+@keyframes lvIn{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+@keyframes lvBack{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+@keyframes lvPop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+.lv-q{font-weight:700;font-size:.96rem;margin:0 0 .6rem}
+.lv-q+.lv-q,.lv-gap{margin-top:1.1rem}
+.lv-opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.lv-opts.c1{grid-template-columns:1fr}
+@media(max-width:380px){.lv-opts{grid-template-columns:1fr}}
+.lv-opt{position:relative;text-align:left;font:inherit;color:var(--L-text);background:var(--L-bg);border:1.5px solid var(--L-line);border-radius:var(--L-r1);padding:.8rem .9rem;cursor:pointer;display:flex;flex-direction:column;gap:.1rem;min-width:0;transition:border-color .2s,transform .2s var(--ease),box-shadow .25s var(--ease),background .2s}
+.lv-opt b{font-size:.96rem}.lv-opt small{color:var(--L-mute);font-size:.8rem;line-height:1.35}
+.lv-opt em{font-style:normal;font-family:var(--L-fh);font-weight:800;color:var(--L-acc-ink);margin-top:.25rem}
+.lv-opt:hover{border-color:var(--L-acc);transform:translateY(-2px);box-shadow:0 10px 22px -14px rgba(0,0,0,.35)}
+.lv-opt:active{transform:scale(.98)}
+.lv-opt.sel{border-color:var(--L-acc);background:var(--L-chip)}
+.lv-opt.sel::after{content:"✓";position:absolute;top:.55rem;right:.7rem;width:22px;height:22px;border-radius:50%;background:var(--L-acc);color:var(--L-on);display:grid;place-items:center;font-size:.75rem;font-weight:800;animation:lvPop .25s var(--ease) both}
+.lv-chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.lv-chip,.lv-day{font:inherit;font-weight:600;font-size:.9rem;border:1.5px solid var(--L-line);background:var(--L-card);color:var(--L-text);border-radius:999px;padding:.5rem .9rem;cursor:pointer;transition:all .2s var(--ease)}
+.lv-chip:hover,.lv-day:hover{border-color:var(--L-acc)}
+.lv-chip:active,.lv-day:active{transform:scale(.96)}
+.lv-chip.on,.lv-day.on{background:var(--L-acc);border-color:var(--L-acc);color:var(--L-on)}
+.lv-days{display:flex;gap:.45rem;overflow-x:auto;padding:.2rem .25rem .5rem;margin-inline:-.25rem;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.lv-day{flex:none;border-radius:14px;padding:.45rem .65rem;min-width:62px;text-align:center;scroll-snap-align:start;display:flex;flex-direction:column;line-height:1.2}
+.lv-day small{font-size:.7rem;color:var(--L-mute);font-weight:600;text-transform:uppercase}
+.lv-day b{font-family:var(--L-fh);font-size:1.12rem}
+.lv-day.on small{color:inherit;opacity:.85}
+.lv-rng{display:grid;gap:.45rem}
+.lv-rng label{display:flex;justify-content:space-between;gap:1rem;font-weight:700;font-size:.92rem}
+.lv-rng output{font-family:var(--L-fh);font-weight:800;color:var(--L-acc-ink)}
+.lv-rng input[type=range]{width:100%;accent-color:var(--L-acc);padding:0;border:0;background:none;min-height:28px}
+.lv-res{margin-top:1rem;background:var(--L-chip);border-radius:var(--L-r1);padding:1rem 1.1rem}
+.lv-res small{display:block;color:var(--L-mute);font-size:.82rem}
+.lv-big{font-family:var(--L-fh);font-weight:800;font-size:clamp(1.45rem,4.5vw,2.05rem);color:var(--L-acc-ink);line-height:1.15;margin:.2rem 0;font-variant-numeric:tabular-nums}
+.lv-big.flash{animation:lvPop .3s var(--ease)}
+.lv-stp{display:inline-flex;align-items:center;border:1.5px solid var(--L-line);border-radius:999px;overflow:hidden;background:var(--L-card)}
+.lv-stp button{font:inherit;font-weight:800;font-size:1.1rem;width:44px;height:44px;border:0;background:transparent;color:var(--L-text);cursor:pointer;transition:background .2s}
+.lv-stp button:hover{background:var(--L-chip)}
+.lv-stp output{min-width:3.2rem;text-align:center;font-family:var(--L-fh);font-weight:800;font-size:1.1rem}
+.lv-book form.lv-form{background:none;border:0;border-radius:0;box-shadow:none;padding:0;display:grid;gap:.9rem}
+.lv-two{display:grid;gap:.9rem}
+@media(min-width:640px){.lv-two{grid-template-columns:1fr 1fr}}
+.lv-book .lv-f{display:block;font-size:.8rem;font-weight:700;color:var(--L-mute)}
+.lv-book .lv-f span{display:block;margin-bottom:.35rem}
+.lv-book .lv-f input,.lv-book .lv-f textarea{width:100%;font:inherit;font-size:16px;color:var(--L-text);background:var(--L-bg);border:1.5px solid var(--L-line);border-radius:12px;padding:.8rem .95rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.lv-book .lv-f textarea{min-height:84px;resize:vertical}
+.lv-book .lv-f input:focus,.lv-book .lv-f textarea:focus{border-color:var(--L-acc);box-shadow:0 0 0 3px var(--L-ring);outline:none}
+.lv-book input.bad{border-color:#D9534F!important;box-shadow:0 0 0 3px rgba(217,83,79,.15)!important;animation:lvShake .3s}
+@keyframes lvShake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.lv-err{color:#C0392B;font-size:.86rem;font-weight:600;margin-top:.7rem}
+.lv-err:empty{display:none}
+.lv-note{font-size:.78rem;color:var(--L-mute);margin-top:.7rem;line-height:1.45}
+.lv-acts{display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;margin-top:1.1rem}
+.lv-acts .btn{min-height:48px}
+.lv-link{background:none;border:0;font:inherit;font-size:.9rem;font-weight:700;color:var(--L-mute);cursor:pointer;padding:.3rem 0;transition:color .2s}
+.lv-link:hover{color:var(--L-acc-ink)}
+.btn.loading{pointer-events:none;filter:saturate(.7)}
+.btn.loading svg{animation:lvFly .7s var(--ease) infinite alternate}
+@keyframes lvFly{to{transform:translate(3px,-3px)}}
+.lv-done{text-align:center}
+.lv-check{width:64px;height:64px;margin:.2rem auto .8rem}
+.lv-check circle{stroke:var(--L-acc);stroke-width:3;stroke-dasharray:151;stroke-dashoffset:151;animation:lvDraw .6s var(--ease) forwards}
+.lv-check path{stroke:var(--L-acc);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:36;stroke-dashoffset:36;animation:lvDraw .35s .45s var(--ease) forwards}
+@keyframes lvDraw{to{stroke-dashoffset:0}}
+.lv-done h3{font-family:var(--L-fh);font-size:1.3rem}
+.lv-done-sub{color:var(--L-mute);margin-top:.3rem}
+.lv-ticket{margin:1rem 0;text-align:left;background:var(--L-bg);border:1px solid var(--L-line);border-radius:14px;padding:.35rem 1rem}
+.lv-sr{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-top:1px dashed var(--L-line);font-size:.92rem}
+.lv-sr:first-child{border-top:0}.lv-sr span{color:var(--L-mute)}.lv-sr strong{text-align:right;overflow-wrap:anywhere}
+.lv-tg{margin-top:.6rem;text-align:left;font-size:.9rem}
+.lv-tg summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:.55rem;font-weight:800;color:var(--L-text)}
+.lv-tg summary::-webkit-details-marker{display:none}
+.lv-tg summary small{font-weight:600;color:var(--L-mute)}
+.lv-dot{width:9px;height:9px;border-radius:50%;background:#2AABEE;box-shadow:0 0 0 0 rgba(42,171,238,.5);animation:lvPulse 2s infinite;flex:none}
+@keyframes lvPulse{70%{box-shadow:0 0 0 8px rgba(42,171,238,0)}100%{box-shadow:0 0 0 0 rgba(42,171,238,0)}}
+.lv-tgm{margin-top:.7rem;background:#EEF3F7;border-radius:14px;padding:.7rem .85rem;color:#1F2A37;line-height:1.5;animation:lvIn .35s var(--ease) both}
+.lv-tgh{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}.lv-tgh small{margin-left:auto;color:#5B6878;font-size:.74rem}
+.lv-av{width:26px;height:26px;border-radius:50%;background:#2AABEE;color:#fff;display:grid;place-items:center;font-weight:800;font-size:.66rem}
+.lv-demo-n{font-size:.78rem;color:var(--L-mute);margin-top:.9rem}
+.sticky{transition:transform .35s var(--ease)}
+.sticky.lv-hide{transform:translateY(110%)}
+.lv-concept{display:block;margin:1rem auto 0;width:fit-content;max-width:100%;text-align:center;font-size:.85rem;font-weight:600;padding:.5rem 1rem;border-radius:999px;border:1px dashed currentColor;opacity:.9}
+.lv-credit{font-size:.78rem;opacity:.75;margin-top:.8rem}
+.lv-credit a{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+ .rv{opacity:1;transform:none}
+ [data-parallax],[data-float],.lv-photo img{transform:none!important}
+}
+.lv-cgrid{display:grid;gap:2rem;align-items:start}
+@media(min-width:900px){.lv-cgrid{grid-template-columns:.95fr 1.05fr}}
+.lv-pts{list-style:none;display:grid;gap:.55rem;margin-top:1.3rem}
+.lv-pts li{display:flex;gap:.55rem;align-items:flex-start;font-weight:600}
+.lv-pts li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.72rem;font-weight:800;background:var(--L-chip);color:var(--L-acc-ink);margin-top:.1rem}
+.lv-cta-card{background:var(--L-card);color:var(--L-text);border:var(--L-bw,1px) solid var(--L-bc,var(--L-line));border-radius:var(--L-r2);padding:1.6rem;display:grid;gap:.8rem;align-content:start}
+.lv-cta-card p{color:var(--L-mute)}
+.lv-cta-card .btn{width:100%}
+.lv-rec{font-size:.68rem!important;font-weight:800;color:var(--L-acc-ink)!important;text-transform:uppercase;letter-spacing:.05em}
+body{overflow-x:clip}
+#order,#trial,#form,#request,.lv-cgrid>*{min-width:0}
+.lv-pane{min-width:0}.lv-days{max-width:100%}
+
+
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:Manrope,Inter,system-ui,sans-serif;line-height:1.12;letter-spacing:-.045em}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{touch-action:manipulation}a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.wrap{width:min(1160px,calc(100% - 64px));margin:auto}.nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:90px}.brand{display:flex;align-items:center;gap:12px;font-family:Manrope,system-ui;font-weight:800;font-size:21px;letter-spacing:-.045em;line-height:1.2}.mark{width:40px;height:40px;flex:none;background:var(--accent);color:white;border-radius:13px;display:grid;place-items:center;font-size:24px;letter-spacing:0}.brand small{display:block;font:11px/1.5 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:5px}.nav-links{display:flex;gap:24px;align-items:center;font-size:13px;font-weight:600}.nav-links a:hover{color:var(--accent)}.nav-call{font-size:14px;font-weight:700;white-space:nowrap}.nav-call small{display:block;font-weight:400;font-size:10px;color:var(--muted)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;min-height:50px;border-radius:12px;border:1px solid var(--accent);font-size:14px;line-height:1.4;font-weight:700;cursor:pointer;text-align:center;transition:transform .2s,box-shadow .25s,background .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -15px var(--accent)}.btn:active{transform:scale(.97)}.primary{background:var(--accent);color:white}.ghost{background:transparent;color:var(--ink);border-color:var(--line)}.eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--accent);text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:800;margin-bottom:22px}.eyebrow:before{content:'';width:7px;height:7px;background:currentColor;border-radius:50%}.hero{padding:64px 0 72px;position:relative}.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center}.hero h1{font-size:clamp(38px,4.1vw,60px);max-width:630px;font-weight:650}.hero h1 em{font-style:normal;color:var(--accent)}.hero .lead{max-width:500px;margin:22px 0 28px}.lead{font-size:17px;line-height:1.75;color:var(--muted)}.actions{display:flex;flex-wrap:wrap;gap:10px}.hero-meta{display:flex;gap:24px;margin-top:32px;padding-top:23px;border-top:1px solid var(--line);font-size:12px;line-height:1.6;color:var(--muted)}.hero-meta b{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}.lv-photo{aspect-ratio:1/1.08;box-shadow:0 20px 80px -45px var(--accent)}.lv-photo img{object-position:center 38%}.lv-fc-b{top:20px;right:-18px}.lv-fc-b b{font-size:19px}.lv-fc-a{left:-24px;bottom:24px;width:250px;padding:17px 20px}.photo-label{display:block;text-align:right;font-size:10px;letter-spacing:.02em;color:var(--muted);margin-top:14px;padding-right:8px}.ribbon{border-block:1px solid var(--line);background:var(--tint)}.ribbon .wrap{padding-block:22px;display:flex;justify-content:space-between;align-items:center;gap:24px}.ribbon b{font-size:15px;line-height:1.4;font-weight:650}.ribbon p{font-size:13px;line-height:1.6;color:var(--muted);max-width:610px}.section{padding:90px 0}h2{font-size:clamp(29px,3.2vw,42px);font-weight:650;max-width:650px}.section-head{display:flex;gap:32px;justify-content:space-between;align-items:end;margin-bottom:32px}.section-head p{max-width:380px;font-size:14px;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid var(--line);padding:28px;background:var(--card);border-radius:20px;display:flex;flex-direction:column;align-items:start;transition:transform .25s,box-shadow .25s}.card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -30px var(--accent)}.card .number{font-size:12px;color:var(--accent);background:var(--tint);border-radius:50%;width:34px;height:34px;display:grid;place-items:center;margin-bottom:32px}.card h3{font-size:22px;letter-spacing:-.03em}.card p{font-size:13px;color:var(--muted);margin:15px 0 25px}.card a{color:var(--accent);font-size:13px;font-weight:700;margin-top:auto}.booking{background:var(--tint);border-block:1px solid var(--line)}.booking-copy{position:sticky;top:130px}.booking-copy .lead{margin-top:22px;max-width:440px;font-size:15px}.steps-note{margin-top:30px;display:grid;gap:16px;max-width:410px}.step-note{display:flex;gap:14px;font-size:13px;color:var(--muted)}.step-note b{display:block;color:var(--ink);font-size:14px;font-weight:650}.step-note i{font-style:normal;width:27px;height:27px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--accent);flex:none}.demo-box{font-size:12px;color:var(--muted);border-left:2px solid var(--accent);padding-left:15px;margin-top:30px;max-width:400px}.lv-book{box-shadow:0 20px 60px -44px var(--accent)}.lv-title{font-size:16px}.lv-count{font-size:12px}.lv-opt{padding:17px}.lv-opt b{font-size:14px;padding-right:22px}.lv-tg summary{flex-wrap:wrap}.lv-f{margin-top:12px}.lv-sr{font-size:12px}.lv-sr strong{max-width:65%}.lv-tgh{flex-wrap:wrap;font-size:12px}.lv-tgh small{display:none}.lv-form .btn{width:100%}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}.contact-list{display:grid;gap:24px;margin-top:30px}.contact-item{padding-bottom:20px;border-bottom:1px solid var(--line)}.contact-item small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}.contact-item a,.contact-item strong{font-size:18px;font-weight:600;overflow-wrap:anywhere}.contact-item p{font-size:12px;color:var(--muted);margin-top:8px}.location{padding:36px;border-radius:24px;background:var(--tint);border:1px solid var(--line)}.location .pin{font-size:34px;color:var(--accent);line-height:1;margin-bottom:30px}.location h3{font-size:26px}.location p{font-size:14px;color:var(--muted);margin:18px 0 28px}.location .btn{width:100%}footer{padding:32px 0 100px;background:var(--ink);color:#fff}.footer-top{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:12px}.footer-top b{font-size:18px;font-family:Manrope,system-ui}.lv-credit{color:#e0e0e0;max-width:900px}.lv-concept{text-align:left;margin:24px 0 0;border-radius:9px;padding:12px 16px;font-weight:400;opacity:1;color:#efefef;font-size:12px}.sticky{display:none}.muted{color:var(--muted)}.skip{position:absolute;left:10px;top:-80px;z-index:99;background:white;padding:10px}.skip:focus{top:8px}
+@media(max-width:1000px){.hero-grid{gap:36px}.nav-links{display:none}.hero h1{font-size:46px}.lv-fc-b{right:8px}.lv-fc-a{left:8px}.hero-meta{gap:15px}.contact-grid{gap:40px}}
+@media(max-width:700px){html{scroll-padding-top:90px}.wrap{width:calc(100% - 40px)}.nav-inner{min-height:76px;gap:12px}.brand{font-size:17px;gap:9px}.brand small{font-size:9px}.mark{width:32px;height:32px;font-size:20px;border-radius:10px}.nav-call{font-size:11px}.nav-call small{font-size:8px}.hero{padding:36px 0 35px}.hero-grid{grid-template-columns:1fr;gap:30px}.eyebrow{font-size:10px;letter-spacing:.1em;margin-bottom:17px}.hero h1{font-size:39px;max-width:370px}.hero .lead{font-size:14px;line-height:1.7;margin:18px 0 23px}.actions .btn{flex:1;font-size:12px;padding:13px 12px;min-width:130px}.hero-meta{margin-top:25px;padding-top:20px;font-size:10px}.hero-meta b{font-size:12px}.lv-photo{aspect-ratio:16/11}.lv-photo img{object-position:center 42%}.lv-fc-b{top:12px;right:12px;padding:10px 13px}.lv-fc-b b{font-size:17px}.lv-fc-b span{font-size:10px}.photo-label{font-size:9px;margin-top:11px}.ribbon .wrap{display:block;padding-block:20px}.ribbon b{font-size:14px}.ribbon p{font-size:12px;margin-top:8px}.section{padding:56px 0}.section-head{display:block;margin-bottom:25px}.section-head p{margin-top:16px;font-size:13px}.cards{grid-template-columns:1fr;gap:12px}.card{padding:23px}.card .number{margin-bottom:20px}.card h3{font-size:21px}.card p{margin:12px 0 18px}.booking-copy{position:static}.booking-copy .lead{font-size:14px}.steps-note{display:none}.demo-box{margin-top:20px}.lv-cgrid{gap:28px}.lv-book{padding:21px 18px;border-radius:20px}.lv-opts{grid-template-columns:1fr}.lv-opt{padding:15px}.lv-sr{gap:10px}.lv-note{font-size:11px}.contact-grid{grid-template-columns:1fr;gap:30px}.contact-item a,.contact-item strong{font-size:17px}.location{padding:26px}.footer-top{display:block}.footer-top span{display:block;margin-top:12px}.lv-credit{font-size:10px}.lv-concept{font-size:11px}.sticky{position:fixed;bottom:0;left:0;right:0;display:flex;gap:10px;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(15px);border-top:1px solid var(--line);padding:10px 20px max(10px,env(safe-area-inset-bottom));z-index:40}.sticky .btn{flex:1;padding:11px 9px;font-size:12px;min-height:44px}.lv-tg summary{gap:6px;font-size:12px}.lv-done h3{font-size:21px}.lv-done-sub{font-size:13px}}
+</style></head><body><a class="skip" href="#main">Перейти к содержимому</a>
+<header class="nav"><div class="wrap nav-inner"><a href="#main" class="brand"><span class="mark" aria-hidden="true">◇</span><span>Томская<br>стоматология<small>Карла Маркса, 54</small></span></a><nav class="nav-links" aria-label="Основная навигация"><a href="#approach">Как записаться</a><a href="#booking">Запись</a><a href="#contacts">Контакты</a></nav><a class="nav-call" href="tel:+73822402403">+7 (3822) 402-403</a></div></header>
+<main id="main"><section class="hero"><div class="wrap hero-grid"><div data-hero-copy><span class="eyebrow">Томск · заявка на приём</span><h1>Запись к стоматологу.<br><em>Всё в одном месте.</em></h1><p class="lead">Причина обращения, удобная дата и контакты — в одной заявке. Администратор уточнит детали и подтвердит время приёма.</p><div class="actions"><a class="btn primary" href="#booking">Записаться на приём ↗</a><a class="btn ghost" href="tel:+73822402403">Позвонить</a></div><div class="hero-meta"><div><b>Карла Маркса, 54</b>Адрес из контактов компании</div><div><b>Заявка на приём</b>Стоимость — по запросу</div></div></div><div class="lv-visual rv"><div class="lv-photo" data-parallax><img src="assets/hero.jpg" width="1800" height="1800" alt="Стоматологическое кресло и оборудование — стоковая иллюстрация, не фото клиники" fetchpriority="high"></div><div class="lv-float lv-fc-b" data-float="-1"><b>Одна</b><span>страница для записи<br>и связи с клиникой</span></div><div class="lv-float lv-fc-a" data-float><div class="lv-fc-h">Ваша заявка</div><div class="lv-row"><span>Обращение</span><b>01</b></div><div class="lv-row"><span>Удобное время</span><b>02</b></div><div class="lv-row"><span>Контакты для связи</span><b>03</b></div></div><span class="photo-label">Стоковая иллюстрация · не фото компании</span></div></div></section>
+<div class="ribbon"><div class="wrap"><b>Один понятный маршрут записи</b><p>Контакты и заявка собраны на одной странице.</p></div></div>
+<section class="section" id="approach"><div class="wrap"><div class="section-head rv"><div><span class="eyebrow">Просто и по порядку</span><h2>От обращения — к подтверждённому приёму</h2></div><p>Заявка не заменяет консультацию. Врач, стоимость и точное время приёма уточняются администратором.</p></div><div class="cards" data-stagger><article class="card"><span class="number">01</span><h3>Причина обращения</h3><p>Выберите запрос на приём стоматолога или попросите помочь с выбором услуги.</p><a href="#booking">Начать запись →</a></article><article class="card"><span class="number">02</span><h3>Желаемое время</h3><p>Выберите дату и удобную часть дня. Доступность подтвердит клиника.</p><a href="#booking">Выбрать время →</a></article><article class="card"><span class="number">03</span><h3>Связь с клиникой</h3><p>Телефон и email клиники рядом с формой записи.</p><a href="#booking">Оставить заявку →</a></article></div></div></section>
+<section class="section booking" id="booking"><div class="wrap lv-cgrid"><div class="booking-copy rv"><span class="eyebrow">Пошаговая запись · демо</span><h2>Когда вам удобно прийти?</h2><p class="lead">Выберите обращение и удобное время, затем укажите контакты. Специалист, услуга и стоимость уточняются при подтверждении.</p><div class="steps-note"><div class="step-note"><i>1</i><div><b>Выберите, что вам удобно</b>Все пожелания сохранятся внутри формы.</div></div><div class="step-note"><i>2</i><div><b>Администратор подтвердит детали</b>Это запрос, а не бронирование свободного слота.</div></div></div><p class="demo-box">Перед вами концепт: расписание иллюстративное, Telegram не подключён. Используйте вымышленные контакты для проверки.</p></div><div class="lv-book rv" id="lv-book" data-step="1"><div class="lv-top"><div class="lv-title" data-t></div><div class="lv-count"><span data-n>1</span>/4</div></div><div class="lv-bar"><i data-bar></i></div><div class="lv-crumbs" data-crumbs aria-live="polite"></div><div class="lv-pane" data-pane="1" ><h3 class="lv-q">С чем хотите обратиться?</h3><div class="lv-opts c1"><button type="button" class="lv-opt" data-k="service" data-v="Приём стоматолога" aria-pressed="false"><b>Приём стоматолога</b></button><button type="button" class="lv-opt" data-k="service" data-v="Помогите выбрать услугу" aria-pressed="false"><b>Помогите выбрать услугу</b></button></div><p class="lv-note">Перечень услуг, врачи и стоимость уточняются. Опишите причину обращения — администратор подберёт направление.</p><label class="lv-f"><span>Пожелания к услуге или специалисту (необязательно)</span><textarea data-k="details" placeholder="Коротко расскажите о вашем запросе"></textarea></label><p class="lv-note">Специалист: подберёт администратор. Состав и доступность уточняются.</p><p class="lv-err" role="alert"></p><div class="lv-acts"><span></span><button class="btn primary" type="button" data-next>Далее →</button></div></div><div class="lv-pane" data-pane="2" hidden><h3 class="lv-q">Удобная дата</h3><div class="lv-days" data-days="date" data-n="12"></div><h3 class="lv-q lv-gap">Удобное время</h3><div class="lv-chips"><button class="lv-chip" type="button" data-k="time" data-v="Утром" aria-pressed="false">Утром</button><button class="lv-chip" type="button" data-k="time" data-v="Днём" aria-pressed="false">Днём</button><button class="lv-chip" type="button" data-k="time" data-v="Вечером" aria-pressed="false">Вечером</button></div><p class="lv-note">Демо-выбор пожеланий, не свободные слоты. Часы работы и доступность уточняются. В рабочей версии — расписание клиники.</p><p class="lv-err" role="alert"></p><div class="lv-acts"><span></span><button class="btn primary" type="button" data-next>Далее →</button></div></div><form class="lv-pane lv-form" data-pane="3" hidden novalidate><h3 class="lv-q">Как с вами связаться?</h3><p class="lv-note">Это демо. Используйте вымышленные имя и телефон — данные не сохраняются и никуда не отправляются.</p><div class="lv-two"><label class="lv-f"><span>Ваше имя</span><input name="name" autocomplete="off" placeholder="Как к вам обращаться" maxlength="80"></label><label class="lv-f"><span>Телефон</span><input name="tel" type="tel" autocomplete="off" inputmode="tel" placeholder="+7 ___ ___-__-__"></label></div><p class="lv-err" role="alert"></p><button class="btn primary" type="submit"><span>Отправить демо-заявку</span> ↗</button><p class="lv-note">В рабочей версии администратор подтвердит запись. Реальная отправка и обработка персональных данных в концепте отключены.</p></form><div class="lv-pane lv-done" data-pane="4" hidden role="status" tabindex="-1"><div class="lv-check"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none"/><path fill="none" d="M15 27l7 7 15-15"/></svg></div><h3 data-done-h></h3><p class="lv-done-sub" data-done-sub></p><div class="lv-ticket" data-ticket></div><details class="lv-tg"><summary><span class="lv-dot"></span>Заявка ушла в Telegram <small>· демо</small></summary><div class="lv-tgm"><div class="lv-tgh"><span class="lv-av">↗</span><b>Томская стоматология · заявки</b></div><div data-tg></div></div></details><p class="lv-demo-n">Это демо: данные никуда не отправляются. Запись не создана.</p><div class="lv-acts" style="justify-content:center"><button type="button" class="btn ghost" data-again>Новая заявка</button></div></div><button type="button" class="lv-link" data-back hidden>← Назад</button></div></div></section>
+<section class="section" id="contacts"><div class="wrap contact-grid"><div class="rv"><span class="eyebrow">Рядом с записью</span><h2>Контакты</h2><div class="contact-list"><div class="contact-item"><small>Телефон</small><a href="tel:+73822402403">+7 (3822) 402-403</a></div><div class="contact-item"><small>Электронная почта</small><a href="mailto:tomskstom@mail.ru">tomskstom@mail.ru</a></div><div class="contact-item"><small>Адрес</small><strong>Томск, ул. Карла Маркса, 54</strong></div></div></div><div class="location rv"><div class="pin" aria-hidden="true">⌖</div><h3>На Карла Маркса, 54</h3><p>Единая карточка контактов рядом с записью. Часы работы, перечень врачей и цены уточняются.</p><a class="btn primary" href="#booking">Оставить заявку на приём ↗</a><p style="font-size:11px;margin-bottom:0">Данные из публичного сайта компании. Часы работы и цены — уточняются.</p></div></div></section></main>
+<footer><div class="wrap"><div class="footer-top"><b>Томская стоматология</b><span>Демо-версия сайта от Suiweb</span></div><p class="lv-concept">Это концепт. С вашими фото и правками будет ещё лучше</p><p class="lv-credit">Фото в первом экране — иллюстрация, не фото компании: <a href="https://www.pexels.com/photo/black-and-white-dentist-chair-4269361/" target="_blank" rel="noopener">Cedric Fauntleroy / Pexels</a>, ID 4269361 · Pexels License.</p><p class="lv-credit">Контакты: публичный сайт компании. Исходные факты проверены в ресерче 10.11.2026. Заявки в этом демо никуда не отправляются.</p></div></footer><div class="sticky"><a class="btn ghost" href="tel:+73822402403">Позвонить</a><a class="btn primary" href="#booking">Записаться ↗</a></div><script>(function(){
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.remove('no-js');
+var nav=document.querySelector('.nav'),sticky=document.querySelector('.sticky'),bk=document.getElementById('lv-book');
+/* reveal on scroll */
+var rvs=[].slice.call(document.querySelectorAll('.rv'));
+document.querySelectorAll('[data-stagger]').forEach(function(g){[].forEach.call(g.children,function(c,i){c.classList.add('rv');c.style.setProperty('--d',(i%3)*0.08+'s');rvs.push(c)})});
+document.querySelectorAll('[data-hero-copy] > *').forEach(function(e,i){e.classList.add('rv');e.style.setProperty('--d',i*0.08+'s');rvs.push(e)});
+var cnts=[].slice.call(document.querySelectorAll('[data-count]'));
+function countUp(el){if(el._done)return;el._done=1;var raw=el.textContent.trim(),comma=raw.indexOf(',')>-1,to=parseFloat(raw.replace(',','.'))||0,t0=null;
+ function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/900,1),v=(to*(1-Math.pow(1-p,3))).toFixed(1);el.textContent=comma?v.replace('.',','):v;if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+if(RM||!('IntersectionObserver' in window)){rvs.forEach(function(e){e.classList.add('in')})}
+else{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});rvs.forEach(function(e){io.observe(e)});
+ var cio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){countUp(en.target);cio.unobserve(en.target)}})},{threshold:.6});cnts.forEach(function(e){cio.observe(e)})}
+/* nav shadow, sticky hide over booking, parallax */
+var par=document.querySelector('[data-parallax]'),fl=[].slice.call(document.querySelectorAll('[data-float]')),tick=false;
+function onScroll(){var y=window.scrollY||0;if(nav)nav.classList.toggle('scrolled',y>8);
+ if(sticky&&bk){var r=bk.getBoundingClientRect();sticky.classList.toggle('lv-hide',r.top<window.innerHeight*.85&&r.bottom>window.innerHeight*.25)}
+ if(!RM&&par&&y<window.innerHeight*1.2){par.style.transform='translate3d(0,'+(y*0.06)+'px,0)';var img=par.querySelector('img');if(img)img.style.transform='translate3d(0,'+(-y*0.08)+'px,0)';fl.forEach(function(f){var k=parseFloat(f.getAttribute('data-float')||1);f.style.transform='translate3d(0,'+(-y*0.12*k)+'px,0)'})}
+ tick=false}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+/* ===== wizard engine ===== */
+window.LiveWizard=function(cfg){
+ var el=cfg.el,S=cfg.init(),step=1,N=cfg.titles.length,hist=[];
+ function q(s){return el.querySelector(s)}function qa(s,r){return [].slice.call((r||el).querySelectorAll(s))}
+ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+ function upd(){if(cfg.update)cfg.update(S,api);var cr=q('[data-crumbs]');if(cr&&cfg.crumbs){var c=step<N?cfg.crumbs(S).filter(Boolean):[];cr.innerHTML=c.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')}}
+ function go(n,back){if(!back&&n!==step)hist.push(step);step=n;el.setAttribute('data-step',n);
+  qa('[data-pane]').forEach(function(p){var on=+p.getAttribute('data-pane')===n;p.hidden=!on;if(on){p.classList.toggle('back',!!back);p.style.animation='none';void p.offsetHeight;p.style.animation=''}});
+  q('[data-t]').textContent=cfg.titles[n-1];q('[data-n]').textContent=n;q('[data-bar]').style.width=(n/N*100)+'%';
+  var b=q('[data-back]');if(b)b.hidden=(n===1||n===N);qa('.lv-err').forEach(function(e){e.textContent=''});
+  if(cfg.onGo)cfg.onGo(n,S,api);upd()}
+ function err(t){var p=q('[data-pane="'+step+'"]'),e=p&&p.querySelector('.lv-err');if(e){e.textContent=t||'';}return !t}
+ function next(){var m=cfg.validate?cfg.validate(step,S):'';if(m){err(m);return}var n=cfg.nextStep?cfg.nextStep(step,S):step+1;go(n)}
+ function set(k,v){S[k]=v;qa('.lv-opt[data-k="'+k+'"],.lv-chip[data-k="'+k+'"]').forEach(function(o){if(!o.closest('[data-multi]'))o.classList.toggle(o.classList.contains('lv-opt')?'sel':'on',o.getAttribute('data-v')===String(v))});upd()}
+ el.addEventListener('click',function(e){var t=e.target;
+  var o=t.closest('.lv-opt[data-k],.lv-chip[data-k],.lv-day[data-k]');
+  if(o){var k=o.getAttribute('data-k'),v=o.getAttribute('data-v'),grp=o.closest('[data-multi]');
+   if(grp){var a=S[k]||[];var i=a.indexOf(v);if(i>-1)a.splice(i,1);else a.push(v);S[k]=a;o.classList.toggle(o.classList.contains('lv-opt')?'sel':'on',i<0);o.setAttribute('aria-pressed',i<0?'true':'false')}
+   else{qa('[data-k="'+k+'"]').forEach(function(x){if(x!==o){x.classList.remove('sel','on');x.setAttribute('aria-pressed','false')}});o.classList.add(o.classList.contains('lv-opt')?'sel':'on');o.setAttribute('aria-pressed','true');S[k]=v;if(o.hasAttribute('data-x'))S[k+'X']=o.getAttribute('data-x')}
+   err('');upd();if(!grp&&o.closest('[data-auto]'))setTimeout(function(){if(+o.closest('[data-pane]').dataset.pane===step)next()},RM?0:260);return}
+  var sp=t.closest('[data-stp]');if(sp){var k2=sp.getAttribute('data-stp'),d=+sp.getAttribute('data-d'),box=sp.closest('.lv-stp'),mn=+box.getAttribute('data-min'),mx=+box.getAttribute('data-max');S[k2]=Math.max(mn,Math.min(mx,(+S[k2]||mn)+d));box.querySelector('output').textContent=S[k2];upd();return}
+  if(t.closest('[data-next]')){next();return}
+  if(t.closest('[data-back]')){go(hist.length?hist.pop():Math.max(1,step-1),true);return}
+  if(t.closest('[data-again]')){S=cfg.init();hist=[];qa('.sel,.on').forEach(function(x){x.classList.remove('sel','on')});qa('[aria-pressed]').forEach(function(x){x.setAttribute('aria-pressed','false')});var f=q('form');if(f)f.reset();qa('input[data-k],textarea[data-k]').forEach(function(i){i.value=i.defaultValue;i.disabled=false;i.classList.remove('bad')});if(cfg.reset)cfg.reset(S,api);go(1,true);return}
+ });
+ qa('input[data-k],textarea[data-k]').forEach(function(i){i.addEventListener('input',function(){S[i.getAttribute('data-k')]=i.type==='range'?+i.value:i.value;i.classList.remove('bad');err('');upd()})});
+ /* days */
+ var RUd=['вс','пн','вт','ср','чт','пт','сб'],RUm=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+ qa('[data-days]').forEach(function(w){var k=w.getAttribute('data-days'),cnt=+(w.getAttribute('data-n')||14),now=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Novosibirsk'}));
+  for(var i=0;i<cnt;i++){var d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i),b=document.createElement('button');b.type='button';b.className='lv-day';b.setAttribute('data-k',k);b.setAttribute('aria-pressed','false');
+   b.setAttribute('data-v',d.getDate()+' '+RUm[d.getMonth()]+', '+RUd[d.getDay()]);b.innerHTML='<small>'+(i===0?'сегодня':i===1?'завтра':RUd[d.getDay()])+'</small><b>'+d.getDate()+'</b><small>'+RUm[d.getMonth()].slice(0,3)+'</small>';w.appendChild(b)}});
+ /* contacts */
+ var tel=q('input[type=tel]'),nm=q('input[name=name]'),form=q('form');
+ if(tel)tel.addEventListener('input',function(){var d=tel.value.replace(/\D/g,'');if(d[0]==='8')d='7'+d.slice(1);if(d&&d[0]!=='7')d='7'+d;d=d.slice(0,11);var o='+7';if(d.length>1)o+=' '+d.slice(1,4);if(d.length>4)o+=' '+d.slice(4,7);if(d.length>7)o+='-'+d.slice(7,9);if(d.length>9)o+='-'+d.slice(9,11);tel.value=d?o:'';S.tel=tel.value});
+ if(nm)nm.addEventListener('input',function(){S.name=nm.value});
+ if(form)form.addEventListener('submit',function(e){e.preventDefault();var okN=nm.value.trim().length>1,okT=tel.value.replace(/\D/g,'').length===11;
+  nm.classList.toggle('bad',!okN);tel.classList.toggle('bad',!okT);if(!okN){err('Укажите имя.');nm.focus();return}if(!okT){err('Укажите телефон полностью: +7 900 123-45-67.');tel.focus();return}
+  var x=cfg.validate?cfg.validate(step,S):'';if(x){err(x);return}
+  S.name=nm.value.trim();S.tel=tel.value;var btn=form.querySelector('[type=submit]'),lab=btn.querySelector('span'),old=lab.textContent;btn.disabled=true;btn.classList.add('loading');lab.textContent='Отправляем…';
+  setTimeout(function(){btn.disabled=false;btn.classList.remove('loading');lab.textContent=old;done()},RM?0:700)});
+ function done(){q('[data-done-h]').textContent=S.name+', заявка принята';q('[data-done-sub]').textContent=cfg.doneSub(S);
+  q('[data-ticket]').innerHTML=cfg.ticket(S).filter(function(r){return r&&r[1]}).map(function(r){return '<div class="lv-sr"><span>'+esc(r[0])+'</span><strong>'+esc(r[1])+'</strong></div>'}).join('');
+  q('[data-tg]').innerHTML=cfg.tg(S).filter(Boolean).map(esc).join('<br>');go(N);var p=q('[data-pane="'+N+'"]');if(p)p.focus({preventScroll:true})}
+ var api={go:go,set:set,S:function(){return S},open:function(fn){fn(S,api);upd()},esc:esc,fmt:function(x){return Math.round(x).toLocaleString('ru-RU').replace(/\u00a0/g,' ')}};
+ go(1,true);return api};
+})();
+
+
+(function(){var C={"titles": ["Обращение", "Дата и время", "Контакты", "Готово"], "firstStep": false, "serviceStep": 1, "timeStep": 2, "address": "Томск, ул. Карла Маркса, 54", "firstLabel": "", "name": "Томская стоматология"};var W=LiveWizard({el:document.getElementById('lv-book'),titles:C.titles,
+init:function(){return {first:'',service:'',date:'',time:'',details:''}},
+crumbs:function(S){return [S.first,S.service,S.date,S.time]},
+validate:function(n,S){if(C.firstStep&&n===1&&!S.first)return 'Выберите вариант, чтобы продолжить.';if(n===C.serviceStep&&!S.service)return 'Выберите обращение.';if(n===C.timeStep){if(!S.date)return 'Выберите удобную дату.';if(!S.time)return 'Выберите удобное время.'}return ''},
+doneSub:function(){return 'В рабочей версии администратор свяжется с вами и подтвердит возможность записи.'},
+ticket:function(S){return [[C.firstLabel,S.first],['Обращение',S.service],['Пожелания',S.details],['Дата и время',S.date+' · '+S.time],['Специалист','Подберёт администратор · уточняется'],['Где',C.firstLabel==='Салон'?'Томск, '+S.first:C.address],['Стоимость','По запросу'],['Контакт',S.name+' · '+S.tel]]},
+tg:function(S){return ['Демо-заявка · '+C.name,S.first,S.service,S.date+' · '+S.time,S.details,S.name+' · '+S.tel,'Это локальный макет сообщения. Ничего не отправлено.']}
+});
+})();
+</script></body></html>
