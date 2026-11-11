@@ -1,0 +1,4 @@
+Данные: /workspace/outreach-research/batch-2026-11-11.md и .json; evidence-2026-11-11/: fokus-tomsk.ru.html; fokus-contacts.body
+Фото hero.jpg — иллюстрация, не фото компании. Jonathan Borba / Pexels: https://www.pexels.com/photo/man-looking-at-teeth-x-rays-4297519/
+Палитра и типографика — концептуальный дизайн, не утверждение о фирменном стиле.
+Форма полностью локальная: нет fetch, нет отправки, нет сохранения контактов.
