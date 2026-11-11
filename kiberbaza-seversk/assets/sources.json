@@ -14,12 +14,25 @@
     "club-logo.webp": "telegram-avatar.jpg",
     "published-price.webp": "telegram-post-33.jpg",
     "club-entrance.webp": "yandex-photo-01.jpg",
-    "club-interior.webp": "yandex-photo-02.jpg"
+    "club-interior.webp": "yandex-photo-02.jpg",
+    "tg-tournament-1.webp": "https://t.me/cyberbazanumber1/40 (first public photo)",
+    "tg-tournament-2.webp": "https://t.me/cyberbazanumber1/40 (second image: tournament bracket, not a photograph)",
+    "tg-club-promo.webp": "telegram-post-28.jpg"
   },
   "palette_note": "Style brief: background #030102, CTA #FC790E, text #FFF6F1, LED accent #0DD1CD; secondary gold #FABE0F",
   "font_note": "Style brief: Google Fonts Russo One (headings) and Roboto (body), with system fallbacks",
   "social_links": [
     "https://vk.ru/cyberbazanumber1",
     "https://t.me/cyberbazanumber1"
-  ]
+  ],
+  "v2_public_sources": {
+    "ps5_prices_and_hardware": "https://t.me/cyberbazanumber1/33",
+    "games_announcement": "https://t.me/cyberbazanumber1/44",
+    "tournament_announcement": "https://t.me/cyberbazanumber1/32",
+    "gallery_tournament_and_results": "https://t.me/cyberbazanumber1/40",
+    "promotion": "https://t.me/cyberbazanumber1/28",
+    "directions": "https://t.me/cyberbazanumber1/16",
+    "two_consoles": "Information relayed from Mikhail in task 10.11.2026; not inferred from public price",
+    "reviews": "Link only; no review quotes or numeric rating included"
+  }
 }
