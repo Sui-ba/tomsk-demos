@@ -1,0 +1,3 @@
+Данные: /workspace/outreach-research/batch-2026-11-12.md и .json; официальный сайт http://semstom70.ru/
+Фото hero.jpg — иллюстрация, не фото компании. Cedric Fauntleroy / Pexels: https://www.pexels.com/photo/black-and-white-dentist-chair-4269361/
+Палитра и типографика — концептуальный дизайн. Форма полностью локальная: нет fetch, нет отправки, нет сохранения.

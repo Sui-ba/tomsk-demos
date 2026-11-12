@@ -1,0 +1,3 @@
+Данные: /workspace/outreach-research/batch-2026-11-12.md и .json; официальный сайт https://parikmakherskaya-stil.webnode.ru/
+Фото hero.jpg — иллюстрация, не фото компании. Emirhan Sayar / Pexels: https://www.pexels.com/photo/modern-hair-salon-interior-at-night-35844834/
+Палитра и типографика — концептуальный дизайн. Форма полностью локальная: нет fetch, нет отправки, нет сохранения.

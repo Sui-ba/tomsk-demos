@@ -1,0 +1,3 @@
+Данные: /workspace/outreach-research/batch-2026-11-12.md и .json; официальный сайт https://obogrevavto.narod.ru/
+Фото hero.jpg — иллюстрация, не фото компании. Andrea Piacquadio / Pexels: https://www.pexels.com/photo/man-changing-a-car-tire-3806249/
+Палитра и типографика — концептуальный дизайн. Форма полностью локальная: нет fetch, нет отправки, нет сохранения.

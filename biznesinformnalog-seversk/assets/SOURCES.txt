@@ -1,0 +1,3 @@
+Данные: /workspace/outreach-research/batch-2026-11-12.md и .json; официальный сайт https://informnalog70.ru/
+Фото hero.jpg — иллюстрация, не фото компании. Mikhail Nilov / Pexels: https://www.pexels.com/photo/a-woman-computing-with-a-calculator-8296974/
+Палитра и типографика — концептуальный дизайн. Форма полностью локальная: нет fetch, нет отправки, нет сохранения.

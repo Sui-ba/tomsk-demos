@@ -1,0 +1,3 @@
+Данные: /workspace/outreach-research/batch-2026-11-12.md и .json; официальный сайт https://useversk.ru/
+Фото hero.jpg — иллюстрация, не фото компании. Pietro Greco / Pexels: https://www.pexels.com/photo/renovation-of-an-apartmetn-flat-9908376/
+Палитра и типографика — концептуальный дизайн. Форма полностью локальная: нет fetch, нет отправки, нет сохранения.
