@@ -1,0 +1,4 @@
+Данные: /workspace/outreach-research/batch-2026-11-17.md (секция 7) и .json; evidence-2026-11-17/: home_src.html (spravka.city: Энтузиастов 22/1, 8:00–21:00 ежедневно, +7 913 084-55-51 WhatsApp, home.bakery22@mail.ru, «Кондитерские изделия», филиалы: 65 лет Победы 6, Павловский тракт 289 и 86, Взлётная 113, Балтийская 2), ymaps_home.html (Энтузиастов 22А, 65 лет Победы 6), homebakery.json (домен истёк).
+«Торты на заказ» — из справочников rting.ru / zoon.ru (поиск 17.11.2026), условия «уточняются». Меню и цены — «уточняется». Email — только справочник (medium). Ссылка «Текущий сайт» ведёт на поиск в Яндекс Картах, т.к. собственного сайта нет.
+Фото hero.jpg — иллюстрация, не фото пекарни: Furkan Tumer / Pexels https://www.pexels.com/photo/a-variety-of-breads-and-pastries-on-a-glass-display-counter-7405059/
+Палитра и шрифты — концепт. Форма локальная: нет fetch, нет отправки.
